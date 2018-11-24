@@ -15,13 +15,28 @@
     width: 240px;
     margin: 0 auto;
     background-color: transparent;
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    i {
+        background-color: transparent;
+        padding-right: 5px;
+    }
 }
 
 .reset-btn {
     width: 75px;
     height: 30px;
     margin: 10px 0 20px;
-    border: 1px solid rgb(185, 184, 184);
+    padding: 5px 10px;
+    border: 1px solid $color-ligth;
+    border-radius: 15px;
+    color: $color-secondary;
+    background-color: transparent;
+    font-family: $open;
+    font-size: 12px;
+
 }
 
 .box-card {
