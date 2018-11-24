@@ -102,6 +102,15 @@
     color: $color-primary;
 }
 
+.list-pallete {
+    list-style: none;
+}
+
+.color-box{
+    width: 90px;
+    height: 25px;
+}
+
 @media all and (min-width:768px) {
     .build-container {
         display: flex;
