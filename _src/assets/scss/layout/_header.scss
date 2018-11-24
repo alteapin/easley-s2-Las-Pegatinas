@@ -1,14 +1,16 @@
 .container-logo {
-    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width:250px;
+    margin-left: 35px;
+    margin-right: 35px;
+    
 }
 
 .img-logo {
     width:100%;
-    margin-left: 35px;
-    margin-right: 35px;
-    position: absolute;
     margin-top: 94px;
-    left: 50%;
-    transform: translate(-50%,0);
+    
 }
