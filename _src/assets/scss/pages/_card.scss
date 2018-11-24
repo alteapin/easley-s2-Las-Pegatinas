@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,7 +6,6 @@
 }
 
 .build-card {
-    border: 1px solid rgb(185, 184, 184);
     width: 100%;
     background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
 }
@@ -69,23 +68,29 @@
 
 /*unfolds*/
 
-.selectors-container{
+.selectors-container {
     padding: 27px 20px;
 }
 
-.box-selector{
+.box-selector {
     display: flex;
     border-bottom: 1px solid $color-midtone;
     margin-bottom: 10px;
     padding-bottom: 7px;
+    align-items: center;
 }
 
-.title-edit{
+.title-edit {
     margin-left: 10px;
+    font-family: $font-default;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 .btn-angle {
     border: none;
+    width: 16px;
+    height: 18px;
     margin-left: auto;
 }
 
@@ -95,4 +100,26 @@
 
 .icons-edit {
     color: $color-primary;
+}
+
+@media all and (min-width:768px) {
+    .build-container {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 20px 40px 20px 20px;
+        justify-content: center;
+    }
+    .build-card {
+        width: 329px;
+        border-radius: 6px;
+    }
+    .box-selector {
+        width: 329px;
+    }
+}
+
+@media all and (min-width:1200px) {
+    .build-card {
+        width: 585px;
+    }
 }
