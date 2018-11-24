@@ -66,3 +66,33 @@
 .card-footer {
     border-top: 1px solid grey;
 }
+
+/*unfolds*/
+
+.selectors-container{
+    padding: 27px 20px;
+}
+
+.box-selector{
+    display: flex;
+    border-bottom: 1px solid $color-midtone;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+}
+
+.title-edit{
+    margin-left: 10px;
+}
+
+.btn-angle {
+    border: none;
+    margin-left: auto;
+}
+
+.btn-fold {
+    display: none;
+}
+
+.icons-edit {
+    color: $color-primary;
+}
