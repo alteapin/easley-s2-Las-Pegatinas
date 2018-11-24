@@ -1,1 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900|Montserrat|Open+Sans:400,700|Ubuntu:400,700');
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('../fonts/ComicNeue-Regular.woff') format('woff'),
+       url('../fonts/ComicNeue-Regular.ttf')  format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('../fonts/ComicNeue-Bold.woff') format('woff'),
+       url('../fonts/ComicNeue-Bold.ttf')  format('truetype');
+  font-weight: 400;
+}
+
