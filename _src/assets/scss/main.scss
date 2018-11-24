@@ -1,4 +1,5 @@
 @import 'core/variables';
+@import 'components/typography';
 
 *{  
     box-sizing: border-box;
@@ -13,6 +14,7 @@ body {
     font-size:16px;
 }
 
+@import 'components/typography';
 /*-----------HEADER landing------------*/ 
 @import 'layout/header';
 
