@@ -1,0 +1,27 @@
+.page__footer {
+    background-color: $color-ligth;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #cacaca; /*no se si es este color, he puesto el que teniamos en nuestro proyecto 1*/
+}
+.container-footer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.copyright {
+    color: $color-tertiary;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    opacity: 0.5;
+    font-family: $font-default;
+}
+
+.img-footer {
+    max-width: 103px;
+    
+}
+
