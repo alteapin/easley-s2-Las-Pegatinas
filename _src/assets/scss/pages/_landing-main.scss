@@ -14,15 +14,17 @@
     margin-bottom: 4px;
     color: $color-primary;
     font-size: 19px;
+    font-family: $font-title;
 }
 
 .mainp {
     margin-bottom: 14px;
     margin-top:0;
-    color: $palet-blue-dark;
+    color: $palette-blue-dark;
     font-size: 13px;
     margin-left: auto;
     margin-left: auto;
+    font-family: $font-default; 
 }
 
 .list {
@@ -62,17 +64,20 @@
     text-align: center;
     padding-top:8px;
     color: $color-secondary;
+    font-family: $font-default;
 }
 
 .btn-start {
+    font-family: $font-default;
+    font-weight: 600; /*pone 600 pero lo veo muy gordo*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     text-transform: uppercase;
-    color:$color-white;
-    background-color:$color-dityBlue;
+    color:$color-ligth;
+    background-color:$palette-blue-midtone;
     width: 129px;
     height: 42px;
     border-radius: 21px;
