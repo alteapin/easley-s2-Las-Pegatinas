@@ -3,8 +3,9 @@
 }
 
 .container-text {
-    margin-left: 27px;
-    margin-right: 27px;
+    max-width:265px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -25,9 +26,9 @@
 }
 
 .list {
-    min-width: 268px;
-    margin-left: 26px;
-    margin-right: 26px;
+    max-width: 268px;
+    margin-left: auto;
+    margin-right: auto;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
