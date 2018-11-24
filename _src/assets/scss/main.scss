@@ -9,11 +9,15 @@ body {
     padding: 0;
     font-family: sans-serif; /*cambiar*/
     font-weight: 400; /*cambiar*/
-    background-color: white; /*cambiar*/
+    background-color: $color-back; 
     font-size:16px;
 }
 
-/*-----------HEADER------------*/ 
+/*-----------HEADER landing------------*/ 
 @import 'layout/header';
 
+
+/*-----------Home /main section landing------------*/ 
+
+@import 'pages/landing-main';
 
