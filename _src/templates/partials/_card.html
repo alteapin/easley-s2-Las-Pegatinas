@@ -37,82 +37,86 @@
     <!--unfolds-->
     <div class="selectors-container">
         <!--Design section-->
-        <div class="box-selector edit-design">
-            <i class="far fa-object-ungroup icons-edit"></i>
-            <span class="title-edit"> Diseña </span>
-            <button class="btn-angle btn-fold">
-                <i class="fas fa-angle-up"></i>
-            </button>
-            <button class="btn-angle btn-unfold">
-                <i class="fas fa-angle-down"></i>
-            </button>
+        <div class="box-selector edit-design flex-container">
+            <div class="title-box">
+                <i class="far fa-object-ungroup icons-edit"></i>
+                <span class="title-edit"> Diseña </span>
+                <button class="btn-angle btn-fold">
+                    <i class="fas fa-angle-up"></i>
+                </button>
+                <button class="btn-angle btn-unfold">
+                    <i class="fas fa-angle-down"></i>
+                </button>
+            </div>
+                    <!--design form-->
+            <div class="selectors-design">
+                <h2 class="text-color">Colores</h2>
+                <ul class="colors-list">
+                    <li class="list-pallete">
+                        <label for="pallete-blue">
+                            <input id="pallete-blue" type="radio" value="color-blue" name="pallete-colors" class="selection-input">
+                        </label>
+                        <div class="pallet-box">
+                            <div class="blue-dark-color"></div>
+                            <div class="blue-midtone-color"></div>
+                            <div class="blue-ligth-color"></div>
+                        </div>
+                    </li>
+                    <li class="list-pallete">
+                        <label for="pallete-red">
+                            <input id="pallete-red" type="radio" value="color-red" name="pallete-colors" class="selection-input">
+                        </label>
+                        <div class="pallet-box">
+                            <div class="red-dark-color"></div>
+                            <div class="red-midtone-color"></div>
+                            <div class="red-ligth-color"></div>
+                        </div>
+                    </li>
+                    <li class="list-pallete">
+                        <label for="pallete-grey">
+                            <input id="pallete-grey" type="radio" value="color-grey" name="pallete-colors" class="selection-input">
+                        </label>
+                        <div class="pallet-box">
+                            <div class="grey-dark-color"></div>
+                            <div class="grey-ligth-color"></div>
+                            <div class="grey-midtone-color"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Select your font box -->
+            <div class="selectors-font">
+                <h2 class="text-color">Fuentes</h2>
+                <ul class="fonts-list">
+                    <li class="list-font">
+                        <label for="font-ubuntu">
+                            <input id="font-ubuntu" type="radio" value="font-ubuntu" name="select-font" class="selection-input">
+                        </label>
+                        <div class="font-box">
+                            <div class="select-ubuntu">Ubuntu</div>
+                        </div>
+                    </li>
+                    <li class="list-font">
+                        <label for="font-comic">
+                            <input id="font-comic" type="radio" value="font-comic" name="select-font" class="selection-input">
+                        </label>
+                        <div class="font-box">
+                            <div class="select-comic">Comic Sans</div>
+                        </div>
+                    </li>
+                    <li class="list-font">
+                        <label for="font-montse">
+                            <input id="font-montse" type="radio" value="font-montse" name="select-font" class="selection-input">
+                        </label>
+                        <div class="font-box">
+                            <div class="select-montse">Montserrat</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-        <!--design form-->
-        <div class="selectors-design">
-            <h2 class="text-color">Colores</h2>
-            <ul class="colors-list">
-                <li class="list-pallete">
-                    <label for="pallete-blue">
-                        <input id="pallete-blue" type="radio" value="color-blue" name="pallete-colors" class="selection-input">
-                    </label>
-                    <div class="pallet-box">
-                        <div class="blue-dark-color"></div>
-                        <div class="blue-midtone-color"></div>
-                        <div class="blue-ligth-color"></div>
-                    </div>
-                </li>
-                <li class="list-pallete">
-                    <label for="pallete-red">
-                        <input id="pallete-red" type="radio" value="color-red" name="pallete-colors" class="selection-input">
-                    </label>
-                    <div class="pallet-box">
-                        <div class="red-dark-color"></div>
-                        <div class="red-midtone-color"></div>
-                        <div class="red-ligth-color"></div>
-                    </div>
-                </li>
-                <li class="list-pallete">
-                    <label for="pallete-grey">
-                        <input id="pallete-grey" type="radio" value="color-grey" name="pallete-colors" class="selection-input">
-                    </label>
-                    <div class="pallet-box">
-                        <div class="grey-dark-color"></div>
-                        <div class="grey-ligth-color"></div>
-                        <div class="grey-midtone-color"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <!-- Select your font box -->
-        <div class="selectors-font">
-            <h2 class="text-color">Fuentes</h2>
-            <ul class="fonts-list">
-                <li class="list-font">
-                    <label for="font-ubuntu">
-                        <input id="font-ubuntu" type="radio" value="font-ubuntu" name="select-font" class="selection-input">
-                    </label>
-                    <div class="font-box">
-                        <div class="select-ubuntu">Ubuntu</div>
-                    </div>
-                </li>
-                <li class="list-font">
-                    <label for="font-comic">
-                        <input id="font-comic" type="radio" value="font-comic" name="select-font" class="selection-input">
-                    </label>
-                    <div class="font-box">
-                        <div class="select-comic">Comic Sans</div>
-                    </div>
-                </li>
-                <li class="list-font">
-                    <label for="font-montse">
-                        <input id="font-montse" type="radio" value="font-montse" name="select-font" class="selection-input">
-                    </label>
-                    <div class="font-box">
-                        <div class="select-montse">Montserrat</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
         <div class="box-selector edit-fill">
             <i class="far fa-keyboard icons-edit"></i>
             <span class="title-edit"> Rellena </span>
