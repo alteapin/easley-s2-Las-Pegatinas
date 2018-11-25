@@ -1,6 +1,27 @@
-@import 'core/settings';
+@import 'core/variables';
+@import 'components/typography';
+@import 'pages/card';
+*{  
+    box-sizing: border-box;
+}
 
 body {
-	background: url('../images/logo-adalab-80px.png') center center no-repeat $color-white;
-	height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /*cambiar*/
+    font-weight: 400; /*cambiar*/
+    background-color: $color-back; 
+    font-size:16px;
 }
+
+/*-----------HEADER landing------------*/ 
+@import 'layout/header';
+
+/*-----------FOOTER landing------------*/ 
+@import 'layout/footer';
+
+/*-----------Home /main section landing------------*/ 
+
+@import 'pages/landing-main';
+
+@import 'pages/card';

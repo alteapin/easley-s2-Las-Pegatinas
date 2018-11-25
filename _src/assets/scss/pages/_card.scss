@@ -1,0 +1,327 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $color-ligth;
+}
+
+.build-card {
+    border: 1px solid $color-silver;
+    width: 100%;
+    padding-bottom: 30px;
+    background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+}
+
+.reset-box {
+    width: 240px;
+    margin: 0 auto;
+    background-color: transparent;
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    i {
+        background-color: transparent;
+        padding-right: 5px;
+    }
+}
+
+.reset-btn {
+    width: 75px;
+    height: 30px;
+    margin: 10px 0 20px;
+    padding: 5px 10px;
+    border: 1px solid $color-ligth;
+    border-radius: 15px;
+    color: $color-secondary;
+    background-color: transparent;
+    font-family: $open;
+    font-size: 12px;
+
+}
+
+.box-card {
+    border: 1px solid $color-silver; 
+    border-radius: 2px;
+    width: 240px;
+    height: 367px;
+    margin: 0 auto 30px;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+    background-color: $color-ligth;
+}
+
+.card-header {
+    margin: 20px 0 10px;
+    padding-left: 20px;
+    border-left: 3px solid $palette-blue-ligth;
+}
+
+.card-header--font {
+    font-family: $comic;
+}
+
+.name-person {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.work-space {
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-secondary;
+}
+.card-img {
+    width: 100%;
+    height: 200px;
+    background-color:$palette-blue-ligth;
+}
+.icons-box {
+    padding: 10px 20px;
+}
+
+.list-icon-card {
+    list-style: none;
+    display: flex;
+}
+
+.icons-card {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $palette-blue-ligth;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    a {
+        color: $palette-blue-dark;
+    }
+}
+
+.card-footer {
+    border-top: 2px solid rgba($palette-blue-midtone, 0.2);
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.skills__list {
+    color: $color-ligth;
+    list-style: none;
+    font-family: $open;
+    font-size: 13px;
+    display: flex;
+}
+
+.skills__item {
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.skills__item--bg {
+    background-color: $palette-blue-midtone;
+    border-top: 1px solid grey;
+}
+
+/*unfolds*/
+
+.build-container {
+    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+}
+
+.selectors-container {
+    padding: 27px 20px;
+    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+}
+
+.box-selector {
+    display: flex;
+    border-bottom: 1px solid $color-midtone;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    align-items: center;
+}
+
+.title-edit {
+    margin-left: 10px;
+    font-family: $font-default;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.btn-angle {
+    border: none;
+    background: none;
+    width: 16px;
+    height: 18px;
+    margin-left: auto;
+    transform: scale(2.5);
+    color: $color-secondary;
+    -webkit-text-stroke: .1rem $color-back;
+}
+
+.btn-fold {
+    display: none;
+}
+
+.icons-edit {
+    color: $color-primary;
+}
+
+/*palletes*/
+
+.selectors-design {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+}
+
+.text-color {
+    font-size: 16px;
+    font-family: $font-default;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.list-pallete {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0px;
+}
+
+.pallet-box {
+    display: flex;
+    margin-left: 10px;
+}
+
+.selection-input {
+    height: 17px;
+    width: 17px;
+}
+
+/* blue pallete*/
+
+.blue-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-dark;
+}
+
+.blue-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-midtone;
+}
+
+.blue-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-ligth;
+}
+
+/* red pallete*/
+
+.red-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-dark;
+}
+
+.red-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-midtone;
+}
+
+.red-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-ligth;
+}
+
+/* red pallete*/
+
+.grey-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-dark;
+}
+
+.grey-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-ligth;
+}
+
+.grey-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-midtone;
+}
+
+
+// Select your font box
+// check selectors-design class to make general style
+.selectors-font {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+}
+
+.list-font{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px 0px;
+}
+
+.font-box {
+    display: flex;
+    margin-left: 10px;
+    width: 90px;
+}
+
+.select-ubuntu {
+    font-family: $ubuntu;
+}
+
+.select-comic {
+    font-family: $comic;
+}
+.select-montse {
+    font-family: $montse;
+}
+
+@media all and (min-width:768px) {
+    .build-container {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 20px 40px 20px 20px;
+        justify-content: center;
+    }
+    .build-card {
+        width: 329px;
+        border-radius: 6px;
+    }
+    .box-selector {
+        width: 329px;
+    }
+}
+
+@media all and (min-width:1200px) {
+    .build-card {
+        width: 585px;
+    }
+}
