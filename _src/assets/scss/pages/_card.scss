@@ -271,6 +271,31 @@ body {
 }
 
 
+// Select your font box
+// check selectors-design class to make general style
+.selectors-font {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+}
+
+.list-font{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0px;
+}
+
+.font-box {
+    display: flex;
+    margin-left: 10px;
+}
+
+.font-selection-box {
+    width: 90px;
+}
+
 @media all and (min-width:768px) {
     .build-container {
         display: flex;
