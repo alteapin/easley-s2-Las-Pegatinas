@@ -96,9 +96,12 @@ body {
 
 .btn-angle {
     border: none;
+    background: none;
     width: 16px;
     height: 18px;
     margin-left: auto;
+    transform: scale(1.8);
+    color: $color-secondary;
 }
 
 .btn-fold {
