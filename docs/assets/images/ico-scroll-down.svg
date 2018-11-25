@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="12px" viewBox="0 0 20 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>ico-scroll-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-13.000000, -18.000000)">
+        <path d="M23,29.6666667 C22.5,29.6666667 22.1666667,29.5 21.8333333,29.1666667 L13.5,20.8333333 C12.8333333,20.1666667 12.8333333,19.1666667 13.5,18.5 C14.1666667,17.8333333 15.1666667,17.8333333 15.8333333,18.5 L23,25.6666667 L30.1666667,18.5 C30.8333333,17.8333333 31.8333333,17.8333333 32.5,18.5 C33.1666667,19.1666667 33.1666667,20.1666667 32.5,20.8333333 L24.1666667,29.1666667 C23.8333333,29.5 23.5,29.6666667 23,29.6666667 Z" id="ico-scroll-down" fill="#54585a" fill-rule="nonzero"></path>
+    </g>
+</svg>
