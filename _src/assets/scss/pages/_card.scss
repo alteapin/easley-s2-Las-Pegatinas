@@ -221,6 +221,12 @@ body {
 .selection-input {
     height: 17px;
     width: 17px;
+    cursor: pointer;
+}
+
+.label-color, .label-font {
+    display: flex;
+    align-items: center;
 }
 
 /* blue pallete*/
