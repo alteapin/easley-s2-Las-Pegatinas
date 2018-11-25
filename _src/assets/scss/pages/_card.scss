@@ -331,6 +331,9 @@ body {
     .box-selector {
         width: 329px;
     }
+    .selectors-design, .selectors-font {
+        grid-gap: 82px;
+    }
 }
 
 @media all and (min-width:1200px) {
