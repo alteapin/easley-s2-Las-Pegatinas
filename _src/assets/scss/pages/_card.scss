@@ -102,14 +102,99 @@
     color: $color-primary;
 }
 
-.list-pallete {
-    list-style: none;
+/*palletes*/
+
+.selectors-design {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
 }
 
-.color-box{
-    width: 90px;
-    height: 25px;
+.text-color {
+    font-size: 16px;
+    font-family: $font-default;
+    font-weight: 400;
+    text-transform: uppercase;
 }
+
+.list-pallete {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0px;
+}
+
+.pallet-box {
+    display: flex;
+    margin-left: 10px;
+}
+
+.selection-input {
+    height: 17px;
+    width: 17px;
+}
+
+/* blue pallete*/
+
+.blue-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-dark;
+}
+
+.blue-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-midtone;
+}
+
+.blue-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-ligth;
+}
+
+/* red pallete*/
+
+.red-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-dark;
+}
+
+.red-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-midtone;
+}
+
+.red-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-ligth;
+}
+
+/* red pallete*/
+
+.grey-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-dark;
+}
+
+.grey-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-ligth;
+}
+
+.grey-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-midtone;
+}
+
 
 @media all and (min-width:768px) {
     .build-container {
