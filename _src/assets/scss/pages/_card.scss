@@ -290,10 +290,18 @@ body {
 .font-box {
     display: flex;
     margin-left: 10px;
+    width: 90px;
 }
 
-.font-selection-box {
-    width: 90px;
+.select-ubuntu {
+    font-family: $ubuntu;
+}
+
+.select-comic {
+    font-family: $comic;
+}
+.select-montse {
+    font-family: $montse;
 }
 
 @media all and (min-width:768px) {
