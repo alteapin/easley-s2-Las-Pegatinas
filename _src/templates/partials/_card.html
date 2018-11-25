@@ -1,11 +1,11 @@
 <section class="build-container">
     <div class="build-card">
         <div class="reset-box">
-                <a href="" class="reset-link">
+                <a href="#" class="reset-link">
                 <div class="reset-btn">
                 <i class="far fa-trash-alt"></i> reset
                 </div>
-                </a>
+            </a>
         </div>
         <div class="box-card">
             <div class="card-header card-header--font">
@@ -33,5 +33,76 @@
             </div>
         </div>
 
+    </div>
+    <!--unfolds-->
+    <div class="selectors-container">
+        <!--Design section-->
+        <div class="box-selector edit-design">
+            <i class="far fa-object-ungroup icons-edit"></i>
+            <span class="title-edit"> Diseña </span>
+            <button class="btn-angle btn-fold">
+                <i class="fas fa-angle-up"></i>
+            </button>
+            <button class="btn-angle btn-unfold">
+                <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <!--design form-->
+        <div class="selectors-design">
+            <h2 class="text-color">Colores</h2>
+            <ul class="colors-list">
+                <li class="list-pallete">
+                    <label for="pallete-blue">
+                        <input id="pallete-blue" type="radio" value="color-blue" name="pallete-colors" class="selection-input">
+                    </label>
+                    <div class="pallet-box">
+                        <div class="blue-dark-color"></div>
+                        <div class="blue-midtone-color"></div>
+                        <div class="blue-ligth-color"></div>
+                    </div>
+                </li>
+                <li class="list-pallete">
+                    <label for="pallete-red">
+                        <input id="pallete-red" type="radio" value="color-red" name="pallete-colors" class="selection-input">
+                    </label>
+                    <div class="pallet-box">
+                        <div class="red-dark-color"></div>
+                        <div class="red-midtone-color"></div>
+                        <div class="red-ligth-color"></div>
+                    </div>
+                </li>
+                <li class="list-pallete">
+                    <label for="pallete-grey">
+                        <input id="pallete-grey" type="radio" value="color-grey" name="pallete-colors" class="selection-input">
+                    </label>
+                    <div class="pallet-box">
+                        <div class="grey-dark-color"></div>
+                        <div class="grey-ligth-color"></div>
+                        <div class="grey-midtone-color"></div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div class="box-selector edit-fill">
+            <i class="far fa-keyboard icons-edit"></i>
+            <span class="title-edit"> Rellena </span>
+            <button class="btn-angle btn-fold">
+                <i class="fas fa-angle-up"></i>
+            </button>
+            <button class="btn-angle btn-unfold">
+                <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
+        <div class="box-selector edit-share">
+            <i class="fas fa-share-alt icons-edit"></i>
+            <span class="title-edit"> Comparte </span>
+            <button class="btn-angle btn-fold">
+                <i class="fas fa-angle-up"></i>
+            </button>
+            <button class="btn-angle btn-unfold">
+                <i class="fas fa-angle-down"></i>
+            </button>
+        </div>
     </div>
 </section>

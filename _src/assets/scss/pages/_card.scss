@@ -1,10 +1,9 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: $color-ligth;
 }
-
 .build-card {
     border: 1px solid $color-silver;
     width: 100%;
@@ -121,4 +120,162 @@
 
 .skills__item--bg {
     background-color: $palette-blue-midtone;
+    border-top: 1px solid grey;
+}
+
+/*unfolds*/
+
+.build-container {
+    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+}
+
+.selectors-container {
+    padding: 27px 20px;
+    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+}
+
+.box-selector {
+    display: flex;
+    border-bottom: 1px solid $color-midtone;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    align-items: center;
+}
+
+.title-edit {
+    margin-left: 10px;
+    font-family: $font-default;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.btn-angle {
+    border: none;
+    width: 16px;
+    height: 18px;
+    margin-left: auto;
+}
+
+.btn-fold {
+    display: none;
+}
+
+.icons-edit {
+    color: $color-primary;
+}
+
+/*palletes*/
+
+.selectors-design {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+}
+
+.text-color {
+    font-size: 16px;
+    font-family: $font-default;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.list-pallete {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0px;
+}
+
+.pallet-box {
+    display: flex;
+    margin-left: 10px;
+}
+
+.selection-input {
+    height: 17px;
+    width: 17px;
+}
+
+/* blue pallete*/
+
+.blue-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-dark;
+}
+
+.blue-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-midtone;
+}
+
+.blue-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-ligth;
+}
+
+/* red pallete*/
+
+.red-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-dark;
+}
+
+.red-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-midtone;
+}
+
+.red-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-red-ligth;
+}
+
+/* red pallete*/
+
+.grey-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-dark;
+}
+
+.grey-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-ligth;
+}
+
+.grey-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-grey-midtone;
+}
+
+
+@media all and (min-width:768px) {
+    .build-container {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 20px 40px 20px 20px;
+        justify-content: center;
+    }
+    .build-card {
+        width: 329px;
+        border-radius: 6px;
+    }
+    .box-selector {
+        width: 329px;
+    }
+}
+
+@media all and (min-width:1200px) {
+    .build-card {
+        width: 585px;
+    }
 }
