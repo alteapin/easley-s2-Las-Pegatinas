@@ -2,11 +2,16 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: $color-ligth;
 }
+
 .build-card {
     border: 1px solid $color-silver;
     width: 100%;
+    padding-bottom: 30px;
     background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
 }
 
@@ -39,11 +44,13 @@
 }
 
 .box-card {
-    border: 1px solid $color-silver;
+    border: 1px solid $color-silver; 
+    border-radius: 2px;
     width: 240px;
     height: 367px;
     margin: 0 auto 30px;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+    background-color: $color-ligth;
 }
 
 .card-header {
@@ -83,7 +90,7 @@
 .icons-card {
     width: 32px;
     height: 32px;
-    border: 1px solid $palette-blue-ligth;
+    border: 2px solid $palette-blue-ligth;
     border-radius: 50%;
     font-size: 18px;
     display: flex;
@@ -153,9 +160,13 @@
 
 .btn-angle {
     border: none;
+    background: none;
     width: 16px;
     height: 18px;
     margin-left: auto;
+    transform: scale(2.5);
+    color: $color-secondary;
+    -webkit-text-stroke: .1rem $color-back;
 }
 
 .btn-fold {
