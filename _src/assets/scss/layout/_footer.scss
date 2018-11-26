@@ -1,14 +1,16 @@
 .page__footer {
     background-color: $color-ligth;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
  
 }
 .container-footer {
+    
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     width: 100%;
-    bottom: 0;
-    left: 0;
     height: 110px;
     border-top: 1px solid #cacaca; /*no se si es este color, he puesto el que teniamos en nuestro proyecto 1*/
     padding-top: 20px;

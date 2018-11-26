@@ -14,11 +14,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .page {
     background-color: $color-back; 
     width: 100%;
+    flex-grow: 1;
+  
 }
 
 /*-----------HEADER landing------------*/ 
