@@ -1,13 +1,20 @@
 .page__footer {
     background-color: $color-ligth;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #cacaca; /*no se si es este color, he puesto el que teniamos en nuestro proyecto 1*/
+    position: relative;
+ 
 }
 .container-footer {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: 110px;
+    border-top: 1px solid #cacaca; /*no se si es este color, he puesto el que teniamos en nuestro proyecto 1*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
 }
 
 .copyright {
@@ -33,14 +40,16 @@
       justify-content: space-between;
       padding-left: 41px;
       padding-right: 40px;
+      max-height: 60px;
+
   }
 
 
   .img-footer {
-    max-width: 103px;
-    max-height: 40px;
+    width: 103px;
+    height: 40px;
+    padding-bottom: 10px;
     
 }
-
 
 }
