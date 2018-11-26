@@ -25,3 +25,22 @@
     
 }
 
+@media all and (min-width:768px) {
+ 
+  .container-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 41px;
+      padding-right: 40px;
+  }
+
+
+  .img-footer {
+    max-width: 103px;
+    max-height: 40px;
+    
+}
+
+
+}

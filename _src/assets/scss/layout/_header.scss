@@ -25,7 +25,7 @@
     
     .img-logo {
         max-width:419px;
-        margin-top: 348px;
+        margin-top: 300px;/*pone 348 pero descoloca toda la página*/
         margin-left: 175px;
         margin-right: 174px;  
     }
@@ -35,9 +35,7 @@
 @media all and (min-width:1200px) {
     
     .img-logo {
-        max-width:419px;
         margin-top: 94px;
-        margin-left: 175px;
         margin-right: 175px;  
     }
 
