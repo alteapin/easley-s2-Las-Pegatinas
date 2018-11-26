@@ -86,3 +86,57 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+
+
+@media all and (min-width:768px) {
+
+    .container-text {
+        max-width:331px;
+        padding-bottom: 16px;
+    }
+
+    .main-title {
+        margin-top: 31px;
+        margin-bottom: 4px;
+        font-size: 24px;
+    }
+
+    .mainp {
+        margin-bottom: 21px;
+        color: $palette-blue-dark;
+        font-size: 16px; 
+    }
+
+
+    .list {
+        max-width: 325px;
+        padding-bottom: 16px;
+    }
+    
+    .icon-design, .icon-fill, .icon-share{
+        height:29px;
+    }
+
+    .element-text {
+        font-size: 16px;
+    }
+
+    .btn-start {
+        margin-top: 186px;
+        margin-bottom: 69px;
+    }
+
+
+}
+
+
+@media all and (min-width:1200px) {
+    .btn-start {
+        margin-top: 39px;
+        margin-bottom: 30px;
+    
+    }
+
+
+}

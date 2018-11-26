@@ -1,24 +1,52 @@
 
 .container-logo {
     display:flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     width:100%;
-    padding-top: 94px;
+    padding: 94px 35px 0;
 }
 
 .img-logo {
-    max-width:250px;
-    margin: 0 35px;  
+    max-width: 250px;
 }
 
 .logo-builder {
     text-align: start;
     padding: 30px 0;
+    margin: 0;
 }
 
-.img-logo-builder {
-    max-width: 201px;
-    margin: 0 40px;
+/*
+@media screen and (orientation:landscape){
+    .img-logo {
+        margin-top: 40px;
+    }
+}*/
+
+
+@media all and (min-width:768px) {
+    
+    .container-logo {
+        margin: 348px auto;
+    }
+
+    .img-logo {
+        max-width:419px;
+        margin: 0 174px;  
+    }
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .img-logo {
+      margin-top: 348px;
+  }  
+}
+
+@media all and (min-width:1200px) {
+    
+    .img-logo {
+        margin-top: 94px;  
+    }
+
 }
