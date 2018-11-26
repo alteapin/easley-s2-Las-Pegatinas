@@ -11,10 +11,14 @@ body {
     font-family: sans-serif; /*cambiar*/
     font-weight: 400; /*cambiar*/
     font-size:16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .page {
     background-color: $color-back; 
+    width: 100%;
 }
 
 /*-----------HEADER landing------------*/ 
