@@ -151,6 +151,19 @@ body {
     align-items: center;
 }
 
+// Add flex-container class to the first div-child (box-selector edit-design) of main container (selectors-container) so all containing items will be flex and positioned in columns
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+// Add title-box class to new div containing icons, title-edit, buttons PLUS the selectors' divs (those containing the customize boxes), in order to insert the selectors' divs inside the class box-selector. Thanks to this, you get that the border-bottom line will go together with the content of the section
+.title-box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
 .title-edit {
     margin-left: 10px;
     font-family: $font-default;
@@ -208,6 +221,12 @@ body {
 .selection-input {
     height: 17px;
     width: 17px;
+    cursor: pointer;
+}
+
+.label-color, .label-font {
+    display: flex;
+    align-items: center;
 }
 
 /* blue pallete*/
@@ -317,6 +336,9 @@ body {
     }
     .box-selector {
         width: 329px;
+    }
+    .selectors-design, .selectors-font {
+        grid-gap: 82px;
     }
 }
 
