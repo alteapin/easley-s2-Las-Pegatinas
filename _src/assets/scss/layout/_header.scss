@@ -36,3 +36,10 @@
         max-width:419px;
     }
 }
+
+@media all and (min-width:1024px) {
+    .builder-logo {
+        width: 1024px;
+        margin: 0 auto;
+    }
+}
