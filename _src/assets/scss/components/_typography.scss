@@ -1,26 +1,12 @@
 //Google Fonts Merriweather Montserrat Open Sans Ubuntu
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900|Montserrat|Open+Sans:400,600,700|Ubuntu:400,700');
 
-//Comic Neue as back-up for Comic Sans in Linux
-@font-face {
-  font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Regular.woff') format('woff'),
-       url('../fonts/ComicNeue-Regular.ttf')  format('truetype');
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Comic Neue';
-  src: url('../fonts/ComicNeue-Bold.woff') format('woff'),
-       url('../fonts/ComicNeue-Bold.ttf')  format('truetype');
-  font-weight: 400;
-}
-
 //Font variables
 $merri: 'Merriweather', serif;
 $montse: 'Montserrat', serif;
 $open: 'Open Sans', sans-serif;
 $ubuntu: 'Ubuntu', sans-serif;
-$comic: 'Comic Sans MS', 'Comic Neue', sans-serif;
+$comic: 'Comic Sans MS', 'TSCu_Comic', sans-serif;
 
 $font-title: $merri;
 $font-default: $open;
