@@ -1,53 +1,38 @@
-
 .container-logo {
     display:flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     width:100%;
+    padding: 94px 35px 0;
 }
 
 .img-logo {
-    max-width:250px;
-    margin-top: 94px;
-    margin-left: 35px;
-    margin-right: 35px;  
+    max-width: 250px;
 }
 
-.logo-builder {
-    text-align: start;
-    padding: 30px 0;
-    margin: 0;
+.builder-logo {
+    width:100%;
+    padding: 30px 40px;
+    background-color: $color-ligth;
 }
 
+.img-logo-builder {
+    width: 201px;
+}
+
+/*
 @media screen and (orientation:landscape){
     .img-logo {
         margin-top: 40px;
     }
-}
-
+}*/
 
 @media all and (min-width:768px) {
     
+    .container-logo {
+        padding: 348px 175px 0;
+    }
+
     .img-logo {
         max-width:419px;
-        margin-top: 300px;/*pone 348 pero descoloca toda la página*/
-        margin-left: 175px;
-        margin-right: 174px;  
     }
-
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
-  .img-logo {
-      margin-top: 348px;
-  }  
-}
-
-@media all and (min-width:1200px) {
-    
-    .img-logo {
-        margin-top: 94px;  
-    }
-
 }
