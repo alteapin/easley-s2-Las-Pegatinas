@@ -21,7 +21,11 @@ body {
     background-color: $color-back; 
     width: 100%;
     flex-grow: 1;
-  
+}
+
+.box-logo-builder {
+    width: 100%;
+    background-color: $color-ligth;
 }
 
 /*-----------HEADER landing------------*/ 
