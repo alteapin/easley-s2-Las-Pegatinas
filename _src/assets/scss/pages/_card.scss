@@ -350,8 +350,7 @@ body {
 
 //Rellena
 
-.fill {
-    background-color: $color-ligth; 
+.fill { 
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -369,7 +368,7 @@ body {
     font-size: 14px;
     line-height: 20px;
     color: $palette-blue-dark;
-    max-width: 281px;
+    max-width: 280px;
     margin-bottom: 20px;
     margin-left: 0;
     margin-right: 0;
@@ -398,4 +397,32 @@ input {
 ::placeholder {
     color: $color-pinkish-grey;
     
+}
+
+.button_ad_image {
+    display: inline-block;
+    height: 30px;
+    width: 140px;
+    color: $color-ligth;
+    background-color: $color-primary;
+    margin-right: 30px;
+    margin-top: 6px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.add_image {
+    display:flex;
+    flex-direction: row;
+}
+
+.empty-container {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $palette-blue-ligth;
+    margin-top: 6px;
 }
