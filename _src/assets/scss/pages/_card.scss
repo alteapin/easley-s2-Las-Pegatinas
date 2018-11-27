@@ -347,3 +347,37 @@ body {
         width: 585px;
     }
 }
+
+//Rellena
+
+.fill {
+    background-color: $color-ligth;
+}
+
+.contact {
+    max-width: 281px;
+    margin: 20px auto;
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+    color: $palette-blue-dark;
+
+}
+
+.contact input {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+}
+
+input {
+    padding-bottom: 6px;
+    padding-left: 9px;
+    padding-top: 4px;
+    border: 1px solid $palette-blue-ligth;
+}
+
+::placeholder {
+    color: $color-pinkish-grey;
+    
+}
