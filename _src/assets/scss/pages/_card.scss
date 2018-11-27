@@ -351,30 +351,48 @@ body {
 //Rellena
 
 .fill {
-    background-color: $color-ligth;
+    background-color: $color-ligth; 
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 0;
+
 }
 
 .contact {
-    max-width: 281px;
-    margin: 20px auto;
+    
+  
     font-family: $open;
     font-size: 14px;
     line-height: 20px;
     color: $palette-blue-dark;
+    max-width: 281px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
 
 }
 
 .contact input {
     display: block;
-    width: 100%;
+   
     margin-top: 6px;
+    
 }
+
 
 input {
     padding-bottom: 6px;
     padding-left: 9px;
     padding-top: 4px;
     border: 1px solid $palette-blue-ligth;
+    outline-style: none;
+    width: 281px; //en tablet tiene que tener 329px
+   
+   
 }
 
 ::placeholder {
