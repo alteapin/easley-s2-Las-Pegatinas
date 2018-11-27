@@ -323,6 +323,32 @@ body {
     font-family: $montse;
 }
 
+////
+
+// SHARE section
+
+.edit-share {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-btn-share{
+    padding: 33px 0 30px;
+}
+
+.btn-share {
+    background-color: $color-primary;
+    width: 199px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 18px;
+    color: $color-ligth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 @media all and (min-width:768px) {
     .build-container {
         display: flex;
