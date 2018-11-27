@@ -1,7 +1,7 @@
 .container-logo {
-    display:flex;
+    display: flex;
     justify-content: center;
-    width:100%;
+    width: 100%;
     padding: 94px 35px 0;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .builder-logo {
-    width:100%;
+    width: 100%;
     padding: 30px 40px;
     background-color: $color-ligth;
 }
@@ -27,13 +27,11 @@
 }*/
 
 @media all and (min-width:768px) {
-    
     .container-logo {
         padding: 348px 175px 0;
     }
-
     .img-logo {
-        max-width:419px;
+        max-width: 419px;
     }
 }
 
