@@ -451,9 +451,10 @@ input {
     padding-top: 4px;
     border: 1px solid $palette-blue-ligth;
     outline-style: none;
-    width: 281px; //en tablet tiene que tener 329px
-   
-   
+    width: 281px; 
+    @media all and (min-width:768px) {
+            width: 329px;
+        }
 }
 
 ::placeholder {
@@ -475,6 +476,7 @@ input {
     font-family: $open;
     font-size: 14px;
     line-height: 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
 }
 
 .add_image {
@@ -505,3 +507,11 @@ input {
 .checkbox_input {
     max-width: 27px;
 }
+
+
+
+
+
+
+
+
