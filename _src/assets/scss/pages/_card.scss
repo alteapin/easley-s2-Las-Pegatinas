@@ -48,7 +48,7 @@ body {
     border-radius: 2px;
     width: 240px;
     height: 367px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
     background-color: $color-ligth;
 }
@@ -87,7 +87,7 @@ body {
     display: flex;
 }
 
-.icons-card {
+.icons-contein{
     width: 32px;
     height: 32px;
     border: 2px solid $palette-blue-ligth;
@@ -97,7 +97,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    a {
+    .icons-card {
         color: $palette-blue-dark;
     }
 }
@@ -323,7 +323,50 @@ body {
     font-family: $montse;
 }
 
+
+/*-----Classes for the card when selecting each palette----*/
+
+.color-red {
+    .card-header {
+        border-left: 3px solid $palette-red-dark;
+    }
+    .name-person {
+        color: $palette-red-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-red-ligth;
+    }
+    .icons-card {
+        color: $palette-red-dark;
+    }
+    .skills__item {
+        background-color: $palette-red-midtone;
+    }
+}
+
+.color-grey {
+    .card-header {
+        border-left: 3px solid $palette-grey-dark;
+    }
+    .name-person {
+        color: $palette-grey-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-grey-midtone;
+    }
+    .icons-card {
+        color: $palette-grey-dark;
+    }
+    .skills__item {
+        background-color: $palette-grey-ligth;
+    }
+}
+
+
 @media all and (min-width:768px) {
+    .reset-box {
+        padding-top: 163px;
+    }
     .build-container {
         display: flex;
         flex-direction: row-reverse;
@@ -333,6 +376,7 @@ body {
     .build-card {
         width: 329px;
         border-radius: 6px;
+        padding-bottom: 222px;
     }
     .box-selector {
         width: 329px;
