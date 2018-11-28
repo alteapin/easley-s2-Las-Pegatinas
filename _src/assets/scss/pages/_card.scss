@@ -362,8 +362,6 @@ body {
 }
 
 .contact {
-    
-  
     font-family: $open;
     font-size: 14px;
     line-height: 20px;
@@ -425,4 +423,21 @@ input {
     height: 30px;
     border: 1px solid $palette-blue-ligth;
     margin-top: 6px;
+}
+
+.checkbox_contact {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.check_styles {
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+    color: $palette-blue-dark;
+    margin-bottom: 11px;
+}
+
+.checkbox_input {
+    max-width: 27px;
 }
