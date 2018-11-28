@@ -358,13 +358,9 @@ body {
 
 .card-created {
     width: 329px;
-    
-}
-
-.box-btn-share--created {
-    width: 329px;
     border-bottom: 1px solid #d8d8d8;
 }
+
 
 .btn-share--disabled {
     margin: 0 auto;
@@ -376,8 +372,39 @@ body {
     font-size: 18px;
     font-weight: 600;
     color: $color-secondary;
+    // padding: 20px 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg-text {
     padding: 20px 0 5px;
 }
+.share-link {
+    text-decoration: none;
+}
+.link {
+    font-size: 12px;
+    color: $color-primary;
+}
+
+.btn-twitter {
+    color: $color-ligth;
+    background-color: $color-twitter;
+    width: 181px;
+    height: 30px;
+    border-radius: 3px;
+    margin: 10px 0 30px;
+}
+
+.twitter-link {
+    margin-left: 10px;
+    font-family: $font-default;
+    font-size: 14px;
+    
+    }
 
 
 //media queries
