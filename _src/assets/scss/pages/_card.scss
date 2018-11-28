@@ -439,9 +439,7 @@ body {
 
 .contact input {
     display: block;
-   
     margin-top: 6px;
-    
 }
 
 
@@ -484,7 +482,9 @@ input {
     flex-direction: row;
 }
 
-.empty-container {
+.empty-container {@media all and (min-width:768px) {
+            width: 329px;
+        }
     width: 30px;
     height: 30px;
     border: 1px solid $palette-blue-ligth;
