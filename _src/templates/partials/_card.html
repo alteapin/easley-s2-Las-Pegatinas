@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="box-card">
-            <div class="card-header card-header--font">
+            <div class="card-header">
                 <h1 class="name-person"> Nombre Apellido</h1>
                 <h3 class="work-space"> Front-end developer</h3>
             </div>
@@ -16,10 +16,10 @@
             </div>
             <div class="icons-box">
                 <ul  class="list-icon-card">
-                <li class="icons-card icon-movil"> <a href=""><i class="fas fa-mobile-alt"></i></a></li>
-                <li class="icons-card icon-mail"> <a href="#"><i class="far fa-envelope"></i></a></li>
-                <li class="icons-card icon-linkedin"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="icons-card icon-github"><a href="#"><i class="fab fa-github-alt"></i></a></li>
+                <li class="icons-contein icon-movil"> <a href="" class="icons-card"><i class="fas fa-mobile-alt"></i></a></li>
+                <li class="icons-contein icon-mail"> <a href="#" class="icons-card"><i class="far fa-envelope"></i></a></li>
+                <li class="icons-contein icon-linkedin"><a href="#" class="icons-card"><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="icons-contein icon-github"><a href="#" class="icons-card"><i class="fab fa-github-alt"></i></a></li>
             </ul>
             </div>
             <div class="card-footer">
@@ -127,8 +127,70 @@
                 <i class="fas fa-angle-down"></i>
             </button>
         </div>
+            <form class="fill">
 
-<!-- titulo comparte -->
+                <div class="contact"> 
+                <label for="firstName">Nombre completo</label>
+                <input placeholder="Ej: Sally Jill" id="firstName" type="text" name="name">
+                </div> 
+
+                <div class="contact">
+                    <label for="job">Puesto</label>
+                    <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job">
+                </div>
+                <div class="contact">
+                  <label for="image">Imagen de perfil</label>
+                  <div class= "add_image">
+                 <button class="button_ad_image" type="submit" value="submit">Añadir imagen</button>
+                 <div class="empty-container"></div>
+                </div>
+                </div>
+              
+                <div class="contact">
+                  <label for="email">Email</label>
+                  <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email">
+                </div>
+              
+                <div class="contact">
+                  <label for="phone">Teléfono</label>
+                  <input placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone">
+                </div>
+              
+                <div class="contact">
+                  <label for="linkedin">Linkedin</label>
+                  <input placeholder="Ej: linkedin.com/in/sally.hill" id="linkedin" type="text" name="linkedin">
+                </div>
+              
+                <div class="contact">
+                  <label for="github">Github</label>
+                  <input placeholder="Ej: @sally-hill" id="github" type="text" name="github">
+                </div>
+              
+                
+                <p class="contact checkbox_contact">Habilidades (máximo 3)</p>
+
+                  <div class="check_styles"> 
+                    <label for="hability1">
+                      <input class="checkbox_input" id="flightoption1" type="checkbox" value="HTML" name="hability">
+                      HTML
+                    </label>
+                  </div>
+                  <div class="check_styles">
+                    <label for="hability2">
+                      <input class="checkbox_input" id="flightoption2" type="checkbox" value="CSS" name="hability">
+                      CSS
+                    </label>
+                  </div>
+                  <div class="check_styles">
+                    <label for="hability3">
+                      <input class="checkbox_input" id="flightoption3" type="checkbox" value="React" name="hability">
+                      React
+                    </label>
+                  </div>
+              
+              
+              </form>
+        
         <div class="box-selector edit-share">
             <div class="title-box">
                 <i class="fas fa-share-alt icons-edit"></i>

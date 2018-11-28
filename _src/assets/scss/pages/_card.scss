@@ -40,15 +40,14 @@ body {
     background-color: transparent;
     font-family: $open;
     font-size: 12px;
-
 }
 
 .box-card {
-    border: 1px solid $color-silver; 
+    border: 1px solid $color-silver;
     border-radius: 2px;
     width: 240px;
     height: 367px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
     background-color: $color-ligth;
 }
@@ -57,9 +56,6 @@ body {
     margin: 20px 0 10px;
     padding-left: 20px;
     border-left: 3px solid $palette-blue-ligth;
-}
-
-.card-header--font {
     font-family: $comic;
 }
 
@@ -73,11 +69,13 @@ body {
     font-weight: 400;
     color: $color-secondary;
 }
+
 .card-img {
     width: 100%;
     height: 200px;
-    background-color:$palette-blue-ligth;
+    background-color: $palette-blue-ligth;
 }
+
 .icons-box {
     padding: 10px 20px;
 }
@@ -87,7 +85,7 @@ body {
     display: flex;
 }
 
-.icons-card {
+.icons-contein {
     width: 32px;
     height: 32px;
     border: 2px solid $palette-blue-ligth;
@@ -97,7 +95,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    a {
+    .icons-card {
         color: $palette-blue-dark;
     }
 }
@@ -224,7 +222,8 @@ body {
     cursor: pointer;
 }
 
-.label-color, .label-font {
+.label-color,
+.label-font {
     display: flex;
     align-items: center;
 }
@@ -289,7 +288,6 @@ body {
     background-color: $palette-grey-midtone;
 }
 
-
 // Select your font box
 // check selectors-design class to make general style
 .selectors-font {
@@ -298,7 +296,7 @@ body {
     padding: 15px;
 }
 
-.list-font{
+.list-font {
     list-style: none;
     display: flex;
     align-items: center;
@@ -319,6 +317,7 @@ body {
 .select-comic {
     font-family: $comic;
 }
+
 .select-montse {
     font-family: $montse;
 }
@@ -409,7 +408,70 @@ body {
 
 
 //media queries
+/*-----Classes for the card when selecting each palette----*/
+
+.color-red {
+    .card-header {
+        border-left: 3px solid $palette-red-dark;
+    }
+    .name-person {
+        color: $palette-red-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-red-ligth;
+    }
+    .icons-card {
+        color: $palette-red-dark;
+    }
+    .skills__item {
+        background-color: $palette-red-midtone;
+    }
+}
+
+.color-grey {
+    .card-header {
+        border-left: 3px solid $palette-grey-dark;
+    }
+    .name-person {
+        color: $palette-grey-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-grey-midtone;
+    }
+    .icons-card {
+        color: $palette-grey-dark;
+    }
+    .skills__item {
+        background-color: $palette-grey-ligth;
+    }
+}
+
+/*-----Classes for the card when selecting each font style----*/
+
+.font-ubuntu {
+    font-family: $ubuntu;
+}
+
+.font-merri {
+    font-family: $merri;
+}
+
+.font-merri {
+    font-family: $montse;
+}
+
+.font-open {
+    font-family: $open;
+}
+
+.font-comic {
+    font-family: $open;
+}
+
 @media all and (min-width:768px) {
+    .reset-box {
+        padding-top: 163px;
+    }
     .build-container {
         display: flex;
         flex-direction: row-reverse;
@@ -419,11 +481,13 @@ body {
     .build-card {
         width: 329px;
         border-radius: 6px;
+        padding-bottom: 222px;
     }
     .box-selector {
         width: 329px;
     }
-    .selectors-design, .selectors-font {
+    .selectors-design,
+    .selectors-font {
         grid-gap: 82px;
     }
 }
@@ -432,4 +496,98 @@ body {
     .build-card {
         width: 585px;
     }
+}
+
+//Rellena
+
+.fill { 
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 0;
+
+}
+
+.contact {
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+    color: $palette-blue-dark;
+    max-width: 280px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+.contact input {
+    display: block;
+   
+    margin-top: 6px;
+    
+}
+
+
+input {
+    padding-bottom: 6px;
+    padding-left: 9px;
+    padding-top: 4px;
+    border: 1px solid $palette-blue-ligth;
+    outline-style: none;
+    width: 281px; //en tablet tiene que tener 329px
+   
+   
+}
+
+::placeholder {
+    color: $color-pinkish-grey;
+    
+}
+
+.button_ad_image {
+    display: inline-block;
+    height: 30px;
+    width: 140px;
+    color: $color-ligth;
+    background-color: $color-primary;
+    margin-right: 30px;
+    margin-top: 6px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.add_image {
+    display:flex;
+    flex-direction: row;
+}
+
+.empty-container {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $palette-blue-ligth;
+    margin-top: 6px;
+}
+
+.checkbox_contact {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.check_styles {
+    font-family: $open;
+    font-size: 14px;
+    line-height: 20px;
+    color: $palette-blue-dark;
+    margin-bottom: 11px;
+}
+
+.checkbox_input {
+    max-width: 27px;
 }
