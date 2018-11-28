@@ -40,11 +40,10 @@ body {
     background-color: transparent;
     font-family: $open;
     font-size: 12px;
-
 }
 
 .box-card {
-    border: 1px solid $color-silver; 
+    border: 1px solid $color-silver;
     border-radius: 2px;
     width: 240px;
     height: 367px;
@@ -57,9 +56,6 @@ body {
     margin: 20px 0 10px;
     padding-left: 20px;
     border-left: 3px solid $palette-blue-ligth;
-}
-
-.card-header--font {
     font-family: $comic;
 }
 
@@ -73,11 +69,13 @@ body {
     font-weight: 400;
     color: $color-secondary;
 }
+
 .card-img {
     width: 100%;
     height: 200px;
-    background-color:$palette-blue-ligth;
+    background-color: $palette-blue-ligth;
 }
+
 .icons-box {
     padding: 10px 20px;
 }
@@ -87,7 +85,7 @@ body {
     display: flex;
 }
 
-.icons-contein{
+.icons-contein {
     width: 32px;
     height: 32px;
     border: 2px solid $palette-blue-ligth;
@@ -224,7 +222,8 @@ body {
     cursor: pointer;
 }
 
-.label-color, .label-font {
+.label-color,
+.label-font {
     display: flex;
     align-items: center;
 }
@@ -289,7 +288,6 @@ body {
     background-color: $palette-grey-midtone;
 }
 
-
 // Select your font box
 // check selectors-design class to make general style
 .selectors-font {
@@ -298,7 +296,7 @@ body {
     padding: 15px;
 }
 
-.list-font{
+.list-font {
     list-style: none;
     display: flex;
     align-items: center;
@@ -319,10 +317,10 @@ body {
 .select-comic {
     font-family: $comic;
 }
+
 .select-montse {
     font-family: $montse;
 }
-
 
 /*-----Classes for the card when selecting each palette----*/
 
@@ -384,7 +382,6 @@ body {
     font-family: $open;
 }
 
-
 @media all and (min-width:768px) {
     .reset-box {
         padding-top: 163px;
@@ -403,7 +400,8 @@ body {
     .box-selector {
         width: 329px;
     }
-    .selectors-design, .selectors-font {
+    .selectors-design,
+    .selectors-font {
         grid-gap: 82px;
     }
 }
