@@ -48,7 +48,7 @@ body {
     border-radius: 2px;
     width: 240px;
     height: 367px;
-    margin: 0 auto 30px;
+    margin: 0 auto;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
     background-color: $color-ligth;
 }
@@ -364,6 +364,9 @@ body {
 
 
 @media all and (min-width:768px) {
+    .reset-box {
+        padding-top: 163px;
+    }
     .build-container {
         display: flex;
         flex-direction: row-reverse;
@@ -373,6 +376,7 @@ body {
     .build-card {
         width: 329px;
         border-radius: 6px;
+        padding-bottom: 222px;
     }
     .box-selector {
         width: 329px;
