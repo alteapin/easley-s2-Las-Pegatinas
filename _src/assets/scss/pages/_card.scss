@@ -327,9 +327,14 @@ body {
 
 // SHARE section
 
+.card-share {
+    display: flex;
+    align-items: center;
+}
 .edit-share {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .box-btn-share {
@@ -346,9 +351,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+}
+
+//share card created 
+
+.card-created {
+    width: 329px;
+    
+}
+
+.box-btn-share--created {
+    width: 329px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.btn-share--disabled {
+    margin: 0 auto;
+    background-color: $color-btn-disabled;
+}
+
+.card-msg {
+    font-family: $open;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-secondary;
+    padding: 20px 0 5px;
 }
 
 
+//media queries
 @media all and (min-width:768px) {
     .build-container {
         display: flex;
