@@ -362,6 +362,28 @@ body {
     }
 }
 
+/*-----Classes for the card when selecting each font style----*/
+
+.font-ubuntu {
+    font-family: $ubuntu;
+}
+
+.font-merri {
+    font-family: $merri;
+}
+
+.font-merri {
+    font-family: $montse;
+}
+
+.font-open {
+    font-family: $open;
+}
+
+.font-comic {
+    font-family: $open;
+}
+
 
 @media all and (min-width:768px) {
     .reset-box {
