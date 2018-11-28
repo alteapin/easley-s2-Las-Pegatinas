@@ -87,7 +87,7 @@ body {
     display: flex;
 }
 
-.icons-card {
+.icons-contein{
     width: 32px;
     height: 32px;
     border: 2px solid $palette-blue-ligth;
@@ -97,7 +97,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    a {
+    .icons-card {
         color: $palette-blue-dark;
     }
 }
@@ -322,6 +322,46 @@ body {
 .select-montse {
     font-family: $montse;
 }
+
+
+/*-----Classes for the card when selecting each palette----*/
+
+.color-red {
+    .card-header {
+        border-left: 3px solid $palette-red-dark;
+    }
+    .name-person {
+        color: $palette-red-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-red-ligth;
+    }
+    .icons-card {
+        color: $palette-red-dark;
+    }
+    .skills__item {
+        background-color: $palette-red-midtone;
+    }
+}
+
+.color-grey {
+    .card-header {
+        border-left: 3px solid $palette-grey-dark;
+    }
+    .name-person {
+        color: $palette-grey-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-grey-midtone;
+    }
+    .icons-card {
+        color: $palette-grey-dark;
+    }
+    .skills__item {
+        background-color: $palette-grey-ligth;
+    }
+}
+
 
 @media all and (min-width:768px) {
     .build-container {
