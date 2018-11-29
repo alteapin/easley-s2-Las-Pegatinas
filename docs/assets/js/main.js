@@ -1,0 +1,1 @@
+"use strict";const name=document.querySelector(".name-person"),job=document.querySelector(".work-space"),input=document.querySelector("#firstName"),inputJob=document.querySelector("#job");function showName(e){const t=input.value;name.innerHTML=t?e.target.value:"Nombre Apellido"}input.addEventListener("keyup",showName);

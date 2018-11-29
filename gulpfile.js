@@ -12,7 +12,7 @@ const notify       = require('gulp-notify');
 const plumber      = require('gulp-plumber');
 const sass         = require('gulp-sass');
 const sourcemaps   = require('gulp-sourcemaps');
-const uglify       = require('gulp-uglify');
+const uglify       = require('gulp-uglify-es').default;
 
 
 // > Dev tasks
@@ -84,7 +84,6 @@ gulp.task('images', function(done) {
 
 
 
-
 // >> Copy icon files
 gulp.task('icons', function(done) {
   gulp.src(config.icons.src)
@@ -141,7 +140,7 @@ gulp.task('styles-dist', function(done) {
 gulp.task('scripts-dist', function(done){
   gulp.src(config.js.src)
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-    .pipe(concat('main.min.js'))
+    .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest(config.js.dist));
   done();
@@ -156,7 +155,6 @@ gulp.task('images-dist', function(done) {
     .pipe(gulp.dest(config.images.dist));
   done();
 });
-
 
 
 
