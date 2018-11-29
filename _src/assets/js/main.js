@@ -2,12 +2,12 @@
 
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
-const input = document.querySelector('#firstName');
+const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-function showName (event){
+function showText (event){
 
-    const value = input.value;
+    const value = inputName.value;
 
     if(value){
         name.innerHTML = event.target.value;
@@ -17,7 +17,20 @@ function showName (event){
 
 }
 
-input.addEventListener('keyup',showName);
+function showJob (event){
+
+    const value = inputJob.value;
+
+    if(value){
+        job.innerHTML = event.target.value;
+    }else {
+        job.innerHTML = 'Front-end developer';
+    }
+
+}
+
+inputName.addEventListener('keyup',showText);
+inputJob.addEventListener('keyup',showJob);
 
 
 
