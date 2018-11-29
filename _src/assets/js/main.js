@@ -2,19 +2,22 @@
 
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
-const input = document.querySelector('.name');
+const input = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
 function showName (event){
-    if(!input){
+
+    const value = input.value;
+
+    if(value){
         name.innerHTML = event.target.value;
     }else {
-        name.innerHTML = ('Nombre Apellido');
+        name.innerHTML = 'Nombre Apellido';
     }
 
 }
 
-input.addEventListener('keypress',showName);
+input.addEventListener('keyup',showName);
 
 
 
