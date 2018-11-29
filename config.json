@@ -18,8 +18,6 @@
 	"js": {
 		"src": [
       "_src/assets/js/main.js"
-      // here we can add more js files to be concatenated in order once created at partials
-      
 		],
 		"dest": "public/assets/js/",
     "dist": "docs/assets/js/"
