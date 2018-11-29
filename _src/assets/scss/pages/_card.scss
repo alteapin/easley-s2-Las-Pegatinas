@@ -288,6 +288,26 @@ body {
     background-color: $palette-grey-midtone;
 }
 
+/* Pegatinas pallete*/
+
+.pegatinas-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: pink; /*$palette-pegatinas-dark*/
+}
+
+.pegatinas-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color:pink; /*$palette-pegatinas-midtone*/
+}
+
+.pegatinas-ligth-color {
+    width: 30px;
+    height: 25px;
+    background-color: pink; /*$palette-pegatinas-ligth*/
+}
+
 // Select your font box
 // check selectors-design class to make general style
 .selectors-font {
