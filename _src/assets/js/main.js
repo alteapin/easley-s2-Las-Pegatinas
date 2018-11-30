@@ -5,6 +5,8 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
+
+
 function showText (event){
 
     const value = inputName.value;
@@ -32,6 +34,34 @@ function showJob (event){
 inputName.addEventListener('keyup',showText);
 inputJob.addEventListener('keyup',showJob);
 
+//hide boxes
 
+const hideBoxes = document.querySelectorAll('.bring-box');
+
+const butonUnfold = document.querySelectorAll('.btn-unfold');
+
+
+/* function fold(){
+
+  /*  for (let i=0; i< hideBoxes.length ; i++){
+        
+    }*/
+    //const newButon = hideBoxesevent.currentTarget;
+
+    //for (const elements of hideBoxes){
+      // elements.classList.toggle('hide-box');
+        
+   // }
+
+//}/*
+
+
+
+
+
+
+butonUnfold[0].addEventListener('click',fold);
+butonUnfold[1].addEventListener('click',fold);
+butonUnfold[2].addEventListener('click',fold);
 
 
