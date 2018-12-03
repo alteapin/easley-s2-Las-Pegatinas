@@ -41,23 +41,21 @@ const hideBoxes = document.querySelectorAll('.bring-box');
 const butonUnfold = document.querySelectorAll('.btn-unfold');
 
 
-/* function fold(){
+function fold(event){
+    const newButton = event.currentTarget;
+    for (let i = 0; i < hideBoxes.length; i++) {
+        if (event.currentTarget === butonUnfold[i]) {
 
-  /*  for (let i=0; i< hideBoxes.length ; i++){
-        
-    }*/
-    //const newButon = hideBoxesevent.currentTarget;
-
-    //for (const elements of hideBoxes){
-      // elements.classList.toggle('hide-box');
-        
-   // }
-
-//}/*
-
-
-
-
+            if (hideBoxes[i].classList.contains('hide-box')) {
+                // Elimina la clase
+                hideBoxes[i].classList.remove('hide-box');
+            } else { // Sino
+                // Añade la clase hidden
+                hideBoxes[i].classList.add('hide-box');
+            }
+        }
+    }
+}
 
 
 butonUnfold[0].addEventListener('click',fold);
