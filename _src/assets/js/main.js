@@ -74,7 +74,13 @@ const userCard = document.querySelector('.box-card');
 
 const handleColorTheme = () => {
     userCard.classList.remove('color-blue', 'color-red');
-     = event.currentTarget;
+    const colorSelected = event.currentTarget;
+
+    if(colorSelected === inputRed) {
+        userCard.classList.add('color-red');
+    } else if (colorSelected === inputGrey) {
+        userCard.classList.add('color-grey');
+    }
     
 }
 
