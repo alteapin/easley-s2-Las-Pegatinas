@@ -39,30 +39,38 @@ inputJob.addEventListener('keyup',showJob);
 const hideBoxes = document.querySelectorAll('.bring-box');
 
 const butonUnfold = document.querySelectorAll('.btn-unfold');
-
-
-/* function fold(){
-
-  /*  for (let i=0; i< hideBoxes.length ; i++){
-        
-    }*/
-    //const newButon = hideBoxesevent.currentTarget;
-
-    //for (const elements of hideBoxes){
-      // elements.classList.toggle('hide-box');
-        
-   // }
-
-//}/*
+const butonfold = document.querySelectorAll('.btn-fold');
+const button = document.querySelectorAll('button');
 
 
 
-
+function fold(event){
+    const newButton = event.currentTarget;
+    for (let i = 0; i < hideBoxes.length; i++) {
+        if (event.currentTarget === butonUnfold[i] || event.currentTarget === butonfold[i] ) {
+            if (hideBoxes[i].classList.contains('hide-box')) {
+                // Elimina la clase
+                hideBoxes[i].classList.remove('hide-box');
+                butonUnfold[i].classList.add('hide-box');
+                butonfold[i].classList.remove('btn-fold');
+            } else { // Sino
+                // Añade la clase hidden
+                hideBoxes[i].classList.add('hide-box');
+                butonUnfold[i].classList.remove('hide-box');
+                butonfold[i].classList.add('btn-fold');
+            }
+        }
+    }
+}
 
 
 butonUnfold[0].addEventListener('click',fold);
 butonUnfold[1].addEventListener('click',fold);
 butonUnfold[2].addEventListener('click',fold);
+
+butonfold[0].addEventListener('click',fold);
+butonfold[1].addEventListener('click',fold);
+butonfold[2].addEventListener('click',fold);
 
 
 
