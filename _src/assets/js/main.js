@@ -81,7 +81,7 @@ const userCard = document.querySelector('.box-card');
 
 
 const handleColorTheme = () => {
-    userCard.classList.remove('color-blue', 'color-red');
+    userCard.classList.remove('color-grey', 'color-red');
     const colorSelected = event.currentTarget;
 
     if(colorSelected === inputRed) {
@@ -95,3 +95,4 @@ const handleColorTheme = () => {
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
+inputGrey.addEventListener('click', handleColorTheme);
