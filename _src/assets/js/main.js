@@ -65,3 +65,19 @@ butonUnfold[1].addEventListener('click',fold);
 butonUnfold[2].addEventListener('click',fold);
 
 
+
+const inputBlue = document.getElementById('pallete-blue');
+const inputRed = document.getElementById('pallete-red');
+const inputGrey = document.getElementById('pallete-grey');
+const userCard = document.querySelector('.box-card');
+
+
+const handleColorTheme = () => {
+    userCard.classList.remove('color-blue', 'color-red');
+     = event.currentTarget;
+    
+}
+
+
+inputBlue.addEventListener('click', handleColorTheme);
+inputRed.addEventListener('click', handleColorTheme);
