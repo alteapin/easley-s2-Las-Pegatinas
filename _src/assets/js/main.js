@@ -57,11 +57,13 @@ function fold(event) {
                 butonfold[i].classList.add('btn-fold');
             }
         }
-        else{
+        else {
             hideBoxes[i].classList.add('hide-box');
+            butonUnfold[i].classList.remove('hide-box');
+            butonfold[i].classList.add('btn-fold');
         }
     }
-    
+
 }
 
 
