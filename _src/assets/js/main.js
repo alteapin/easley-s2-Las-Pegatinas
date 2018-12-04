@@ -99,9 +99,9 @@ inputGrey.addEventListener('click', handleColorTheme);
 
 
 //add Image Feature 
-
+//button div contacto, con div add_image. 
 const uploadBtn = document.querySelector('.button_ad_image');
-const inputImage = document.getElementById('#img-selector');
+const inputImage = document.getElementById('img-selector');
 const profilePic = document.querySelector('.card-img__element');
 
 //TODO:   ask about FileReader

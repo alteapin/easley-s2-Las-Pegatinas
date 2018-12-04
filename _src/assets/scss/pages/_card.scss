@@ -71,11 +71,14 @@ body {
 }
 
 .card-img {
-    width: 100%;
+    width: 240px;
+    // width: 100%;
     height: 200px;
     background-color: $palette-blue-ligth;
 }
-
+.pic-size{
+    max-width: 100%;
+}
 .icons-box {
     padding: 10px 20px;
 }
