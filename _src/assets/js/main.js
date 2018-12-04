@@ -96,3 +96,31 @@ const handleColorTheme = () => {
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+
+
+//add Image Feature 
+
+const uploadBtn = document.querySelector('.button_ad_image');
+const inputImage = document.getElementById('#img-selector');
+const profilePic = document.querySelector('.card-img__element');
+
+//TODO:   ask about FileReader
+const fr = new FileReader();
+
+// TODO: what fr stands for?
+function getImage(event){
+    let myFile = event.target.files[0];
+    fr.addEventListener('load', writeImage);
+    fr.readAsDataURL(myFile);
+    }
+
+    function writeImage() {
+    profilePic.src= fr.innerHTML;
+
+    }
+    function fileClick() {
+        inputImage.click();
+    }
+
+inputImage.addEventListener('change', getImage);
+uploadBtn.addEventListener('click', fileClick);
