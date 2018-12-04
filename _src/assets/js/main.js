@@ -95,3 +95,41 @@ const handleColorTheme = () => {
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+
+//formulario email
+
+const mail = document.querySelector('#email');
+const icons = document.querySelectorAll('.icons-card');
+
+function handlersendMail(){
+    icons[1].href='mailto:' + mail.value;
+}
+
+mail.addEventListener('keyup',handlersendMail);
+
+//formulario telefono
+
+const phone = document.querySelector('#phone');
+
+function handlerPhone(){
+
+}
+
+
+
+//formulario github
+const git = document.querySelector('#github');
+const 
+
+function handlerGithub(){
+
+}
+
+
+//formulario linkedin
+const git = document.querySelector('#linkedin');
+const 
+
+function handlerLinkedin(){
+
+}
