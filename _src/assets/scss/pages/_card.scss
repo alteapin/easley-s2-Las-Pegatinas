@@ -61,6 +61,11 @@ body {
     line-height: 1.1;
 }
 
+.img-default{
+    width: 238px;
+    height: 200px;
+}
+
 .name-person {
     font-size: 18px;
     font-weight: bold;
@@ -288,6 +293,86 @@ body {
     width: 30px;
     height: 25px;
     background-color: $palette-grey-midtone;
+}
+
+/* gum pallete*/
+
+.blue-gum-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-gum;
+}
+
+.pink-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-pink-dark-gum;
+}
+
+.pink-light-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-pink-light-gum;
+}
+
+/* elegant pallete*/
+
+.black-pearl-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-black-pearl-color;
+}
+
+.silver-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-silver-color;
+}
+
+.gold-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-gold-color;
+}
+
+/* violet pallete*/
+
+.purple-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-midtone-color;
+}
+
+.purple-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-dark-color;
+}
+
+.purple-light-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-light-color;
+}
+
+/* tropical pallete*/
+
+.blue-water-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-water-color;
+}
+
+.yellow-sand-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-yello-sand-color;
+}
+
+.pink-cocktail-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-pink-cocktail-color;
 }
 
 // Select your font box

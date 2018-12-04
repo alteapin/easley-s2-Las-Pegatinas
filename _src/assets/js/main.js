@@ -73,6 +73,7 @@ butonfold[1].addEventListener('click',fold);
 butonfold[2].addEventListener('click',fold);
 
 
+// PALLETES INPUTS
 
 const inputBlue = document.getElementById('pallete-blue');
 const inputRed = document.getElementById('pallete-red');
@@ -90,7 +91,6 @@ const handleColorTheme = () => {
         userCard.classList.add('color-grey');
     }
 }
-
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
