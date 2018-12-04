@@ -447,26 +447,26 @@ body {
 }
 
 /*-----Classes for the card when selecting each font style----*/
+// TODO: please review if once we shut down these classes there are any damages xD If not, delete them for good. 
+// .font-ubuntu {
+//     font-family: $ubuntu;
+// }
 
-.font-ubuntu {
-    font-family: $ubuntu;
-}
+// .font-merri {
+//     font-family: $merri;
+// }
 
-.font-merri {
-    font-family: $merri;
-}
+// .font-merri {
+//     font-family: $montse;
+// }
 
-.font-merri {
-    font-family: $montse;
-}
+// .font-open {
+//     font-family: $open;
+// }
 
-.font-open {
-    font-family: $open;
-}
-
-.font-comic {
-    font-family: $open;
-}
+// .font-comic {
+//     font-family: $open;
+// }
 
 @media all and (min-width:768px) {
     .reset-box {

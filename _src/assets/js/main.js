@@ -96,3 +96,34 @@ const handleColorTheme = () => {
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+
+
+
+//LINKING FONT FAMILY TO USER CARD
+
+const ubuntuFont = document.getElementById('font-ubuntu');
+const comicFont = document.getElementById('font-comic');
+const montseFont = document.getElementById('font-montse');
+const fontCard = document.querySelector('.card-header');
+
+function handleFonttheme(){
+    fontCard.classList.remove('select-ubuntu','select-comic','select-montse');
+
+    const fontSelectedByUser = event.currentTarget;
+
+    if(fontSelectedByUser === ubuntuFont) {
+
+        fontCard.classList.add('select-ubuntu');
+    }
+    else if(fontSelectedByUser === comicFont){
+        fontCard.classList.add('select-comic');
+    }
+    else if(fontSelectedByUser === montseFont){
+        fontCard.classList.add('select-montse');
+    }
+}
+
+ubuntuFont.addEventListener('click', handleFonttheme);
+comicFont.addEventListener('click', handleFonttheme);
+montseFont.addEventListener('click', handleFonttheme);
+
