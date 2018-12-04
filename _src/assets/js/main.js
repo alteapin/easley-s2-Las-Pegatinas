@@ -37,12 +37,9 @@ inputJob.addEventListener('keyup', showJob);
 //hide boxes
 
 const hideBoxes = document.querySelectorAll('.bring-box');
-
 const butonUnfold = document.querySelectorAll('.btn-unfold');
 const butonfold = document.querySelectorAll('.btn-fold');
 const button = document.querySelectorAll('button');
-
-
 
 function fold(event) {
     const newButton = event.currentTarget;
@@ -60,7 +57,11 @@ function fold(event) {
                 butonfold[i].classList.add('btn-fold');
             }
         }
+        else{
+            hideBoxes[i].classList.add('hide-box');
+        }
     }
+    
 }
 
 
@@ -96,10 +97,15 @@ inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
 
-//formulario email
+//form
 
 const mail = document.querySelector('#email');
 const icons = document.querySelectorAll('.icons-card');
+const phone = document.querySelector('#phone');
+const github = document.querySelector('#github');
+const linked = document.querySelector('#linkedin');
+
+//form email
 
 function handlersendMail() {
     icons[1].href = 'mailto:' + mail.value;
@@ -107,9 +113,7 @@ function handlersendMail() {
 
 mail.addEventListener('keyup', handlersendMail);
 
-//formulario telefono
-
-const phone = document.querySelector('#phone');
+//form telephone
 
 function handlerPhone() {
     icons[0].href = 'tel: +34' + phone.value;
@@ -117,8 +121,7 @@ function handlerPhone() {
 
 phone.addEventListener('keyup', handlerPhone);
 
-//formulario github
-const github = document.querySelector('#github');
+//form github
 
 function handlerGithub() {
     icons[3].href = 'https://github.com/' + github.value;
@@ -126,10 +129,10 @@ function handlerGithub() {
 
 github.addEventListener('keyup', handlerGithub);
 
-//formulario linkedin
-const linked = document.querySelector('#linkedin');
+//form linkedin
 
 function handlerLinkedin() {
     icons[2].href = 'https://linkedin.com/in/' + linked.value;
 }
+
 linked.addEventListener('keyup', handlerLinkedin);
