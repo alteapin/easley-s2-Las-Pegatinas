@@ -47,7 +47,7 @@ const button = document.querySelectorAll('button');
 function fold(event){
     const newButton = event.currentTarget;
     for (let i = 0; i < hideBoxes.length; i++) {
-        if (event.currentTarget === butonUnfold[i] || event.currentTarget === butonfold[i] ) {
+        if (newButton === butonUnfold[i] || newButton === butonfold[i] ) {
             if (hideBoxes[i].classList.contains('hide-box')) {
                 // Elimina la clase
                 hideBoxes[i].classList.remove('hide-box');
@@ -73,4 +73,25 @@ butonfold[1].addEventListener('click',fold);
 butonfold[2].addEventListener('click',fold);
 
 
+// PALLETES INPUTS
 
+const inputBlue = document.getElementById('pallete-blue');
+const inputRed = document.getElementById('pallete-red');
+const inputGrey = document.getElementById('pallete-grey');
+const userCard = document.querySelector('.box-card');
+
+
+const handleColorTheme = () => {
+    userCard.classList.remove('color-grey', 'color-red');
+    const colorSelected = event.currentTarget;
+
+    if(colorSelected === inputRed) {
+        userCard.classList.add('color-red');
+    } else if (colorSelected === inputGrey) {
+        userCard.classList.add('color-grey');
+    }
+}
+
+inputBlue.addEventListener('click', handleColorTheme);
+inputRed.addEventListener('click', handleColorTheme);
+inputGrey.addEventListener('click', handleColorTheme);
