@@ -7,32 +7,32 @@ const inputJob = document.querySelector('#job');
 
 
 
-function showText (event){
+function showText(event) {
 
     const value = inputName.value;
 
-    if(value){
+    if (value) {
         name.innerHTML = event.target.value;
-    }else {
+    } else {
         name.innerHTML = 'Nombre Apellido';
     }
 
 }
 
-function showJob (event){
+function showJob(event) {
 
     const value = inputJob.value;
 
-    if(value){
+    if (value) {
         job.innerHTML = event.target.value;
-    }else {
+    } else {
         job.innerHTML = 'Front-end developer';
     }
 
 }
 
-inputName.addEventListener('keyup',showText);
-inputJob.addEventListener('keyup',showJob);
+inputName.addEventListener('keyup', showText);
+inputJob.addEventListener('keyup', showJob);
 
 //hide boxes
 
@@ -44,10 +44,10 @@ const button = document.querySelectorAll('button');
 
 
 
-function fold(event){
+function fold(event) {
     const newButton = event.currentTarget;
     for (let i = 0; i < hideBoxes.length; i++) {
-        if (newButton === butonUnfold[i] || newButton === butonfold[i] ) {
+        if (newButton === butonUnfold[i] || newButton === butonfold[i]) {
             if (hideBoxes[i].classList.contains('hide-box')) {
                 // Elimina la clase
                 hideBoxes[i].classList.remove('hide-box');
@@ -64,13 +64,13 @@ function fold(event){
 }
 
 
-butonUnfold[0].addEventListener('click',fold);
-butonUnfold[1].addEventListener('click',fold);
-butonUnfold[2].addEventListener('click',fold);
+butonUnfold[0].addEventListener('click', fold);
+butonUnfold[1].addEventListener('click', fold);
+butonUnfold[2].addEventListener('click', fold);
 
-butonfold[0].addEventListener('click',fold);
-butonfold[1].addEventListener('click',fold);
-butonfold[2].addEventListener('click',fold);
+butonfold[0].addEventListener('click', fold);
+butonfold[1].addEventListener('click', fold);
+butonfold[2].addEventListener('click', fold);
 
 
 // PALLETES INPUTS
@@ -85,7 +85,7 @@ const handleColorTheme = () => {
     userCard.classList.remove('color-grey', 'color-red');
     const colorSelected = event.currentTarget;
 
-    if(colorSelected === inputRed) {
+    if (colorSelected === inputRed) {
         userCard.classList.add('color-red');
     } else if (colorSelected === inputGrey) {
         userCard.classList.add('color-grey');
@@ -101,17 +101,17 @@ inputGrey.addEventListener('click', handleColorTheme);
 const mail = document.querySelector('#email');
 const icons = document.querySelectorAll('.icons-card');
 
-function handlersendMail(){
-    icons[1].href='mailto:' + mail.value;
+function handlersendMail() {
+    icons[1].href = 'mailto:' + mail.value;
 }
 
-mail.addEventListener('keyup',handlersendMail);
+mail.addEventListener('keyup', handlersendMail);
 
 //formulario telefono
 
 const phone = document.querySelector('#phone');
 
-function handlerPhone(){
+function handlerPhone() {
 
 }
 
@@ -119,17 +119,17 @@ function handlerPhone(){
 
 //formulario github
 const git = document.querySelector('#github');
-const 
+const
 
-function handlerGithub(){
+function handlerGithub() {
 
 }
 
 
 //formulario linkedin
 const git = document.querySelector('#linkedin');
-const 
+const
 
-function handlerLinkedin(){
+function handlerLinkedin() {
 
 }
