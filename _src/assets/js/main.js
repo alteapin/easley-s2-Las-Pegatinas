@@ -74,25 +74,3 @@ butonfold[2].addEventListener('click',fold);
 
 
 
-const inputBlue = document.getElementById('pallete-blue');
-const inputRed = document.getElementById('pallete-red');
-const inputGrey = document.getElementById('pallete-grey');
-const userCard = document.querySelector('.box-card');
-
-
-const handleColorTheme = () => {
-    userCard.classList.remove('color-grey', 'color-red');
-    const colorSelected = event.currentTarget;
-
-    if(colorSelected === inputRed) {
-        userCard.classList.add('color-red');
-    } else if (colorSelected === inputGrey) {
-        userCard.classList.add('color-grey');
-    }
-    
-}
-
-
-inputBlue.addEventListener('click', handleColorTheme);
-inputRed.addEventListener('click', handleColorTheme);
-inputGrey.addEventListener('click', handleColorTheme);
