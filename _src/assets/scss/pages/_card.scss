@@ -288,6 +288,26 @@ body {
     background-color: $palette-grey-midtone;
 }
 
+/* gum pallete*/
+.blue-gum-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-blue-gum;
+}
+
+.pink-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-pink-dark-gum;
+}
+
+.pink-light-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-pink-light-gum;
+}
+
+
 // Select your font box
 // check selectors-design class to make general style
 .selectors-font {
