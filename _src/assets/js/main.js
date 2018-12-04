@@ -130,6 +130,6 @@ github.addEventListener('keyup', handlerGithub);
 const linked = document.querySelector('#linkedin');
 
 function handlerLinkedin() {
-    icons[2].href = 'https://linkedin.com/' + linked.value;
+    icons[2].href = 'https://linkedin.com/in/' + linked.value;
 }
 linked.addEventListener('keyup', handlerLinkedin);
