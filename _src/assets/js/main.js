@@ -112,24 +112,24 @@ mail.addEventListener('keyup', handlersendMail);
 const phone = document.querySelector('#phone');
 
 function handlerPhone() {
-
+    icons[0].href = 'tel: +34' + phone.value;
 }
 
-
+phone.addEventListener('keyup', handlerPhone);
 
 //formulario github
-const git = document.querySelector('#github');
-const
+const github = document.querySelector('#github');
 
 function handlerGithub() {
-
+    icons[3].href = 'https://github.com/' + github.value;
 }
 
+github.addEventListener('keyup', handlerGithub);
 
 //formulario linkedin
-const git = document.querySelector('#linkedin');
-const
+const linked = document.querySelector('#linkedin');
 
 function handlerLinkedin() {
-
+    icons[2].href = 'https://linkedin.com/' + linked.value;
 }
+linked.addEventListener('keyup', handlerLinkedin);
