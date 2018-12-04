@@ -47,7 +47,7 @@ const button = document.querySelectorAll('button');
 function fold(event){
     const newButton = event.currentTarget;
     for (let i = 0; i < hideBoxes.length; i++) {
-        if (event.currentTarget === butonUnfold[i] || event.currentTarget === butonfold[i] ) {
+        if (newButton === butonUnfold[i] || newButton === butonfold[i] ) {
             if (hideBoxes[i].classList.contains('hide-box')) {
                 // Elimina la clase
                 hideBoxes[i].classList.remove('hide-box');
@@ -89,7 +89,6 @@ const handleColorTheme = () => {
     } else if (colorSelected === inputGrey) {
         userCard.classList.add('color-grey');
     }
-    
 }
 
 
