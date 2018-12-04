@@ -115,7 +115,7 @@ function getImage(event){
     }
 
     function writeImage() {
-    profilePic.src= fr.innerHTML;
+    profilePic.src= fr.result;
 
     }
     function fileClick() {
