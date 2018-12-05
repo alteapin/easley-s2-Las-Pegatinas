@@ -61,11 +61,10 @@ body {
     line-height: 1.1;
 }
 
-.img-default{
-    width: 238px;
-    height: 200px;
-}
 
+.btn__hidden{
+    display: none;
+}
 .name-person {
     font-size: 18px;
     font-weight: bold;
@@ -83,7 +82,7 @@ body {
     background-color: $palette-blue-ligth;
     background-position: center;
     background-size: cover;
-    background-image: url("https://via.placeholder.com/300x300/cccccc/666666/?text=IMAGE");
+    background-image: url("../images/tiger.png");
 }
 .pic-size{
     max-width: 100%;
