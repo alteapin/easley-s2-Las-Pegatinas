@@ -99,7 +99,10 @@ inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
 
-
+/// BTN FOLD-UNFOLD FUNCTIONALITY
+butonfold[0].addEventListener('click',fold);
+butonfold[1].addEventListener('click',fold);
+butonfold[2].addEventListener('click',fold);
 
 //LINKING FONT FAMILY TO USER CARD
 
