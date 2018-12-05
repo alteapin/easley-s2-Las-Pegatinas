@@ -61,11 +61,10 @@ body {
     line-height: 1.1;
 }
 
-.img-default{
-    width: 238px;
-    height: 200px;
-}
 
+.btn__hidden{
+    display: none;
+}
 .name-person {
     font-size: 18px;
     font-weight: bold;
@@ -78,11 +77,16 @@ body {
 }
 
 .card-img {
-    width: 100%;
+    width: 240px;
     height: 200px;
     background-color: $palette-blue-ligth;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/tiger.png");
 }
-
+.pic-size{
+    max-width: 100%;
+}
 .icons-box {
     padding: 10px 20px;
 }

@@ -167,6 +167,31 @@ function handlerLinkedin() {
     icons[2].href = 'https://linkedin.com/in/' + linked.value;
 }
 
+
+//add Image Feature 
+//button div contacto, con div add_image. 
+const uploadBtn = document.querySelector('.button_ad_image');
+const inputImage = document.getElementById('img-selector');
+const boxUserImage = document.querySelector('.card-img');
+
+//TODO:   ask about FileReader
+const fr = new FileReader();
+
+function getImage(event){
+    let myFile = event.target.files[0];
+    fr.addEventListener('load', writeImage);
+    fr.readAsDataURL(myFile);
+    }
+
+    function writeImage(event) {
+        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+    }
+    function fileClick() {
+        inputImage.click();
+    }
+
+inputImage.addEventListener('change', getImage);
+uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
 
