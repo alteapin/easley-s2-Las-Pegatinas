@@ -57,6 +57,13 @@ body {
     padding-left: 20px;
     border-left: 3px solid $palette-blue-ligth;
     font-family: $comic;
+    height: 42px;
+    line-height: 1.1;
+}
+
+.img-default{
+    width: 238px;
+    height: 200px;
 }
 
 .name-person {
@@ -189,6 +196,9 @@ body {
     display: none;
 }
 
+.fas {
+    cursor: pointer;
+}
 .icons-edit {
     color: $color-primary;
 }
@@ -529,28 +539,6 @@ body {
     .skills__item {
         background-color: $palette-grey-ligth;
     }
-}
-
-/*-----Classes for the card when selecting each font style----*/
-
-.font-ubuntu {
-    font-family: $ubuntu;
-}
-
-.font-merri {
-    font-family: $merri;
-}
-
-.font-merri {
-    font-family: $montse;
-}
-
-.font-open {
-    font-family: $open;
-}
-
-.font-comic {
-    font-family: $open;
 }
 
 @media all and (min-width:768px) {
