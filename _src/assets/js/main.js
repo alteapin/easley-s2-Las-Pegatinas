@@ -209,7 +209,7 @@ fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/s
     const skills = data;
     let divContent = '';
 ​
-    for (let i=0; i < skills.length ; i++) {
+    for (let i=0; i < data.length ; i++) {
       const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="HTML" name="hability">${data[i]}<label></div>`;
       divContent += skillContent;
     }
