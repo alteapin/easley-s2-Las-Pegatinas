@@ -102,7 +102,7 @@ inputGrey.addEventListener('click', handleColorTheme);
 //button div contacto, con div add_image. 
 const uploadBtn = document.querySelector('.button_ad_image');
 const inputImage = document.getElementById('img-selector');
-const profilePic = document.querySelector('.card-img__element');
+const boxUserImage = document.querySelector('.card-img');
 
 //TODO:   ask about FileReader
 const fr = new FileReader();
@@ -114,9 +114,8 @@ function getImage(event){
     fr.readAsDataURL(myFile);
     }
 
-    function writeImage() {
-    profilePic.src= fr.result;
-
+    function writeImage(event) {
+        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
     }
     function fileClick() {
         inputImage.click();

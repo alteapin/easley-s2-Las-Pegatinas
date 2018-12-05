@@ -72,9 +72,11 @@ body {
 
 .card-img {
     width: 240px;
-    // width: 100%;
     height: 200px;
     background-color: $palette-blue-ligth;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://via.placeholder.com/300x300/cccccc/666666/?text=IMAGE");
 }
 .pic-size{
     max-width: 100%;
