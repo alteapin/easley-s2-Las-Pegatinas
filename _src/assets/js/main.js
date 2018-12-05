@@ -168,3 +168,25 @@ function handlerLinkedin() {
 }
 
 linked.addEventListener('keyup', handlerLinkedin);
+
+
+//habilities from server
+
+const checkInput = document.querySelectorAll('checkbox_input');
+
+
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+  //.then(response => response.json())
+  .then(data => {
+    console.log('data response: ', data);
+​
+    const checkForm = document.querySelector('checkForm');
+    const skills = data;
+    let divContent = '';
+​
+    for (let i=0; i < skills.length ; i++) {
+      const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="HTML" name="hability">${data[i]}<label></div>`;
+      divContent += skillContent;
+    }
+    divCheck.innerHTML = divContent;
+  });
