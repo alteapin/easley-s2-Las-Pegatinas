@@ -540,6 +540,21 @@ body {
     }
 }
 
+/*-----Classes for the card when selecting each font-family----*/
+
+.font-ubuntu {
+    font-family: $ubuntu;
+}
+
+.font-comic {
+    font-family: $comic;
+}
+
+.font-montse {
+    font-family: $montse;
+}
+
+
 @media all and (min-width:768px) {
     .reset-box {
         padding-top: 163px;

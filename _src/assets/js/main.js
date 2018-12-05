@@ -109,19 +109,19 @@ const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 
 function handleFonttheme(){
-    fontCard.classList.remove('select-ubuntu','select-comic','select-montse');
+    fontCard.classList.remove('font-ubuntu','font-comic','font-montse');
 
     const fontSelectedByUser = event.currentTarget;
 
     if(fontSelectedByUser === ubuntuFont) {
 
-        fontCard.classList.add('select-ubuntu');
+        fontCard.classList.add('font-ubuntu');
     }
     else if(fontSelectedByUser === comicFont){
-        fontCard.classList.add('select-comic');
+        fontCard.classList.add('font-comic');
     }
     else if(fontSelectedByUser === montseFont){
-        fontCard.classList.add('select-montse');
+        fontCard.classList.add('font-montse');
     }
 }
 
