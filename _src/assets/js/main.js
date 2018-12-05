@@ -103,6 +103,9 @@ inputGrey.addEventListener('click', handleColorTheme);
 butonfold[0].addEventListener('click',fold);
 butonfold[1].addEventListener('click',fold);
 butonfold[2].addEventListener('click',fold);
+butonUnfold[0].addEventListener('click',fold);
+butonUnfold[1].addEventListener('click',fold);
+butonUnfold[2].addEventListener('click',fold);
 
 //LINKING FONT FAMILY TO USER CARD
 
