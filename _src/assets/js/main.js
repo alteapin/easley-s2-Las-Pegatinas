@@ -99,13 +99,7 @@ inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
 
-/// BTN FOLD-UNFOLD FUNCTIONALITY
-butonfold[0].addEventListener('click',fold);
-butonfold[1].addEventListener('click',fold);
-butonfold[2].addEventListener('click',fold);
-butonUnfold[0].addEventListener('click',fold);
-butonUnfold[1].addEventListener('click',fold);
-butonUnfold[2].addEventListener('click',fold);
+
 
 //LINKING FONT FAMILY TO USER CARD
 
@@ -173,29 +167,6 @@ function handlerLinkedin() {
     icons[2].href = 'https://linkedin.com/in/' + linked.value;
 }
 
-const inputBlue = document.getElementById('pallete-blue');
-const inputRed = document.getElementById('pallete-red');
-const inputGrey = document.getElementById('pallete-grey');
-const userCard = document.querySelector('.box-card');
-
-
-const handleColorTheme = () => {
-    userCard.classList.remove('color-grey', 'color-red');
-    const colorSelected = event.currentTarget;
-
-    if(colorSelected === inputRed) {
-        userCard.classList.add('color-red');
-    } else if (colorSelected === inputGrey) {
-        userCard.classList.add('color-grey');
-    }
-    
-}
-
-
-inputBlue.addEventListener('click', handleColorTheme);
-inputRed.addEventListener('click', handleColorTheme);
-inputGrey.addEventListener('click', handleColorTheme);
-
 
 //add Image Feature 
 //button div contacto, con div add_image. 
@@ -206,7 +177,6 @@ const boxUserImage = document.querySelector('.card-img');
 //TODO:   ask about FileReader
 const fr = new FileReader();
 
-// TODO: what fr stands for?
 function getImage(event){
     let myFile = event.target.files[0];
     fr.addEventListener('load', writeImage);
