@@ -212,6 +212,18 @@ function inputs() {
                 i = i + 1;
             }
             divskills.innerHTML = divContent;
+            //nuevo
+            
+            const checkInput = document.querySelectorAll('.checkbox_input');
+            console.log(checkInput);
+            let liC='';
+            if (checkInput[i].checked = true) {
+                
+                const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                liC += liContent;
+                acc= acc+1;
+            }
+            ulBlue = liC;
             
         });
 }
@@ -228,7 +240,7 @@ console.log(checkInput[0]);
 
 
 //si le doy a una selected true y me aparece una li 
-let acc = 0;
+/*let acc = 0;
 function skillsCard(event) {
     
     let liC='';
@@ -244,6 +256,6 @@ function skillsCard(event) {
     }
     ulBlue = liC;
 }
+*/
 
-
-checkInput[0].addEventListener('click', skillsCard);
+//checkInput[0].addEventListener('click', skillsCard);
