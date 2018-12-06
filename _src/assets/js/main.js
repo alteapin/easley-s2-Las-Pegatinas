@@ -194,24 +194,8 @@ inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
-const checkInput = document.querySelectorAll('checkbox_input');
 
 function inputs() {
-    /* fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-     //.then(response => response.json())
-     .then(data => {
-       console.log('data response: ', data);
-   ​
-       const checkForm = document.querySelector('checkForm');
-       const skills = data.skills;
-       let divContent = '';
-   ​
-       for (let i=0; i < skills.length ; i++) {
-         const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="${skills[i]}" name="hability">${input.value}<label></div>`;
-         divContent += skillContent;
-       }
-       divCheck.innerHTML = divContent;
-     }); */
 
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
         .then(response => response.json())
@@ -232,3 +216,27 @@ function inputs() {
 }
 
 butonUnfold[1].addEventListener('click', inputs);
+
+//hacer check y que aparezca
+
+const ulBlue = document.querySelector('.skills__list');
+
+const checkInput = document.querySelectorAll('.checkbox_input');
+
+//si le doy a una selected true y me aparece una li 
+let acc = 0;
+function skillsCard(event) {
+    let liC='';
+    for (let i = 0; i < checkInput.length; i++) {
+        if (checkInput[i] === event.currentTarget) {
+            if (checkInput[i].checked = true) {
+                
+                const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                liC += liContent;
+                acc= acc+1;
+            }
+        }
+    }
+    ulBlue = skillContent;
+}
+checkInput[0].addEventListener('click', skillsCard);
