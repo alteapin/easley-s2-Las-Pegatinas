@@ -213,18 +213,33 @@ function inputs() {
             }
             divskills.innerHTML = divContent;
             //nuevo
-            
+
             const checkInput = document.querySelectorAll('.checkbox_input');
-            console.log(checkInput);
-            let liC='';
-            if (checkInput[i].checked = true) {
-                
-                const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                liC += liContent;
-                acc= acc+1;
+            console.log('Check: ', checkInput[0].checked);
+            const ulBlue = document.querySelector('.skills__list');
+            let liC = '';
+            let acc = 0;
+            function check(event) {
+
+                for (let i = 0; i < checkInput.length; i++) {
+                    if (acc < 3) {
+                        if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
+
+                            const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                            liC += liContent;
+                            acc = acc + 1;
+                        }
+                    }
+                }
+                ulBlue.innerHTML = liC;
+                console.log(acc);
+
             }
-            ulBlue = liC;
-            
+            for (let i = 0; i < checkInput.length; i++) {
+                checkInput[i].addEventListener('click', check);
+            }
+
+
         });
 }
 
@@ -236,7 +251,7 @@ const ulBlue = document.querySelector('.skills__list');
 const checkInput = document.querySelectorAll('.checkbox_input');
 
 
-console.log(checkInput[0]);
+
 
 
 //si le doy a una selected true y me aparece una li 
