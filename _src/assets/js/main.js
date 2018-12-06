@@ -212,6 +212,7 @@ function inputs() {
                 i = i + 1;
             }
             divskills.innerHTML = divContent;
+            
         });
 }
 
@@ -220,12 +221,16 @@ butonUnfold[1].addEventListener('click', inputs);
 //hacer check y que aparezca
 
 const ulBlue = document.querySelector('.skills__list');
-
 const checkInput = document.querySelectorAll('.checkbox_input');
+
+
+console.log(checkInput[0]);
+
 
 //si le doy a una selected true y me aparece una li 
 let acc = 0;
 function skillsCard(event) {
+    
     let liC='';
     for (let i = 0; i < checkInput.length; i++) {
         if (checkInput[i] === event.currentTarget) {
@@ -237,6 +242,8 @@ function skillsCard(event) {
             }
         }
     }
-    ulBlue = skillContent;
+    ulBlue = liC;
 }
+
+
 checkInput[0].addEventListener('click', skillsCard);
