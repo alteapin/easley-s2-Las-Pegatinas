@@ -108,19 +108,19 @@ const comicFont = document.getElementById('font-comic');
 const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 
-function handleFonttheme(){
-    fontCard.classList.remove('font-ubuntu','font-comic','font-montse');
+function handleFonttheme() {
+    fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
 
     const fontSelectedByUser = event.currentTarget;
 
-    if(fontSelectedByUser === ubuntuFont) {
+    if (fontSelectedByUser === ubuntuFont) {
 
         fontCard.classList.add('font-ubuntu');
     }
-    else if(fontSelectedByUser === comicFont){
+    else if (fontSelectedByUser === comicFont) {
         fontCard.classList.add('font-comic');
     }
-    else if(fontSelectedByUser === montseFont){
+    else if (fontSelectedByUser === montseFont) {
         fontCard.classList.add('font-montse');
     }
 }
@@ -177,18 +177,18 @@ const boxUserImage = document.querySelector('.card-img');
 //TODO:   ask about FileReader
 const fr = new FileReader();
 
-function getImage(event){
+function getImage(event) {
     let myFile = event.target.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
-    }
+}
 
-    function writeImage(event) {
-        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
-    }
-    function fileClick() {
-        inputImage.click();
-    }
+function writeImage(event) {
+    boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+}
+function fileClick() {
+    inputImage.click();
+}
 
 inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
@@ -196,40 +196,39 @@ linked.addEventListener('keyup', handlerLinkedin);
 
 const checkInput = document.querySelectorAll('checkbox_input');
 
-function inputs (){
-   /* fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-    //.then(response => response.json())
-    .then(data => {
-      console.log('data response: ', data);
-  ​
-      const checkForm = document.querySelector('checkForm');
-      const skills = data.skills;
-      let divContent = '';
-  ​
-      for (let i=0; i < skills.length ; i++) {
-        const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="${skills[i]}" name="hability">${input.value}<label></div>`;
-        divContent += skillContent;
-      }
-      divCheck.innerHTML = divContent;
-    }); */
+function inputs() {
+    /* fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+     //.then(response => response.json())
+     .then(data => {
+       console.log('data response: ', data);
+   ​
+       const checkForm = document.querySelector('checkForm');
+       const skills = data.skills;
+       let divContent = '';
+   ​
+       for (let i=0; i < skills.length ; i++) {
+         const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="${skills[i]}" name="hability">${input.value}<label></div>`;
+         divContent += skillContent;
+       }
+       divCheck.innerHTML = divContent;
+     }); */
 
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-  .then(response => response.json())
-  .then(data => {
-    console.log('Breeds data response: ', data);
+        .then(response => response.json())
+        .then(data => {
+            console.log('Breeds data response: ', data);
 
-    let divskills = document.querySelector('div');
-    const dskills = data.skills;
-    divskills = '';
-let i=0;
-    for (const skill of dskills) {
-     const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]}" value=${skill} name="hability">${skill}</label></div>`;
-       //`<div>${breed}</div>`;
-      ulContent += skillContent;
-      i=i+1;
-    }
-    divskills.innerHTML = ulContent;
-  });
+            const divskills = document.querySelector('.container-checks');
+            const dskills = data.skills;
+            let divContent = '';
+            let i = 1;
+            for (const skill of dskills) {
+                const skillContent = `<div class="check_styles"><label for="hability${[i + 1]}"><input class="checkbox_input" type="checkbox" id="hability${[i + 1]}" value=${skill} name="hability">${skill}</label></div>`;
+                divContent += skillContent;
+                i = i + 1;
+            }
+            divskills.innerHTML = divContent;
+        });
 }
 
 butonUnfold[1].addEventListener('click', inputs);
