@@ -196,19 +196,40 @@ linked.addEventListener('keyup', handlerLinkedin);
 
 const checkInput = document.querySelectorAll('checkbox_input');
 
+function inputs (){
+   /* fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    //.then(response => response.json())
+    .then(data => {
+      console.log('data response: ', data);
+  ​
+      const checkForm = document.querySelector('checkForm');
+      const skills = data.skills;
+      let divContent = '';
+  ​
+      for (let i=0; i < skills.length ; i++) {
+        const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="${skills[i]}" name="hability">${input.value}<label></div>`;
+        divContent += skillContent;
+      }
+      divCheck.innerHTML = divContent;
+    }); */
 
-fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-  //.then(response => response.json())
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+  .then(response => response.json())
   .then(data => {
-    console.log('data response: ', data);
-​
-    const checkForm = document.querySelector('checkForm');
-    const skills = data;
-    let divContent = '';
-​
-    for (let i=0; i < data.length ; i++) {
-      const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]} value="HTML" name="hability">${data[i]}<label></div>`;
-      divContent += skillContent;
+    console.log('Breeds data response: ', data);
+
+    let divskills = document.querySelector('div');
+    const dskills = data.skills;
+    divskills = '';
+let i=0;
+    for (const skill of dskills) {
+     const skillContent = `<div class="check_styles"><label for="hability${[i+1]}"><input type="checkbox" id="hability${[i+1]}" value=${skill} name="hability">${skill}</label></div>`;
+       //`<div>${breed}</div>`;
+      ulContent += skillContent;
+      i=i+1;
     }
-    divCheck.innerHTML = divContent;
+    divskills.innerHTML = ulContent;
   });
+}
+
+butonUnfold[1].addEventListener('click', inputs);
