@@ -227,27 +227,26 @@ function inputs() {
                             const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
                             liC += liContent;
                             acc = acc + 1;
-
-                            // liContent activableSection.classList.add('hidden');
-                            // console.log('acc elimnar' +acc);}
-
-                            /*else if(checkInput[i] === event.currentTarget && checkInput[i].checked === false){
-                                acc = acc -1;
-                                console.log('acc elimnar' +acc);
-                
-                            }*/
+                            console.log('checked or not', checkInput[i].checked);
                         }
                     }
                 }
                 ulBlue.innerHTML = liC;
                 console.log(acc);
-                /*if(checkInput[0] === false){
-                    checkInput[0].classList.add('hide-box');
-                }*/
+                const li = document.querySelectorAll('.skills__item');
+                console.log(li);
+                for (let i = 0; i < li.length; i++) {
+                    if (checkInput[i] === event.currentTarget && checkInput[i].checked === false ) {
+                        console.log('checked false', checkInput[i].checked);
+                        li[i].classList.add('hide-box');
+                    }
+                }
+
             }
             for (let i = 0; i < checkInput.length; i++) {
                 checkInput[i].addEventListener('click', check);
             }
+
         });
 }
 
