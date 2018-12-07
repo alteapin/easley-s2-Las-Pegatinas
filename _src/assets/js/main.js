@@ -9,25 +9,25 @@ const inputJob = document.querySelector('#job');
 
 function showText(event) {
 
-    const value = inputName.value;
+  const value = inputName.value;
 
-    if (value) {
-        name.innerHTML = event.target.value;
-    } else {
-        name.innerHTML = 'Nombre Apellido';
-    }
+  if (value) {
+    name.innerHTML = event.target.value;
+  } else {
+    name.innerHTML = 'Nombre Apellido';
+  }
 
 }
 
 function showJob(event) {
 
-    const value = inputJob.value;
+  const value = inputJob.value;
 
-    if (value) {
-        job.innerHTML = event.target.value;
-    } else {
-        job.innerHTML = 'Front-end developer';
-    }
+  if (value) {
+    job.innerHTML = event.target.value;
+  } else {
+    job.innerHTML = 'Front-end developer';
+  }
 
 }
 
@@ -42,27 +42,26 @@ const butonfold = document.querySelectorAll('.btn-fold');
 const button = document.querySelectorAll('button');
 
 function fold(event) {
-    const newButton = event.currentTarget;
-    for (let i = 0; i < hideBoxes.length; i++) {
-        if (newButton === butonUnfold[i] || newButton === butonfold[i]) {
-            if (hideBoxes[i].classList.contains('hide-box')) {
-                // Elimina la clase
-                hideBoxes[i].classList.remove('hide-box');
-                butonUnfold[i].classList.add('hide-box');
-                butonfold[i].classList.remove('btn-fold');
-            } else { // Sino
-                // Añade la clase hidden
-                hideBoxes[i].classList.add('hide-box');
-                butonUnfold[i].classList.remove('hide-box');
-                butonfold[i].classList.add('btn-fold');
-            }
-        }
-        else {
-            hideBoxes[i].classList.add('hide-box');
-            butonUnfold[i].classList.remove('hide-box');
-            butonfold[i].classList.add('btn-fold');
-        }
+  const newButton = event.currentTarget;
+  for (let i = 0; i < hideBoxes.length; i++) {
+    if (newButton === butonUnfold[i] || newButton === butonfold[i]) {
+      if (hideBoxes[i].classList.contains('hide-box')) {
+        // Elimina la clase
+        hideBoxes[i].classList.remove('hide-box');
+        butonUnfold[i].classList.add('hide-box');
+        butonfold[i].classList.remove('btn-fold');
+      } else { // Sino
+        // Añade la clase hidden
+        hideBoxes[i].classList.add('hide-box');
+        butonUnfold[i].classList.remove('hide-box');
+        butonfold[i].classList.add('btn-fold');
+      }
+    } else {
+      hideBoxes[i].classList.add('hide-box');
+      butonUnfold[i].classList.remove('hide-box');
+      butonfold[i].classList.add('btn-fold');
     }
+  }
 
 }
 
@@ -85,14 +84,14 @@ const userCard = document.querySelector('.box-card');
 
 
 const handleColorTheme = () => {
-    userCard.classList.remove('color-grey', 'color-red');
-    const colorSelected = event.currentTarget;
+  userCard.classList.remove('color-grey', 'color-red');
+  const colorSelected = event.currentTarget;
 
-    if (colorSelected === inputRed) {
-        userCard.classList.add('color-red');
-    } else if (colorSelected === inputGrey) {
-        userCard.classList.add('color-grey');
-    }
+  if (colorSelected === inputRed) {
+    userCard.classList.add('color-red');
+  } else if (colorSelected === inputGrey) {
+    userCard.classList.add('color-grey');
+  }
 }
 
 inputBlue.addEventListener('click', handleColorTheme);
@@ -109,20 +108,18 @@ const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 
 function handleFonttheme() {
-    fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
+  fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
 
-    const fontSelectedByUser = event.currentTarget;
+  const fontSelectedByUser = event.currentTarget;
 
-    if (fontSelectedByUser === ubuntuFont) {
+  if (fontSelectedByUser === ubuntuFont) {
 
-        fontCard.classList.add('font-ubuntu');
-    }
-    else if (fontSelectedByUser === comicFont) {
-        fontCard.classList.add('font-comic');
-    }
-    else if (fontSelectedByUser === montseFont) {
-        fontCard.classList.add('font-montse');
-    }
+    fontCard.classList.add('font-ubuntu');
+  } else if (fontSelectedByUser === comicFont) {
+    fontCard.classList.add('font-comic');
+  } else if (fontSelectedByUser === montseFont) {
+    fontCard.classList.add('font-montse');
+  }
 }
 
 ubuntuFont.addEventListener('click', handleFonttheme);
@@ -140,7 +137,7 @@ const linked = document.querySelector('#linkedin');
 //form email
 
 function handlersendMail() {
-    icons[1].href = 'mailto:' + mail.value;
+  icons[1].href = 'mailto:' + mail.value;
 }
 
 mail.addEventListener('keyup', handlersendMail);
@@ -148,7 +145,7 @@ mail.addEventListener('keyup', handlersendMail);
 //form telephone
 
 function handlerPhone() {
-    icons[0].href = 'tel: +34' + phone.value;
+  icons[0].href = 'tel: +34' + phone.value;
 }
 
 phone.addEventListener('keyup', handlerPhone);
@@ -156,7 +153,7 @@ phone.addEventListener('keyup', handlerPhone);
 //form github
 
 function handlerGithub() {
-    icons[3].href = 'https://github.com/' + github.value;
+  icons[3].href = 'https://github.com/' + github.value;
 }
 
 github.addEventListener('keyup', handlerGithub);
@@ -164,7 +161,7 @@ github.addEventListener('keyup', handlerGithub);
 //form linkedin
 
 function handlerLinkedin() {
-    icons[2].href = 'https://linkedin.com/in/' + linked.value;
+  icons[2].href = 'https://linkedin.com/in/' + linked.value;
 }
 
 
@@ -178,16 +175,17 @@ const boxUserImage = document.querySelector('.card-img');
 const fr = new FileReader();
 
 function getImage(event) {
-    let myFile = event.target.files[0];
-    fr.addEventListener('load', writeImage);
-    fr.readAsDataURL(myFile);
+  let myFile = event.target.files[0];
+  fr.addEventListener('load', writeImage);
+  fr.readAsDataURL(myFile);
 }
 
 function writeImage(event) {
-    boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+  boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
 }
+
 function fileClick() {
-    inputImage.click();
+  inputImage.click();
 }
 
 inputImage.addEventListener('change', getImage);
@@ -197,80 +195,59 @@ linked.addEventListener('keyup', handlerLinkedin);
 
 function inputs() {
 
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log('Breeds data response: ', data);
+  fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log('Breeds data response: ', data);
 
-            const divskills = document.querySelector('.container-checks');
-            const dskills = data.skills;
-            let divContent = '';
-            let i = 1;
-            for (const skill of dskills) {
-                const skillContent = `<div class="check_styles"><label for="hability${[i + 1]}"><input class="checkbox_input" type="checkbox" id="hability${[i + 1]}" value=${skill} name="hability">${skill}</label></div>`;
-                divContent += skillContent;
-                i = i + 1;
-            }
-            divskills.innerHTML = divContent;
-            //nuevo
+      const divskills = document.querySelector('.container-checks');
+      const dskills = data.skills;
+      let divContent = '';
+      let i = 1;
+      for (const skill of dskills) {
+        const skillContent = `<div class="check_styles"><label for="hability${[i + 1]}"><input class="checkbox_input" type="checkbox" id="hability${[i + 1]}" value=${skill} name="hability">${skill}</label></div>`;
+        divContent += skillContent;
+        i = i + 1;
+      }
+      divskills.innerHTML = divContent;
+      //nuevo
 
-            const checkInput = document.querySelectorAll('.checkbox_input');
-            console.log('Check: ', checkInput[0].checked);
-            const ulBlue = document.querySelector('.skills__list');
-            let liC = '';
-            let acc = 0;
-            function check(event) {
+      const checkInput = document.querySelectorAll('.checkbox_input');
+      console.log('Check: ', checkInput[0].checked);
+      const ulBlue = document.querySelector('.skills__list');
+      let liC = '';
+      let acc = 0;
 
-                for (let i = 0; i < checkInput.length; i++) {
-                    if (acc < 3) {
-                        if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
+      function check(event) {
 
-                            const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                            liC += liContent;
-                            acc = acc + 1;
-                        }
-                    }
-                }
-                ulBlue.innerHTML = liC;
-                console.log(acc);
+        for (let i = 0; i < checkInput.length; i++) {
+          if (acc < 3) {
+            if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
 
-            }
-            for (let i = 0; i < checkInput.length; i++) {
-                checkInput[i].addEventListener('click', check);
-            }
+              const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+              liC += liContent;
+              acc = acc + 1;
+              
+               // liContent activableSection.classList.add('hidden');
+               // console.log('acc elimnar' +acc);}
+            
+            /*else if(checkInput[i] === event.currentTarget && checkInput[i].checked === false){
+                acc = acc -1;
+                console.log('acc elimnar' +acc);
 
-
-        });
+            }*/
+        }
+    }
+        }
+        ulBlue.innerHTML = liC;
+        console.log(acc);
+      }
+      for (let i = 0; i < checkInput.length; i++) {
+        checkInput[i].addEventListener('click', check);
+      }
+    });
 }
 
 butonUnfold[1].addEventListener('click', inputs);
 
-//hacer check y que aparezca
 
-const ulBlue = document.querySelector('.skills__list');
-const checkInput = document.querySelectorAll('.checkbox_input');
-
-
-
-
-
-//si le doy a una selected true y me aparece una li 
-/*let acc = 0;
-function skillsCard(event) {
-    
-    let liC='';
-    for (let i = 0; i < checkInput.length; i++) {
-        if (checkInput[i] === event.currentTarget) {
-            if (checkInput[i].checked = true) {
-                
-                const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                liC += liContent;
-                acc= acc+1;
-            }
-        }
-    }
-    ulBlue = liC;
-}
-*/
-
-//checkInput[0].addEventListener('click', skillsCard);
