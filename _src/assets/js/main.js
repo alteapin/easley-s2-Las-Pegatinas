@@ -235,12 +235,12 @@ function inputs() {
                 console.log(acc);
                 const li = document.querySelectorAll('.skills__item');
                 console.log(li);
-                for (let i = 0; i < li.length; i++) {
-                    if (checkInput[i] === event.currentTarget && checkInput[i].checked === false ) {
+                /*for (let i = 0; i < checkInput.length; i++) {
+                    if (checkInput[i].checked === false ) {
                         console.log('checked false', checkInput[i].checked);
                         li[i].classList.add('hide-box');
                     }
-                }
+                }*/
 
             }
             for (let i = 0; i < checkInput.length; i++) {
