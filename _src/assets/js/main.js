@@ -241,6 +241,9 @@ function inputs() {
                 }
                 ulBlue.innerHTML = liC;
                 console.log(acc);
+                /*if(checkInput[0] === false){
+                    checkInput[0].classList.add('hide-box');
+                }*/
             }
             for (let i = 0; i < checkInput.length; i++) {
                 checkInput[i].addEventListener('click', check);
