@@ -205,7 +205,7 @@ function inputs() {
             let divContent = '';
             let i = 1;
             for (const skill of dskills) {
-                const skillContent = `<div class="check_styles"><label for="hability${[i + 1]}"><input class="checkbox_input" type="checkbox" id="hability${[i + 1]}" value=${skill} name="hability">${skill}</label></div>`;
+                const skillContent = `<div class="check_styles"><label for="${[i]}"><input class="checkbox_input" type="checkbox" id="${[i]}" value=${skill} name="hability">${skill}</label></div>`;
                 divContent += skillContent;
                 i = i + 1;
             }
@@ -213,7 +213,7 @@ function inputs() {
             //nuevo
 
             const checkInput = document.querySelectorAll('.checkbox_input');
-            console.log('Check: ', checkInput[0].checked);
+            console.log('Checkarray: ', checkInput);
             const ulBlue = document.querySelector('.skills__list');
             let liC = '';
             let acc = 0;
@@ -227,26 +227,59 @@ function inputs() {
                             const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
                             liC += liContent;
                             acc = acc + 1;
-                            console.log('checked or not', checkInput[i].checked);
+                            console.log('checked value', checkInput[i].value);
                         }
                     }
                 }
                 ulBlue.innerHTML = liC;
                 console.log(acc);
                 const li = document.querySelectorAll('.skills__item');
-                console.log(li);
-                /*for (let i = 0; i < checkInput.length; i++) {
-                    if (checkInput[i].checked === false ) {
-                        console.log('checked false', checkInput[i].checked);
-                        li[i].classList.add('hide-box');
-                    }
-                }*/
+                console.log('li0', li[0].innerHTML);
+                console.log('li1', li[1].innerHTML);
+                console.log('li2', li[2].innerHTML);
+                //if(li[i]value === checkInput[i])
+                let liC2 = '';
+                let acc2 = 0;
+                for (let i = 0; i < checkInput.length; i++) {
+                    if (acc2<3 && checkInput[i].checked === true) {
+                       // event.stopPropagation();
+                        console.log('i',i);
+                        const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                            liC2 += liContent2;
+                        acc2 = acc2 +1;
 
+                       /* if (li[i].innerHTML === checkInput[i].value && checkInput[i].checked === false) {
+                            console.log('checked entra al if', checkInput[i].checked);
+                           // li[i].classList.add('hide-box');
+                           li.splice(i, 1);
+                           console.log(li);
+                        } este if no me lo lee pq ya no tengo innerHTML*/ 
+                    }
+                    ulBlue.innerHTML = liC2;
+                }
             }
+
+            /*function uncheck(event) {
+                let i;
+                event.stopPropagation();
+                const li = document.querySelectorAll('.skills__item');
+                console.log(event.currentTarget);
+                for (let i = 0; i < checkInput.length; i++) {
+                    if (checkInput[i] === event.currentTarget) {
+                        event.stopPropagation();
+                        console.log('i',i);
+
+                        if (li[i].innerHTML === checkInput[i].value && checkInput[i].checked === false) {
+                            console.log('checked entra al if', checkInput[i].checked);
+                            li[i].classList.add('hide-box');
+                        }
+                    }
+                }
+            }*/
             for (let i = 0; i < checkInput.length; i++) {
                 checkInput[i].addEventListener('click', check);
+                //checkInput[i].addEventListener('click', uncheck);
             }
-
         });
 }
 
