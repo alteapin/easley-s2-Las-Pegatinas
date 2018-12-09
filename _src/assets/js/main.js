@@ -81,23 +81,33 @@ butonfold[2].addEventListener('click', fold);
 const inputBlue = document.getElementById('pallete-blue');
 const inputRed = document.getElementById('pallete-red');
 const inputGrey = document.getElementById('pallete-grey');
+const inputGum = document.getElementById('pallete-gum');
+const inputPurple = document.getElementById('pallete-purple');
+
 const userCard = document.querySelector('.box-card');
 
 
+
 const handleColorTheme = () => {
-    userCard.classList.remove('color-grey', 'color-red');
+    userCard.classList.remove('color-grey', 'color-red' , 'color-gum', 'color-purple');
     const colorSelected = event.currentTarget;
 
     if (colorSelected === inputRed) {
         userCard.classList.add('color-red');
     } else if (colorSelected === inputGrey) {
         userCard.classList.add('color-grey');
+    } else if (colorSelected === inputGum) {
+        userCard.classList.add('color-gum');
+    } else if (colorSelected === inputPurple) {
+        userCard.classList.add('color-purple');
     }
 }
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+inputGum.addEventListener('click', handleColorTheme);
+inputPurple.addEventListener('click', handleColorTheme);
 
 
 

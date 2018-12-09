@@ -138,7 +138,6 @@ body {
 
 .skills__item--bg {
     background-color: $palette-blue-midtone;
-    border-top: 1px solid grey;
 }
 
 /*unfolds*/
@@ -501,8 +500,77 @@ body {
     }
 
 
-//media queries
 /*-----Classes for the card when selecting each palette----*/
+
+
+/* gum pallete*/
+/*
+.purple-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-midtone-color;
+}
+
+.purple-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-dark-color;
+}
+
+.purple-light-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-light-color;
+}
+
+*/
+.color-purple {
+    .card-header {
+        border-left: 3px solid  $palette-purple-light-color;
+    }
+    .name-person {
+        color: $palette-purple-dark-color;
+    }
+    .work-space{
+        color: $palette-purple-midtone-color;
+    }
+    .icons-contein {
+        border: 2px solid $palette-purple-light-color;
+    }
+    .icons-card {
+        color: $palette-purple-light-color;
+    }
+    .skills__item {
+        background-color: $palette-purple-dark-color;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-purple-midtone-color;
+    }
+}
+
+.color-gum {
+    .card-header {
+        border-left: 3px solid  $palette-blue-gum;
+    }
+    .name-person {
+        color: $palette-pink-dark-gum;
+    }
+    .work-space{
+        color: $palette-pink-light-gum;
+    }
+    .icons-contein {
+        border: 2px solid $palette-pink-dark-gum;
+    }
+    .icons-card {
+        color: $palette-pink-light-gum;
+    }
+    .skills__item {
+        background-color: $palette-blue-gum;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-blue-gum;
+    }
+}
 
 .color-red {
     .card-header {
@@ -555,6 +623,8 @@ body {
 }
 
 
+
+//media queries
 @media all and (min-width:768px) {
     .reset-box {
         padding-top: 163px;
