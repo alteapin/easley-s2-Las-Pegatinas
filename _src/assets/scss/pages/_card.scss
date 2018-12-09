@@ -102,12 +102,16 @@ body {
     border: 2px solid $palette-blue-ligth;
     border-radius: 50%;
     font-size: 18px;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
     .icons-card {
         color: $palette-blue-dark;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
     }
 }
 
