@@ -63,7 +63,7 @@ body {
 
 
 .btn__hidden{
-    display: none;
+    display: none !important;
 }
 .name-person {
     font-size: 18px;
@@ -655,11 +655,16 @@ input {
     flex-direction: row;
 }
 
-.empty-container {
+.preview-box {
     width: 30px;
     height: 30px;
     border: 1px solid $palette-blue-ligth;
     margin-top: 6px;
+}
+
+.preview-img {
+    max-width: 30px;
+    max-height: 30px;
 }
 
 .checkbox_contact {
