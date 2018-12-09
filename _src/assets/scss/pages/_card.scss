@@ -430,11 +430,11 @@ body {
     align-items: center;
 }
 
-.box-btn-share {
+.box-btn-create {
     padding: 33px 0 30px;
 }
 
-.btn-share {
+.btn-create {
     background-color: $color-primary;
     width: 199px;
     height: 50px;
@@ -455,7 +455,7 @@ body {
 }
 
 
-.btn-share--disabled {
+.btn-create--disabled {
     margin: 0 auto;
     background-color: $color-btn-disabled;
 }

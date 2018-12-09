@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 
 const name = document.querySelector('.name-person');
@@ -82,18 +83,28 @@ const inputBlue = document.getElementById('pallete-blue');
 const inputRed = document.getElementById('pallete-red');
 const inputGrey = document.getElementById('pallete-grey');
 const userCard = document.querySelector('.box-card');
+const colorList = document.querySelector('.colors-list ');
 
 
 const handleColorTheme = () => {
     userCard.classList.remove('color-grey', 'color-red');
     const colorSelected = event.currentTarget;
+    const checkedAttribute = colorList.querySelector('input[checked]');
 
     if (colorSelected === inputRed) {
         userCard.classList.add('color-red');
+        checkedAttribute.removeAttribute('checked');
+        inputRed.setAttribute('checked', 'yes');
     } else if (colorSelected === inputGrey) {
         userCard.classList.add('color-grey');
+        checkedAttribute.removeAttribute('checked');
+        inputGrey.setAttribute('checked', 'yes');
+    } else if (colorSelected === inputBlue) {
+        userCard.classList.add('color-blue');
+        checkedAttribute.removeAttribute('checked');
+        inputBlue.setAttribute('checked', 'yes');
     }
-}
+};
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
@@ -193,3 +204,8 @@ function getImage(event){
 inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
+
+
+//API SERVICE
+
+
