@@ -199,14 +199,15 @@ function getImage(event){
     let myFile = event.target.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
-    }
+}
 
-    function writeImage(event) {
-        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
-    }
-    function fileClick() {
-        inputImage.click();
-    }
+function writeImage(event) {
+    boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+}
+function fileClick() {
+    event.preventDefault();
+    inputImage.click();
+}
 
 inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
