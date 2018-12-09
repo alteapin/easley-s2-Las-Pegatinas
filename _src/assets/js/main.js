@@ -259,23 +259,7 @@ function inputs() {
                 }
             }
 
-            /*function uncheck(event) {
-                let i;
-                event.stopPropagation();
-                const li = document.querySelectorAll('.skills__item');
-                console.log(event.currentTarget);
-                for (let i = 0; i < checkInput.length; i++) {
-                    if (checkInput[i] === event.currentTarget) {
-                        event.stopPropagation();
-                        console.log('i',i);
-
-                        if (li[i].innerHTML === checkInput[i].value && checkInput[i].checked === false) {
-                            console.log('checked entra al if', checkInput[i].checked);
-                            li[i].classList.add('hide-box');
-                        }
-                    }
-                }
-            }*/
+            
             for (let i = 0; i < checkInput.length; i++) {
                 checkInput[i].addEventListener('click', check);
                 //checkInput[i].addEventListener('click', uncheck);
