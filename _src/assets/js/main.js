@@ -83,7 +83,7 @@ const inputBlue = document.getElementById('pallete-blue');
 const inputRed = document.getElementById('pallete-red');
 const inputGrey = document.getElementById('pallete-grey');
 const userCard = document.querySelector('.box-card');
-const colorList = document.querySelector('.colors-list ');
+const colorList = document.querySelector('.colors-list');
 
 
 const handleColorTheme = () => {
@@ -118,21 +118,28 @@ const ubuntuFont = document.getElementById('font-ubuntu');
 const comicFont = document.getElementById('font-comic');
 const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
+const fontList = document.querySelector('.fonts-list');
 
 function handleFonttheme(){
     fontCard.classList.remove('font-ubuntu','font-comic','font-montse');
+    const checkedAttribute = fontList.querySelector('input[checked]');
 
     const fontSelectedByUser = event.currentTarget;
 
     if(fontSelectedByUser === ubuntuFont) {
-
         fontCard.classList.add('font-ubuntu');
+        checkedAttribute.removeAttribute('checked');
+        ubuntuFont.setAttribute('checked', 'yes');
     }
     else if(fontSelectedByUser === comicFont){
         fontCard.classList.add('font-comic');
+        checkedAttribute.removeAttribute('checked');
+        comicFont.setAttribute('checked', 'yes');
     }
     else if(fontSelectedByUser === montseFont){
         fontCard.classList.add('font-montse');
+        checkedAttribute.removeAttribute('checked');
+        montseFont.setAttribute('checked', 'yes');
     }
 }
 
