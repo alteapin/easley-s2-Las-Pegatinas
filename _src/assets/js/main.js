@@ -193,6 +193,12 @@ uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
 
+const dataCard = {
+  'github': '',
+  'skills': [''],
+};
+
+
 function inputs() {
 
   fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
@@ -241,11 +247,19 @@ function inputs() {
         }
         console.log('skillarray' + skillArray);
         ulBlue.innerHTML = liC2;
+        updateDataCard('skills', skillArray);
+        localStorage.setItem('skills', JSON.stringify(dataCard));
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener('click', check);
       }
+
     });
 }
 
 inputs();
+
+
+function updateDataCard(key, value) {
+  dataCard[key] = value;
+}
