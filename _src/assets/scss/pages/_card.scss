@@ -12,8 +12,26 @@ body {
     border: 1px solid $color-silver;
     width: 100%;
     padding-bottom: 30px;
-    background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+    // background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+    background: linear-gradient(-75deg, $palette-blue-gum,$palette-pink-light-gum, $palette-pink-dark-gum, $palette-violet-gradient,$palette-blue-intense-gradient);
+    background-size: 800%;
+    animation: grad cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
 }
+
+@keyframes grad {
+    0%   { 
+        background-position: 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%;
+    }
+    100% { 
+        background-position: 0% 50%;
+    }
+}
+   
+
+
 
 .reset-box {
     width: 240px;

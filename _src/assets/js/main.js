@@ -254,5 +254,3 @@ function inputs() {
 }
 
 butonUnfold[1].addEventListener('click', inputs);
-
-
