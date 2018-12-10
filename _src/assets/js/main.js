@@ -198,7 +198,7 @@ function inputs() {
     fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
         .then(response => response.json())
         .then(data => {
-            console.log('Breeds data response: ', data);
+            console.log('data response: ', data);
 
             const divskills = document.querySelector('.container-checks');
             const dskills = data.skills;
