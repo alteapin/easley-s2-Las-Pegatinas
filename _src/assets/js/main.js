@@ -238,11 +238,11 @@ function inputs() {
                 let liC2 = '';
                 let acc2 = 0;
                 for (let i = 0; i < checkInput.length; i++) {
-                    if (acc2<3 && checkInput[i].checked === true) {
-                        console.log('i',i);
+                    if (acc2 < 3 && checkInput[i].checked === true) {
+                        console.log('i', i);
                         const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                            liC2 += liContent2;
-                        acc2 = acc2 +1;
+                        liC2 += liContent2;
+                        acc2 = acc2 + 1;
                     }
                     ulBlue.innerHTML = liC2;
                 }
