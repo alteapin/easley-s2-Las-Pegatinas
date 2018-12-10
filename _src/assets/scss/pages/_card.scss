@@ -613,6 +613,9 @@ body {
 .contact input {
     display: block;
     margin-top: 6px;
+    @media all and (min-width:768px) {
+        width: 300px;
+    }
 }
 
 
@@ -623,9 +626,6 @@ input {
     border: 1px solid $palette-blue-ligth;
     outline-style: none;
     width: 281px; 
-    @media all and (min-width:768px) {
-            width: 300px;
-        }
 }
 
 ::placeholder {
