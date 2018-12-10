@@ -210,7 +210,6 @@ function inputs() {
                 i = i + 1;
             }
             divskills.innerHTML = divContent;
-            //nuevo
 
             const checkInput = document.querySelectorAll('.checkbox_input');
             console.log('Checkarray: ', checkInput);
@@ -219,7 +218,6 @@ function inputs() {
             let acc = 0;
 
             function check(event) {
-
                 for (let i = 0; i < checkInput.length; i++) {
                     if (acc < 3) {
                         if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
@@ -237,32 +235,20 @@ function inputs() {
                 console.log('li0', li[0].innerHTML);
                 console.log('li1', li[1].innerHTML);
                 console.log('li2', li[2].innerHTML);
-                //if(li[i]value === checkInput[i])
                 let liC2 = '';
                 let acc2 = 0;
                 for (let i = 0; i < checkInput.length; i++) {
                     if (acc2<3 && checkInput[i].checked === true) {
-                       // event.stopPropagation();
                         console.log('i',i);
                         const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
                             liC2 += liContent2;
                         acc2 = acc2 +1;
-
-                       /* if (li[i].innerHTML === checkInput[i].value && checkInput[i].checked === false) {
-                            console.log('checked entra al if', checkInput[i].checked);
-                           // li[i].classList.add('hide-box');
-                           li.splice(i, 1);
-                           console.log(li);
-                        } este if no me lo lee pq ya no tengo innerHTML*/ 
                     }
                     ulBlue.innerHTML = liC2;
                 }
             }
-
-            
             for (let i = 0; i < checkInput.length; i++) {
                 checkInput[i].addEventListener('click', check);
-                //checkInput[i].addEventListener('click', uncheck);
             }
         });
 }
