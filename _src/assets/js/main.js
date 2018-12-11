@@ -6,7 +6,6 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-inputName.addEventListener(‘keyup’, updateDataObject);
 const dataCard ={
    'pallete': '',
    'typography': '',
