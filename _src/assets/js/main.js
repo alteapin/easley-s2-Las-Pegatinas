@@ -180,6 +180,7 @@ function handlerLinkedin() {
 const uploadBtn = document.querySelector('.button_ad_image');
 const inputImage = document.getElementById('img-selector');
 const boxUserImage = document.querySelector('.card-img');
+const previewImg = document.querySelector('.preview-img');
 
 //TODO:   ask about FileReader
 const fr = new FileReader();
@@ -191,10 +192,12 @@ function getImage(event) {
 }
 
 function writeImage(event) {
-    boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
-}
-
+        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+        previewImg.setAttribute('src', event.target.result);
+    }
+    
 function fileClick() {
+    event.preventDefault();
     inputImage.click();
 }
 
@@ -262,8 +265,4 @@ function inputs() {
             }
         });
 }
-
-butonUnfold[1].addEventListener('click', inputs);
-
-
 

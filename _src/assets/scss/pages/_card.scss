@@ -84,9 +84,10 @@ body {
 }
 
 
-.btn__hidden {
-  display: none;
+.btn__hidden{
+    display: none !important;
 }
+
 
 .name-person {
   font-size: 18px;
@@ -778,7 +779,12 @@ input {
   flex-direction: row;
 }
 
-.empty-container {
+.preview-img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.preview-box {
   width: 30px;
   height: 30px;
   border: 1px solid $palette-blue-ligth;
