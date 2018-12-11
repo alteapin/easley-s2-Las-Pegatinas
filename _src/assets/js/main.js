@@ -1,6 +1,20 @@
 /* eslint-disable indent */
 'use strict';
 
+const dataCard ={
+    'pallete': '',
+    'typography': '',
+    'name': '',
+    'job': '',
+    'photo': '',
+    'email': '',
+    'phone': '',
+    'linkedin': '',
+    'github': '',
+    'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
+};
+
+
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
@@ -8,17 +22,24 @@ const inputJob = document.querySelector('#job');
 
 
 
-function showText(event) {
 
+function updateDataObject(event) {
     const value = inputName.value;
-
     if (value) {
         name.innerHTML = event.target.value;
     } else {
         name.innerHTML = 'Nombre Apellido';
     }
-
+    updateDataCard('name',inputName.value);
+    localStorage.setItem('dataCard', JSON.stringify(dataCard));
 }
+
+function updateDataCard(key, value){
+    dataCard[key]= value;
+}
+
+
+inputName.addEventListener('keyup', updateDataObject);
 
 function showJob(event) {
 
@@ -32,7 +53,6 @@ function showJob(event) {
 
 }
 
-inputName.addEventListener('keyup', showText);
 inputJob.addEventListener('keyup', showJob);
 
 //hide boxes
@@ -89,7 +109,7 @@ const handleColorTheme = () => {
     userCard.classList.remove('color-grey', 'color-red');
     const colorSelected = event.currentTarget;
     const checkedAttribute = colorList.querySelector('input[checked]');
-
+// reciclar el checked en constante para eliminarlo
     if (colorSelected === inputRed) {
         userCard.classList.add('color-red');
         checkedAttribute.removeAttribute('checked');
@@ -119,7 +139,6 @@ const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 const fontList = document.querySelector('.fonts-list');
 
-<<<<<<< HEAD
 function handleFontTheme(){
     fontCard.classList.remove('font-ubuntu','font-comic','font-montse');
     const checkedAttribute = fontList.querySelector('input[checked]');
@@ -137,19 +156,6 @@ function handleFontTheme(){
         comicFont.setAttribute('checked', 'yes');
     }
     else if(fontSelectedByUser === montseFont){
-=======
-function handleFonttheme() {
-    fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
-
-    const fontSelectedByUser = event.currentTarget;
-
-    if (fontSelectedByUser === ubuntuFont) {
-
-        fontCard.classList.add('font-ubuntu');
-    } else if (fontSelectedByUser === comicFont) {
-        fontCard.classList.add('font-comic');
-    } else if (fontSelectedByUser === montseFont) {
->>>>>>> origin
         fontCard.classList.add('font-montse');
         checkedAttribute.removeAttribute('checked');
         montseFont.setAttribute('checked', 'yes');
@@ -268,11 +274,11 @@ function inputs() {
                     }
                 }
                 ulBlue.innerHTML = liC;
-                console.log(acc);
+                // console.log(acc);
                 const li = document.querySelectorAll('.skills__item');
-                console.log('li0', li[0].innerHTML);
-                console.log('li1', li[1].innerHTML);
-                console.log('li2', li[2].innerHTML);
+                // console.log('li0', li[0].innerHTML);
+                // console.log('li1', li[1].innerHTML);
+                // console.log('li2', li[2].innerHTML);
                 let liC2 = '';
                 let acc2 = 0;
                 for (let i = 0; i < checkInput.length; i++) {
@@ -300,82 +306,73 @@ butonUnfold[1].addEventListener('click', inputs);
 // Localstorage setup
 
 // const localStore = JSON.parse(localStorage.getItem('cardValues')) || 
-const localStore ={
-    'pallete': '',
-    'typography': '',
-    'name': '',
-    'job': '',
-    'photo': '',
-    'email': '',
-    'phone': '',
-    'linkedin': '',
-    'github': '',
-    'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
-};
 
 //TODO: Usar botones de reset y create sometime.
-const resetBtn = document.querySelector('.reset-btn');
-const createBtn = document.querySelector('.btn-create');
-const formData = document.querySelector('.fill'); // Form se repite y usamos el class .fill porque es unico
-const container = document.querySelector('.selectors-container');
+// const resetBtn = document.querySelector('.reset-btn');
+// const createBtn = document.querySelector('.btn-create');
+// const formData = document.querySelector('.fill'); // Form se repite y usamos el class .fill porque es unico
+// const container = document.querySelector('.selectors-container');
 
-function writeCardToLocalStorage() {
+// function writeCardToLocalStorage() {
     
-    function writeData (){
+//     //probando probando...
+//     // event.preventDefault();
+//     // Primero buscamos el color de paleta seleccionado
+//     const color = colorList.querySelector('input[checked]');
+//     localStore.pallete  = color.getAttribute('value');
 
-    
-    //probando probando...
-    // event.preventDefault();
-    // Primero buscamos el color de paleta seleccionado
-    const color = colorList.querySelector('input[checked]');
-    localStore.pallete  = color.getAttribute('value');
+//     // Ahora buscamos la fuente seleccionada
+//     const font = fontList.querySelector('input[checked]');
+//     localStore.typography = font.getAttribute('value');
 
-    // Ahora buscamos la fuente seleccionada
-    const font = fontList.querySelector('input[checked]');
-    localStore.typography = font.getAttribute('value');
+//     // Ahora vamos a recoger el form de rellena
+//     const formName = formData.querySelector('#firstName');
+//     localStore.name = formName.value;
 
-    // Ahora vamos a recoger el form de rellena
-    const formName = formData.querySelector('#firstName');
-    localStore.name = formName.value;
+//     const formJob = formData.querySelector('#job');
+//     localStore.job = formJob.value;
 
-    const formJob = formData.querySelector('#job');
-    localStore.job = formJob.value;
+//     const formPhoto = formData.querySelector('.preview-img');
+//     localStore.photo = formPhoto.getAttribute('src');
 
-    const formPhoto = formData.querySelector('.preview-img');
-    localStore.photo = formPhoto.getAttribute('src');
+//     const formEmail = formData.querySelector('#email');
+//     localStore.email = formEmail.value;
 
-    const formEmail = formData.querySelector('#email');
-    localStore.email = formEmail.value;
+//     const formPhone = formData.querySelector('#phone');
+//     localStore.phone = formPhone.value;
 
-    const formPhone = formData.querySelector('#phone');
-    localStore.phone = formPhone.value;
+//     const formLinkedin = formData.querySelector('#linkedin');
+//     localStore.linkedin = formLinkedin.value;
 
-    const formLinkedin = formData.querySelector('#linkedin');
-    localStore.linkedin = formLinkedin.value;
+//     const formGithub = formData.querySelector('#github');
+//     localStore.github = formGithub.value;
 
-    const formGithub = formData.querySelector('#github');
-    localStore.github = formGithub.value;
+//     //GUARDO LOS VALORES EN STRING
+//     localStorage.setItem('cardValues', JSON.stringify(localStore));
+// }
 
-    //GUARDO LOS VALORES EN STRING
-    localStorage.setItem('cardValues', JSON.stringify(localStore));
-    }
-    writeData();
-    //LOS PARSEO, TENGO QUE INYECTARLOS OTRA VEZ EN LA PAGINA PERO NO SE COMO
-    const dataSaved = JSON.parse(localStorage.getItem('cardValues'));
+// function retrieveDatafromLocalStore () {
+//     const dataSaved = JSON.parse(localStorage.getItem('cardValues'));
+//     if (!!dataSaved === true) {
+//         console.log(dataSaved);
+//         //me falta inyectarlo en la card
+//     }
+// }
+// retrieveDatafromLocalStore ();
 
-    //
-    if (!!dataSaved === true) {
-        console.log(dataSaved);
-        const palleteChosen = localStore.pallete;
-        const colorSel = palleteChosen.value;
+// function handleLocalStorage(){
 
-    }
-}
-//HELP https://codepen.io/adalab/pen/WKeOQo?editors=1011
-container.addEventListener('change', writeCardToLocalStorage);
+//     writeCardToLocalStorage();
+
+// }
+
+// //HELP https://codepen.io/adalab/pen/WKeOQo?editors=1011
+// container.addEventListener('change', handleLocalStorage);
 
 //☝️☝️☝️ con todo este churro consigo que se salven los datos en local pero NO CONSIGO QUE SE PINTEN TRAS F5.
-
+///fuck no consigo que se quede al refrescar la pagina 
+//const savedData = JSON.parse(localStorage.getItem('cardValues'));
+//esto lo he metido como or en el localStore
 // function handleLocalStorage(){
     
 //     if (!!dataSaved === true) {
@@ -386,24 +383,10 @@ container.addEventListener('change', writeCardToLocalStorage);
 //     }
 // }
 
-// function retrieveDatafromLocalStore () {
-//     const dataSaved = JSON.parse(localStorage.getItem('cardValues'));
-//         dataSaved
-// }
-
-///fuck no consigo que se quede al refrescar la pagina 
-//const savedData = JSON.parse(localStorage.getItem('cardValues'));
-//esto lo he metido como or en el localStore
-
 
 // function retrieveDatafromLocalStore () {
 //     let colorLocal = savedData.pallete;
-
 // }
-
-
-
-
 // let git = document.querySelector('#github');
 // undefined
 // git.value;
