@@ -6,7 +6,7 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-inputName.addEventListener(‘keyup’, updateDataObject);
+
 const dataCard ={
    'pallete': '',
    'typography': '',
@@ -19,6 +19,8 @@ const dataCard ={
    'github': '',
    'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
 };
+
+
 
 function updateDataName(event) {
     const value = inputName.value;
