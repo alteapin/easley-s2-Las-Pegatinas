@@ -6,52 +6,58 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-
-const dataCard ={
-   'pallete': '',
-   'typography': '',
-   'name': '',
-   'job': '',
-   'photo': '',
-   'email': '',
-   'phone': '',
-   'linkedin' : '',
-   'github': '',
-   'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
+const dataCard = {
+  'pallete': '',
+  'typography': '',
+  'name': '',
+  'job': '',
+  'photo': '',
+  'email': '',
+  'phone': '',
+  'linkedin': '',
+  'github': '',
+  'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
 };
 
-
+function updateDataCard(key, value) {
+    dataCard[key] = value;
+  }
+  
 
 function updateDataName(event) {
-    const value = inputName.value;
-    if (value) {
-        name.innerHTML = event.target.value;
-    } else {
-        name.innerHTML = 'Nombre Apellido';
-    }
-    updateDataCard('name',inputName.value);
- }
- 
- function updateDataCard(key, value){
-    dataCard[key]= value;
- }
+  const value = inputName.value;
+  if (value) {
+    name.innerHTML = event.target.value;
+  } else {
+    name.innerHTML = 'Nombre Apellido';
+  }
+  updateDataCard('name', inputName.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
+}
 
- function updateDataJob(event) {
-    const value = inputJob.value;
-    if (value) {
-        job.innerHTML = event.target.value;
-    } else {
-        job.innerHTML = 'Front-end developer';
-    }
-    updateDataCard('job',inputJob.value);
- }
- 
- function updateDataJob(key, value){
-    dataCard[key]= value;
- }
+function updateDataCard(key, value) {
+  dataCard[key] = value;
+}
+
+function updateDataJob(event) {
+  const value = inputJob.value;
+  if (value) {
+    job.innerHTML = event.target.value;
+  } else {
+    job.innerHTML = 'Front-end developer';
+  }
+  updateDataCard('job', inputJob.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
+}
+
+function updateDataJob(key, value) {
+  dataCard[key] = value;
+}
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
+
+
 
 //hide boxes
 
@@ -61,26 +67,26 @@ const butonfold = document.querySelectorAll('.btn-fold');
 const button = document.querySelectorAll('button');
 
 function fold(event) {
-    const newButton = event.currentTarget;
-    for (let i = 0; i < hideBoxes.length; i++) {
-        if (newButton === butonUnfold[i] || newButton === butonfold[i]) {
-            if (hideBoxes[i].classList.contains('hide-box')) {
-                // Elimina la clase
-                hideBoxes[i].classList.remove('hide-box');
-                butonUnfold[i].classList.add('hide-box');
-                butonfold[i].classList.remove('btn-fold');
-            } else { // Sino
-                // Añade la clase hidden
-                hideBoxes[i].classList.add('hide-box');
-                butonUnfold[i].classList.remove('hide-box');
-                butonfold[i].classList.add('btn-fold');
-            }
-        } else {
-            hideBoxes[i].classList.add('hide-box');
-            butonUnfold[i].classList.remove('hide-box');
-            butonfold[i].classList.add('btn-fold');
-        }
+  const newButton = event.currentTarget;
+  for (let i = 0; i < hideBoxes.length; i++) {
+    if (newButton === butonUnfold[i] || newButton === butonfold[i]) {
+      if (hideBoxes[i].classList.contains('hide-box')) {
+        // Elimina la clase
+        hideBoxes[i].classList.remove('hide-box');
+        butonUnfold[i].classList.add('hide-box');
+        butonfold[i].classList.remove('btn-fold');
+      } else { // Sino
+        // Añade la clase hidden
+        hideBoxes[i].classList.add('hide-box');
+        butonUnfold[i].classList.remove('hide-box');
+        butonfold[i].classList.add('btn-fold');
+      }
+    } else {
+      hideBoxes[i].classList.add('hide-box');
+      butonUnfold[i].classList.remove('hide-box');
+      butonfold[i].classList.add('btn-fold');
     }
+  }
 
 }
 
@@ -137,18 +143,18 @@ const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 
 function handleFonttheme() {
-    fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
+  fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
 
-    const fontSelectedByUser = event.currentTarget;
+  const fontSelectedByUser = event.currentTarget;
 
-    if (fontSelectedByUser === ubuntuFont) {
+  if (fontSelectedByUser === ubuntuFont) {
 
-        fontCard.classList.add('font-ubuntu');
-    } else if (fontSelectedByUser === comicFont) {
-        fontCard.classList.add('font-comic');
-    } else if (fontSelectedByUser === montseFont) {
-        fontCard.classList.add('font-montse');
-    }
+    fontCard.classList.add('font-ubuntu');
+  } else if (fontSelectedByUser === comicFont) {
+    fontCard.classList.add('font-comic');
+  } else if (fontSelectedByUser === montseFont) {
+    fontCard.classList.add('font-montse');
+  }
 }
 
 ubuntuFont.addEventListener('click', handleFonttheme);
@@ -166,7 +172,9 @@ const linked = document.querySelector('#linkedin');
 //form email
 
 function handlersendMail() {
-    icons[1].href = 'mailto:' + mail.value;
+  icons[1].href = 'mailto:' + mail.value;
+  updateDataCard('email', mail.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 mail.addEventListener('keyup', handlersendMail);
@@ -174,7 +182,9 @@ mail.addEventListener('keyup', handlersendMail);
 //form telephone
 
 function handlerPhone() {
-    icons[0].href = 'tel: +34' + phone.value;
+  icons[0].href = 'tel: +34' + phone.value;
+  updateDataCard('phone', phone.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 phone.addEventListener('keyup', handlerPhone);
@@ -182,7 +192,9 @@ phone.addEventListener('keyup', handlerPhone);
 //form github
 
 function handlerGithub() {
-    icons[3].href = 'https://github.com/' + github.value;
+  icons[3].href = 'https://github.com/' + github.value;
+  updateDataCard('github', github.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 github.addEventListener('keyup', handlerGithub);
@@ -190,7 +202,9 @@ github.addEventListener('keyup', handlerGithub);
 //form linkedin
 
 function handlerLinkedin() {
-    icons[2].href = 'https://linkedin.com/in/' + linked.value;
+  icons[2].href = 'https://linkedin.com/in/' + linked.value;
+  updateDataCard('linkedin', linked.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 
@@ -205,19 +219,19 @@ const previewImg = document.querySelector('.preview-img');
 const fr = new FileReader();
 
 function getImage(event) {
-    let myFile = event.target.files[0];
-    fr.addEventListener('load', writeImage);
-    fr.readAsDataURL(myFile);
+  let myFile = event.target.files[0];
+  fr.addEventListener('load', writeImage);
+  fr.readAsDataURL(myFile);
 }
 
 function writeImage(event) {
-        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
-        previewImg.setAttribute('src', event.target.result);
-    }
-    
+  boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+  previewImg.setAttribute('src', event.target.result);
+}
+
 function fileClick() {
-    event.preventDefault();
-    inputImage.click();
+  event.preventDefault();
+  inputImage.click();
 }
 
 inputImage.addEventListener('change', getImage);
@@ -227,63 +241,58 @@ linked.addEventListener('keyup', handlerLinkedin);
 
 function inputs() {
 
-    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-        .then(response => response.json())
-        .then(data => {
-            console.log('data response: ', data);
+  fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log('data response: ', data);
 
-            const divskills = document.querySelector('.container-checks');
-            const dskills = data.skills;
-            let divContent = '';
-            let i = 1;
-            for (const skill of dskills) {
-                const skillContent = `<div class="check_styles"><label for="${[i]}"><input class="checkbox_input" type="checkbox" id="${[i]}" value=${skill} name="hability">${skill}</label></div>`;
-                divContent += skillContent;
-                i = i + 1;
+      const divskills = document.querySelector('.container-checks');
+      const dskills = data.skills;
+      let divContent = '';
+      let i = 1;
+      for (const skill of dskills) {
+        const skillContent = `<div class="check_styles"><label for="${[i]}"><input class="checkbox_input" type="checkbox" id="${[i]}" value=${skill} name="hability">${skill}</label></div>`;
+        divContent += skillContent;
+        i = i + 1;
+      }
+      divskills.innerHTML = divContent;
+      const checkInput = document.querySelectorAll('.checkbox_input');
+      const ulBlue = document.querySelector('.skills__list');
+      let liC = '';
+      let acc = 0;
+
+      function check(event) {
+        for (let i = 0; i < checkInput.length; i++) {
+          if (acc < 3) {
+            if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
+              const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+              liC += liContent;
+              acc = acc + 1;
             }
-            divskills.innerHTML = divContent;
-
-            const checkInput = document.querySelectorAll('.checkbox_input');
-            console.log('Checkarray: ', checkInput);
-            const ulBlue = document.querySelector('.skills__list');
-            let liC = '';
-            let acc = 0;
-
-            function check(event) {
-                for (let i = 0; i < checkInput.length; i++) {
-                    if (acc < 3) {
-                        if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
-
-                            const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                            liC += liContent;
-                            acc = acc + 1;
-                            console.log('checked value', checkInput[i].value);
-                        }
-                    }
-                }
-                ulBlue.innerHTML = liC;
-                console.log(acc);
-                const li = document.querySelectorAll('.skills__item');
-                console.log('li0', li[0].innerHTML);
-                console.log('li1', li[1].innerHTML);
-                console.log('li2', li[2].innerHTML);
-                let liC2 = '';
-                let acc2 = 0;
-                for (let i = 0; i < checkInput.length; i++) {
-                    if (acc2 < 3 && checkInput[i].checked === true) {
-                        console.log('i', i);
-                        const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-                        liC2 += liContent2;
-                        acc2 = acc2 + 1;
-                    }
-                    ulBlue.innerHTML = liC2;
-                }
-            }
-            for (let i = 0; i < checkInput.length; i++) {
-                checkInput[i].addEventListener('click', check);
-            }
-        });
+          }
+        }
+        ulBlue.innerHTML = liC;
+        let liC2 = '';
+        let acc2 = 0;
+        let j = 0;
+        let skillArray = [];
+        for (let i = 0; i < checkInput.length; i++) {
+          if (acc2 < 3 && checkInput[i].checked === true) {
+            const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+            liC2 += liContent2;
+            acc2 = acc2 + 1;
+            skillArray[j] = checkInput[i].value;
+            j = j + 1;
+          }
+          ulBlue.innerHTML = liC2;
+          updateDataCard('skills', skillArray);
+          localStorage.setItem('skills', JSON.stringify(dataCard));
+        }
+      }
+      for (let i = 0; i < checkInput.length; i++) {
+        checkInput[i].addEventListener('click', check);
+      }
+    });
 }
 
-
-
+inputs();
