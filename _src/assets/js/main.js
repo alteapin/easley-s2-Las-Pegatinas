@@ -56,8 +56,7 @@ function fold(event) {
                 butonUnfold[i].classList.remove('hide-box');
                 butonfold[i].classList.add('btn-fold');
             }
-        }
-        else {
+        } else {
             hideBoxes[i].classList.add('hide-box');
             butonUnfold[i].classList.remove('hide-box');
             butonfold[i].classList.add('btn-fold');
@@ -118,19 +117,17 @@ const comicFont = document.getElementById('font-comic');
 const montseFont = document.getElementById('font-montse');
 const fontCard = document.querySelector('.card-header');
 
-function handleFonttheme(){
-    fontCard.classList.remove('font-ubuntu','font-comic','font-montse');
+function handleFonttheme() {
+    fontCard.classList.remove('font-ubuntu', 'font-comic', 'font-montse');
 
     const fontSelectedByUser = event.currentTarget;
 
-    if(fontSelectedByUser === ubuntuFont) {
+    if (fontSelectedByUser === ubuntuFont) {
 
         fontCard.classList.add('font-ubuntu');
-    }
-    else if(fontSelectedByUser === comicFont){
+    } else if (fontSelectedByUser === comicFont) {
         fontCard.classList.add('font-comic');
-    }
-    else if(fontSelectedByUser === montseFont){
+    } else if (fontSelectedByUser === montseFont) {
         fontCard.classList.add('font-montse');
     }
 }
@@ -187,19 +184,86 @@ const boxUserImage = document.querySelector('.card-img');
 //TODO:   ask about FileReader
 const fr = new FileReader();
 
-function getImage(event){
+function getImage(event) {
     let myFile = event.target.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
-    }
+}
 
-    function writeImage(event) {
-        boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
-    }
-    function fileClick() {
-        inputImage.click();
-    }
+function writeImage(event) {
+    boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+}
+
+function fileClick() {
+    inputImage.click();
+}
 
 inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
+
+
+function inputs() {
+
+    fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log('data response: ', data);
+
+            const divskills = document.querySelector('.container-checks');
+            const dskills = data.skills;
+            let divContent = '';
+            let i = 1;
+            for (const skill of dskills) {
+                const skillContent = `<div class="check_styles"><label for="${[i]}"><input class="checkbox_input" type="checkbox" id="${[i]}" value=${skill} name="hability">${skill}</label></div>`;
+                divContent += skillContent;
+                i = i + 1;
+            }
+            divskills.innerHTML = divContent;
+
+            const checkInput = document.querySelectorAll('.checkbox_input');
+            console.log('Checkarray: ', checkInput);
+            const ulBlue = document.querySelector('.skills__list');
+            let liC = '';
+            let acc = 0;
+
+            function check(event) {
+                for (let i = 0; i < checkInput.length; i++) {
+                    if (acc < 3) {
+                        if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
+
+                            const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                            liC += liContent;
+                            acc = acc + 1;
+                            console.log('checked value', checkInput[i].value);
+                        }
+                    }
+                }
+                ulBlue.innerHTML = liC;
+                console.log(acc);
+                const li = document.querySelectorAll('.skills__item');
+                console.log('li0', li[0].innerHTML);
+                console.log('li1', li[1].innerHTML);
+                console.log('li2', li[2].innerHTML);
+                let liC2 = '';
+                let acc2 = 0;
+                for (let i = 0; i < checkInput.length; i++) {
+                    if (acc2 < 3 && checkInput[i].checked === true) {
+                        console.log('i', i);
+                        const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
+                        liC2 += liContent2;
+                        acc2 = acc2 + 1;
+                    }
+                    ulBlue.innerHTML = liC2;
+                }
+            }
+            for (let i = 0; i < checkInput.length; i++) {
+                checkInput[i].addEventListener('click', check);
+            }
+        });
+}
+
+butonUnfold[1].addEventListener('click', inputs);
+
+
+

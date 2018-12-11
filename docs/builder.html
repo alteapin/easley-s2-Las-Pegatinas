@@ -39,9 +39,7 @@
                              <h3 class="work-space"> Front-end developer</h3>
 
                         </div>
-                        <div class="card-img">
-                            <img class="img-default" src="assets/images/tiger.png" alt="Girl default">
-                        </div>
+                        <div class="card-img"></div>
                         <div class="icons-box">
                             <ul class="list-icon-card">
                                 <li class="icons-contein icon-movil"> <a href="" class="icons-card"><i class="fas fa-mobile-alt"></i></a>
@@ -61,9 +59,10 @@
                         <div class="card-footer">
                             <div class="skills">
                                 <ul class="skills__list">
-                                    <li class="skills__item skills__item--bg">html</li>
-                                    <li class="skills__item skills__item--bg">css</li>
-                                    <li class="skills__item skills__item--bg">gulp</li>
+                                    <!-- <li class="skills__item skills__item--bg"></li>
+                        <li class="skills__item skills__item--bg"></li>
+                        <li class="skills__item skills__item--bg"></li>
+                    -->
                                 </ul>
                             </div>
                         </div>
@@ -232,6 +231,9 @@
                                 <label for="image">Imagen de perfil</label>
                                 <div class="add_image">
                                     <button class="button_ad_image" type="submit" value="submit">Añadir imagen</button>
+                                    <!-- adding an input field to set up the choose
+                                    file action -->
+                                    <input type="file" name="addImage" id="img-selector" class="btn__hidden">
                                     <div class="empty-container"></div>
                                 </div>
                             </div>
@@ -256,21 +258,25 @@
                                 name="github">
                             </div>
                             <p class="contact checkbox_contact">Habilidades (máximo 3)</p>
-                            <div class="check_styles">
-                                <label for="hability1">
-                                    <input class="checkbox_input" id="flightoption1" type="checkbox" value="HTML"
-                                    name="hability">HTML</label>
-                            </div>
-                            <div class="check_styles">
-                                <label for="hability2">
-                                    <input class="checkbox_input" id="flightoption2" type="checkbox" value="CSS"
-                                    name="hability">CSS</label>
-                            </div>
-                            <div class="check_styles">
-                                <label for="hability3">
-                                    <input class="checkbox_input" id="flightoption3" type="checkbox" value="React"
-                                    name="hability">React</label>
-                            </div>
+                            <div class="container-checks check_styles"></div>
+                            <!-- <div class="check_styles"> 
+                    <label for="hability1">
+                      <input class="checkbox_input" id="flightoption1" type="checkbox" value="HTML" name="hability">
+                      HTML
+                    </label>
+                </div>
+                <div class="check_styles">
+                    <label for="hability2">
+                      <input class="checkbox_input" id="flightoption2" type="checkbox" value="CSS" name="hability">
+                      CSS
+                    </label>
+                </div>
+                <div class="check_styles">
+                    <label for="hability3">
+                      <input class="checkbox_input" id="flightoption3" type="checkbox" value="React" name="hability">
+                      React
+                    </label>
+                </div>-->
                         </form>
                     </div>
                     <div class="box-selector edit-share">
