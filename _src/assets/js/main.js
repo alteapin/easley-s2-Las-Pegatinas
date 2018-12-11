@@ -6,7 +6,10 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> localSkills
 const dataCard = {
   'pallete': '',
   'typography': '',
@@ -33,9 +36,17 @@ function updateDataName(event) {
     name.innerHTML = 'Nombre Apellido';
   }
   updateDataCard('name', inputName.value);
+<<<<<<< HEAD
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
+=======
+}
+
+function updateDataCard(key, value) {
+  dataCard[key] = value;
+}
+>>>>>>> localSkills
 
 function updateDataJob(event) {
   const value = inputJob.value;
@@ -45,9 +56,17 @@ function updateDataJob(event) {
     job.innerHTML = 'Front-end developer';
   }
   updateDataCard('job', inputJob.value);
+<<<<<<< HEAD
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
+=======
+}
+
+function updateDataJob(key, value) {
+  dataCard[key] = value;
+}
+>>>>>>> localSkills
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
@@ -241,9 +260,13 @@ function inputs() {
         i = i + 1;
       }
       divskills.innerHTML = divContent;
+<<<<<<< HEAD
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       console.log('Checkarray: ', checkInput);
+=======
+      const checkInput = document.querySelectorAll('.checkbox_input');
+>>>>>>> localSkills
       const ulBlue = document.querySelector('.skills__list');
       let liC = '';
       let acc = 0;
@@ -252,30 +275,28 @@ function inputs() {
         for (let i = 0; i < checkInput.length; i++) {
           if (acc < 3) {
             if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
-
               const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
               liC += liContent;
               acc = acc + 1;
-              console.log('checked value', checkInput[i].value);
             }
           }
         }
         ulBlue.innerHTML = liC;
-        console.log(acc);
-        const li = document.querySelectorAll('.skills__item');
-        console.log('li0', li[0].innerHTML);
-        console.log('li1', li[1].innerHTML);
-        console.log('li2', li[2].innerHTML);
         let liC2 = '';
         let acc2 = 0;
+        let j = 0;
+        let skillArray = [];
         for (let i = 0; i < checkInput.length; i++) {
           if (acc2 < 3 && checkInput[i].checked === true) {
-            console.log('i', i);
             const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
             liC2 += liContent2;
             acc2 = acc2 + 1;
+            skillArray[j] = checkInput[i].value;
+            j = j + 1;
           }
           ulBlue.innerHTML = liC2;
+          updateDataCard('skills', skillArray);
+          localStorage.setItem('skills', JSON.stringify(dataCard));
         }
       }
       for (let i = 0; i < checkInput.length; i++) {
@@ -283,3 +304,5 @@ function inputs() {
       }
     });
 }
+
+inputs();
