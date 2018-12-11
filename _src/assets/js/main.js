@@ -7,6 +7,7 @@ const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
 
+<<<<<<< HEAD
 const dataCard = {
   'pallete': '',
   'typography': '',
@@ -24,6 +25,22 @@ function updateDataCard(key, value) {
     dataCard[key] = value;
   }
   
+=======
+const dataCard ={
+   'pallete': '',
+   'typography': '',
+   'name': '',
+   'job': '',
+   'photo': '',
+   'email': '',
+   'phone': '',
+   'linkedin' : '',
+   'github': '',
+   'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
+};
+
+
+>>>>>>> 7b1a952ea02d0356df9be2c0313abc97735a2d8d
 
 function updateDataName(event) {
   const value = inputName.value;
