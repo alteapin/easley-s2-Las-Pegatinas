@@ -35,6 +35,12 @@ function updateDataName(event) {
  function updateDataCard(key, value){
     dataCard[key]= value;
  }
+ 
+
+//  function retrieveDataStored() {
+//      const dataStored = JSON.parse('datos')
+//      console.log(dataStored);
+//  }
 
  function updateDataJob(event) {
     const value = inputJob.value;
