@@ -256,14 +256,20 @@ function inputs() {
                 console.log('li2', li[2].innerHTML);
                 let liC2 = '';
                 let acc2 = 0;
+                let j=0;
                 for (let i = 0; i < checkInput.length; i++) {
                     if (acc2 < 3 && checkInput[i].checked === true) {
                         console.log('i', i);
                         const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
                         liC2 += liContent2;
                         acc2 = acc2 + 1;
+                        skillArray[j] = checkInput[i].value;
+            j = j + 1;
                     }
+                    console.log('skillarray' + skillArray);
                     ulBlue.innerHTML = liC2;
+                    updateDataCard('skills', skillArray);
+                    localStorage.setItem('skills', JSON.stringify(dataCard));
                 }
             }
             for (let i = 0; i < checkInput.length; i++) {
