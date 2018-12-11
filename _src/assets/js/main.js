@@ -1,38 +1,55 @@
 'use strict';
 
+
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
+inputName.addEventListener(‘keyup’, updateDataObject);
+const dataCard ={
+   'pallete': '',
+   'typography': '',
+   'name': '',
+   'job': '',
+   'photo': '',
+   'email': '',
+   'phone': '',
+   'linkedin' : '',
+   'github': '',
+   'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
+};
 
-
-function showText(event) {
-
+function updateDataName(event) {
     const value = inputName.value;
-
     if (value) {
         name.innerHTML = event.target.value;
     } else {
         name.innerHTML = 'Nombre Apellido';
     }
+    updateDataCard('name',inputName.value);
+ }
+ 
+ function updateDataCard(key, value){
+    dataCard[key]= value;
+ }
 
-}
-
-function showJob(event) {
-
+ function updateDataJob(event) {
     const value = inputJob.value;
-
     if (value) {
         job.innerHTML = event.target.value;
     } else {
         job.innerHTML = 'Front-end developer';
     }
+    updateDataCard('job',inputJob.value);
+ }
+ 
+ function updateDataJob(key, value){
+    dataCard[key]= value;
+ }
 
-}
-
-inputName.addEventListener('keyup', showText);
-inputJob.addEventListener('keyup', showJob);
+inputName.addEventListener('keyup', updateDataName);
+inputJob.addEventListener('keyup', updateDataJob);
 
 //hide boxes
 
@@ -265,4 +282,6 @@ function inputs() {
             }
         });
 }
+
+
 
