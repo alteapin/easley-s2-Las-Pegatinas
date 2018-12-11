@@ -109,8 +109,10 @@ const userCard = document.querySelector('.box-card');
 const handleColorTheme = () => {
     userCard.classList.remove('color-grey', 'color-red' , 'color-gum', 'color-purple');
     const colorSelected = event.currentTarget;
+    console.log(colorSelected);
 
     if (colorSelected === inputRed) {
+        console.log(inputRed.checked);
         userCard.classList.add('color-red');
     } else if (colorSelected === inputGrey) {
         userCard.classList.add('color-grey');
@@ -119,7 +121,11 @@ const handleColorTheme = () => {
     } else if (colorSelected === inputPurple) {
         userCard.classList.add('color-purple');
     }
+
+    updateDataCard('pallete', colorSelected.value);
+    localStorage.setItem('datos', JSON.stringify(dataCard));
 }
+
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
@@ -149,6 +155,8 @@ function handleFonttheme() {
     } else if (fontSelectedByUser === montseFont) {
         fontCard.classList.add('font-montse');
     }
+    updateDataCard('typography', fontSelectedByUser.value);
+    localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 ubuntuFont.addEventListener('click', handleFonttheme);
