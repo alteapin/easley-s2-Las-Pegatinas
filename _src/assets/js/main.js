@@ -35,11 +35,6 @@ function updateDataName(event) {
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 9dd000ccd5d3923b7b051bdaade65cc975afeeaf
 function updateDataCard(key, value) {
   dataCard[key] = value;
 }
@@ -55,12 +50,6 @@ function updateDataJob(event) {
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-<<<<<<< HEAD
-=======
-function updateDataJob(key, value) {
-  dataCard[key] = value;
-}
->>>>>>> 9dd000ccd5d3923b7b051bdaade65cc975afeeaf
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
