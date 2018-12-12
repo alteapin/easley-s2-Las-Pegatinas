@@ -59,14 +59,14 @@ function fillSavedForm() {
     name.innerHTML = 'Nombre Apellido';
   }
   inputName.value = dataCard.name;
-
+  //job
   if (dataCard.job) {
     job.innerHTML = dataCard.job;
   } else {
     job.innerHTML = 'Front-end developer';
   }
   inputJob.value = dataCard.job;
-
+  //icons
   icons[0].href = 'tel: +34' + dataCard.phone;
   phone.value = dataCard.phone;
 
@@ -75,21 +75,26 @@ function fillSavedForm() {
 
   icons[3].href = 'https://github.com/' + dataCard.github;
   github.value = dataCard.github;
-
+  //pallete
   if (dataCard.pallete === '1') {
     inputBlue.checked = true;
+    userCard.classList.add('color-blue');
   }
   if (dataCard.pallete === '2') {
     inputRed.checked = true;
+    userCard.classList.add('color-red');
   }
   if (dataCard.pallete === '3') {
     inputGrey.checked = true;
+    userCard.classList.add('color-grey');
   }
   if (dataCard.pallete === '4') {
     inputGum.checked = true;
+    userCard.classList.add('color-gum');
   }
   if (dataCard.pallete === '5') {
     inputPurple.checked = true;
+    userCard.classList.add('color-purple');
   }
 
 }
