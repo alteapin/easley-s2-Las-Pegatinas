@@ -123,19 +123,22 @@ body {
 }
 
 .icons-contein {
-  width: 32px;
-  height: 32px;
-  border: 2px solid $palette-blue-ligth;
-  border-radius: 50%;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-
-  .icons-card {
-    color: $palette-blue-dark;
-  }
+    width: 32px;
+    height: 32px;
+    border: 2px solid $palette-blue-ligth;
+    border-radius: 50%;
+    font-size: 18px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icons-card {
+        color: $palette-blue-dark;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
 }
 
 .card-footer {
@@ -164,8 +167,7 @@ body {
 }
 
 .skills__item--bg {
-  background-color: $palette-blue-midtone;
-  border-top: 1px solid grey;
+    background-color: $palette-blue-midtone;
 }
 
 /*unfolds*/
@@ -532,57 +534,133 @@ body {
 }
 
 
-//media queries
 /*-----Classes for the card when selecting each palette----*/
 
+
+/* gum pallete*/
+/*
+.purple-midtone-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-midtone-color;
+}
+
+.purple-dark-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-dark-color;
+}
+
+.purple-light-color {
+    width: 30px;
+    height: 25px;
+    background-color: $palette-purple-light-color;
+}
+
+*/
+.color-purple {
+    .card-img {
+        background-image: url("../images/panter7.png");
+        background-position: top;
+    }
+    .card-header {
+        border-left: 3px solid  $palette-purple-light-color;
+    }
+    .name-person {
+        color: $palette-purple-dark-color;
+    }
+    .work-space{
+        color: $palette-purple-midtone-color;
+    }
+    .icons-contein {
+        border: 2px solid $palette-purple-light-color;
+    }
+    .icons-card {
+        color: $palette-purple-light-color;
+    }
+    .skills__item {
+        background-color: $palette-purple-dark-color;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-purple-midtone-color;
+    }
+}
+
+.color-gum {
+    .card-img {
+        background-image: url("../images/cat2.png");
+        background-position: top;
+    }
+    .card-header {
+        border-left: 3px solid  $palette-blue-gum;
+    }
+    .name-person {
+        color: $palette-pink-dark-gum;
+    }
+    .work-space{
+        color: $palette-pink-light-gum;
+    }
+    .icons-contein {
+        border: 2px solid $palette-pink-dark-gum;
+    }
+    .icons-card {
+        color: $palette-pink-light-gum;
+    }
+    .skills__item {
+        background-color: $palette-blue-gum;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-blue-gum;
+    }
+}
 .color-red {
-  .card-header {
-    border-left: 3px solid $palette-red-dark;
-  }
-
-  .name-person {
-    color: $palette-red-dark;
-  }
-
-  .icons-contein {
-    border: 2px solid $palette-red-ligth;
-  }
-
-  .icons-card {
-    color: $palette-red-dark;
-  }
-
-  .skills__item {
-    background-color: $palette-red-midtone;
-  }
+    .card-img {
+        background-image: url("../images/cebra5.png");
+        background-position: top;
+    }
+    .card-header {
+        border-left: 3px solid $palette-red-dark;
+    }
+    .name-person {
+        color: $palette-red-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-red-ligth;
+    }
+    .icons-card {
+        color: $palette-red-dark;
+    }
+    .skills__item {
+        background-color: $palette-red-midtone;
+    }
 }
 
 .color-grey {
-  .card-header {
-    border-left: 3px solid $palette-grey-dark;
-  }
-
-  .name-person {
-    color: $palette-grey-dark;
-  }
-
-  .icons-contein {
-    border: 2px solid $palette-grey-midtone;
-  }
-
-  .icons-card {
-    color: $palette-grey-dark;
-  }
-
-  .skills__item {
-    background-color: $palette-grey-ligth;
-  }
+    .card-img {
+        background-image: url("../images/cocodrilo2.jpg");
+        background-position: center;    
+    }
+    .card-header {
+        border-left: 3px solid $palette-grey-dark;
+    }
+    .name-person {
+        color: $palette-grey-dark;
+    }
+    .icons-contein {
+        border: 2px solid $palette-grey-midtone;
+    }
+    .icons-card {
+        color: $palette-grey-dark;
+    }
+    .skills__item {
+        background-color: $palette-grey-ligth;
+    }
 }
 
 /*-----Classes for the card when selecting each font-family----*/
 
 .font-ubuntu {
-  font-family: $ubuntu;
+    font-family: $ubuntu;
 }
 
 .font-comic {
@@ -594,6 +672,8 @@ body {
 }
 
 
+
+//media queries
 @media all and (min-width:768px) {
   .reset-box {
     padding-top: 163px;

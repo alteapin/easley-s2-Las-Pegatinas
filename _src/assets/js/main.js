@@ -35,8 +35,11 @@ function updateDataName(event) {
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9dd000ccd5d3923b7b051bdaade65cc975afeeaf
 function updateDataCard(key, value) {
   dataCard[key] = value;
 }
@@ -52,6 +55,12 @@ function updateDataJob(event) {
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
+<<<<<<< HEAD
+=======
+function updateDataJob(key, value) {
+  dataCard[key] = value;
+}
+>>>>>>> 9dd000ccd5d3923b7b051bdaade65cc975afeeaf
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
@@ -104,23 +113,33 @@ butonfold[2].addEventListener('click', fold);
 const inputBlue = document.getElementById('pallete-blue');
 const inputRed = document.getElementById('pallete-red');
 const inputGrey = document.getElementById('pallete-grey');
+const inputGum = document.getElementById('pallete-gum');
+const inputPurple = document.getElementById('pallete-purple');
+
 const userCard = document.querySelector('.box-card');
 
 
-const handleColorTheme = () => {
-  userCard.classList.remove('color-grey', 'color-red');
-  const colorSelected = event.currentTarget;
 
-  if (colorSelected === inputRed) {
-    userCard.classList.add('color-red');
-  } else if (colorSelected === inputGrey) {
-    userCard.classList.add('color-grey');
-  }
+const handleColorTheme = () => {
+    userCard.classList.remove('color-grey', 'color-red' , 'color-gum', 'color-purple');
+    const colorSelected = event.currentTarget;
+
+    if (colorSelected === inputRed) {
+        userCard.classList.add('color-red');
+    } else if (colorSelected === inputGrey) {
+        userCard.classList.add('color-grey');
+    } else if (colorSelected === inputGum) {
+        userCard.classList.add('color-gum');
+    } else if (colorSelected === inputPurple) {
+        userCard.classList.add('color-purple');
+    }
 }
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+inputGum.addEventListener('click', handleColorTheme);
+inputPurple.addEventListener('click', handleColorTheme);
 
 
 
@@ -245,13 +264,7 @@ function inputs() {
         i = i + 1;
       }
       divskills.innerHTML = divContent;
-<<<<<<< HEAD
-
       const checkInput = document.querySelectorAll('.checkbox_input');
-      console.log('Checkarray: ', checkInput);
-=======
-      const checkInput = document.querySelectorAll('.checkbox_input');
->>>>>>> localSkills
       const ulBlue = document.querySelector('.skills__list');
       let liC = '';
       let acc = 0;
