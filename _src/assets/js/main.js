@@ -410,3 +410,4 @@ fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card', {
 
 })
     .then(function(resp) {return resp.json();})
+    
