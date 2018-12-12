@@ -379,7 +379,15 @@ function inputs() {
           }
           ulBlue.innerHTML = liC2;
           updateDataCard('skills', skillArray);
-          localStorage.setItem('skills', JSON.stringify(dataCard));
+          localStorage.setItem('datos', JSON.stringify(dataCard));
+          for (let k=0; k<checkInput.length; k++){
+            for(let l=0; l<dataCard.skills.length; l++){
+              if(checkInput[k].value === dataCard.skills[l]){
+                checkInput[k] = true;
+              }
+            }
+
+          }
         }
       }
       for (let i = 0; i < checkInput.length; i++) {
