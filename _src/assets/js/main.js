@@ -1,38 +1,173 @@
 'use strict';
+//--------- Variables form-----------
 
+// PALLETES INPUTS
+
+const inputBlue = document.getElementById('pallete-blue');
+const inputRed = document.getElementById('pallete-red');
+const inputGrey = document.getElementById('pallete-grey');
+const inputGum = document.getElementById('pallete-gum');
+const inputPurple = document.getElementById('pallete-purple');
+const userCard = document.querySelector('.box-card');
+
+// email-phone-github-linked 
+const mail = document.querySelector('#email');
+const icons = document.querySelectorAll('.icons-card');
+const phone = document.querySelector('#phone');
+const github = document.querySelector('#github');
+const linked = document.querySelector('#linkedin');
+
+//variablesname-job
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
+//--------new0
+const resetBtn = document.querySelector('.reset-btn');
+//--------end0
 
 
-function showText(event) {
+let dataCard = {
+  'pallete': '',
+  'typography': '',
+  'name': '',
+  'job': '',
+  'photo': '',
+  'email': '',
+  'phone': '',
+  'linkedin': '',
+  'github': '',
+  'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
+};
 
+//--------------------------new----------------------------------------
+// cheking if exist data on localStorage//
+let savedData = localStorage.getItem('datos');
+if (savedData) {
+  // to fill datacard
+  dataCard = JSON.parse(savedData);
+  fillSavedForm();
+}
+
+
+// fill form with data on localStorage
+function fillSavedForm() {
+  if (dataCard.name) {
+    name.innerHTML = dataCard.name;
+  } else {
+    name.innerHTML = 'Nombre Apellido';
+  }
+  inputName.value = dataCard.name;
+  //job
+  if (dataCard.job) {
+    job.innerHTML = dataCard.job;
+  } else {
+    job.innerHTML = 'Front-end developer';
+  }
+  inputJob.value = dataCard.job;
+  //icons
+  icons[0].href = 'tel: +34' + dataCard.phone;
+  phone.value = dataCard.phone;
+
+  icons[1].href = 'mailto:' + dataCard.email;
+  mail.value = dataCard.email;
+
+  icons[3].href = 'https://github.com/' + dataCard.github;
+  github.value = dataCard.github;
+
+  //pallete
+  userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  inputBlue.checked = false;
+  inputRed.checked = false;
+  inputGrey.checked = false;
+  inputGum.checked = false;
+  inputPurple.checked = false;
+  
+  if (dataCard.pallete === '1') {
+    inputBlue.checked = true;
+    userCard.classList.add('color-blue');
+  }
+  if (dataCard.pallete === '2') {
+    inputRed.checked = true;
+    userCard.classList.add('color-red');
+  }
+  if (dataCard.pallete === '3') {
+    inputGrey.checked = true;
+    userCard.classList.add('color-grey');
+  }
+  if (dataCard.pallete === '4') {
+    inputGum.checked = true;
+    userCard.classList.add('color-gum');
+  }
+  if (dataCard.pallete === '5') {
+    inputPurple.checked = true;
+    userCard.classList.add('color-purple');
+  }
+
+}
+
+// reset dataCard
+function initDataCard() {
+  dataCard = {
+    'pallete': '',
+    'typography': '',
+    'name': '',
+    'job': '',
+    'photo': '',
+    'email': '',
+    'phone': '',
+    'linkedin': '',
+    'github': '',
+    'skills': ['']
+  };
+
+  localStorage.setItem('datos', '');
+  fillSavedForm();
+}
+
+resetBtn.addEventListener('click', initDataCard);
+
+//--------------------------end of new----------------------------------------
+
+
+function updateDataName(event) {
   const value = inputName.value;
-
   if (value) {
     name.innerHTML = event.target.value;
   } else {
     name.innerHTML = 'Nombre Apellido';
   }
-
+  updateDataCard('name', inputName.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-function showJob(event) {
+function updateDataCard(key, value) {
+  dataCard[key] = value;
+  localStorage.setItem('datos', JSON.stringify(dataCard));
+}
 
+
+//  function retrieveDataStored() {
+//      const dataStored = JSON.parse('datos')
+//      console.log(dataStored);
+//  }
+
+function updateDataJob(event) {
   const value = inputJob.value;
-
   if (value) {
     job.innerHTML = event.target.value;
   } else {
     job.innerHTML = 'Front-end developer';
   }
-
+  updateDataCard('job', inputJob.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-inputName.addEventListener('keyup', showText);
-inputJob.addEventListener('keyup', showJob);
+inputName.addEventListener('keyup', updateDataName);
+inputJob.addEventListener('keyup', updateDataJob);
+
+
 
 //hide boxes
 
@@ -75,28 +210,33 @@ butonfold[1].addEventListener('click', fold);
 butonfold[2].addEventListener('click', fold);
 
 
-// PALLETES INPUTS
-
-const inputBlue = document.getElementById('pallete-blue');
-const inputRed = document.getElementById('pallete-red');
-const inputGrey = document.getElementById('pallete-grey');
-const userCard = document.querySelector('.box-card');
-
 
 const handleColorTheme = () => {
-  userCard.classList.remove('color-grey', 'color-red');
+  userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
   const colorSelected = event.currentTarget;
+  console.log(colorSelected);
 
   if (colorSelected === inputRed) {
+    console.log(inputRed.checked);
     userCard.classList.add('color-red');
   } else if (colorSelected === inputGrey) {
     userCard.classList.add('color-grey');
+  } else if (colorSelected === inputGum) {
+    userCard.classList.add('color-gum');
+  } else if (colorSelected === inputPurple) {
+    userCard.classList.add('color-purple');
   }
+
+  updateDataCard('pallete', colorSelected.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
+
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
 inputGrey.addEventListener('click', handleColorTheme);
+inputGum.addEventListener('click', handleColorTheme);
+inputPurple.addEventListener('click', handleColorTheme);
 
 
 
@@ -120,6 +260,7 @@ function handleFonttheme() {
   } else if (fontSelectedByUser === montseFont) {
     fontCard.classList.add('font-montse');
   }
+  updateDataCard('typography', fontSelectedByUser.value);
 }
 
 ubuntuFont.addEventListener('click', handleFonttheme);
@@ -128,16 +269,13 @@ montseFont.addEventListener('click', handleFonttheme);
 
 //form
 
-const mail = document.querySelector('#email');
-const icons = document.querySelectorAll('.icons-card');
-const phone = document.querySelector('#phone');
-const github = document.querySelector('#github');
-const linked = document.querySelector('#linkedin');
 
 //form email
 
 function handlersendMail() {
   icons[1].href = 'mailto:' + mail.value;
+  updateDataCard('email', mail.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 mail.addEventListener('keyup', handlersendMail);
@@ -146,6 +284,8 @@ mail.addEventListener('keyup', handlersendMail);
 
 function handlerPhone() {
   icons[0].href = 'tel: +34' + phone.value;
+  updateDataCard('phone', phone.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 phone.addEventListener('keyup', handlerPhone);
@@ -154,6 +294,8 @@ phone.addEventListener('keyup', handlerPhone);
 
 function handlerGithub() {
   icons[3].href = 'https://github.com/' + github.value;
+  updateDataCard('github', github.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 github.addEventListener('keyup', handlerGithub);
@@ -162,6 +304,8 @@ github.addEventListener('keyup', handlerGithub);
 
 function handlerLinkedin() {
   icons[2].href = 'https://linkedin.com/in/' + linked.value;
+  updateDataCard('linkedin', linked.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
 
@@ -170,6 +314,7 @@ function handlerLinkedin() {
 const uploadBtn = document.querySelector('.button_ad_image');
 const inputImage = document.getElementById('img-selector');
 const boxUserImage = document.querySelector('.card-img');
+const previewImg = document.querySelector('.preview-img');
 
 //TODO:   ask about FileReader
 const fr = new FileReader();
@@ -182,9 +327,11 @@ function getImage(event) {
 
 function writeImage(event) {
   boxUserImage.style.backgroundImage = 'url(' + event.target.result + ')';
+  previewImg.setAttribute('src', event.target.result);
 }
 
 function fileClick() {
+  event.preventDefault();
   inputImage.click();
 }
 
@@ -245,12 +392,10 @@ function inputs() {
             skillArray[j] = checkInput[i].value;
             j = j + 1;
           }
+          ulBlue.innerHTML = liC2;
+          updateDataCard('skills', skillArray);
+          localStorage.setItem('skills', JSON.stringify(dataCard));
         }
-        console.log('skillarray' + skillArray);
-        ulBlue.innerHTML = liC2;
-        updateDataCard('skills', skillArray);
-        localStorage.setItem('skills', JSON.stringify(dataCard));
-        //saveDataskills(checkInput);
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener('click', check);

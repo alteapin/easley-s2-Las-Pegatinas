@@ -1,99 +1,125 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: $color-ligth;
+  background-color: $color-ligth;
 }
 
 .build-card {
-    border: 1px solid $color-silver;
-    width: 100%;
-    padding-bottom: 30px;
-    background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+  border: 1px solid $color-silver;
+  width: 100%;
+  padding-bottom: 30px;
+  // background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+  background: linear-gradient(-75deg, $palette-blue-gum, $palette-pink-light-gum, $palette-pink-dark-gum, $palette-violet-gradient, $palette-blue-intense-gradient);
+  background-size: 800%;
+  animation: grad cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
 }
 
+@keyframes grad {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
 .reset-box {
-    width: 240px;
-    margin: 0 auto;
+  width: 240px;
+  margin: 0 auto;
+  background-color: transparent;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  i {
     background-color: transparent;
-    a {
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    i {
-        background-color: transparent;
-        padding-right: 5px;
-    }
+    padding-right: 5px;
+  }
 }
 
 .reset-btn {
-    width: 75px;
-    height: 30px;
-    margin: 10px 0 20px;
-    padding: 5px 10px;
-    border: 1px solid $color-ligth;
-    border-radius: 15px;
-    color: $color-secondary;
-    background-color: transparent;
-    font-family: $open;
-    font-size: 12px;
+  width: 75px;
+  height: 30px;
+  margin: 10px 0 20px;
+  padding: 5px 10px;
+  border: 1px solid $color-ligth;
+  border-radius: 15px;
+  color: $color-secondary;
+  background-color: transparent;
+  font-family: $open;
+  font-size: 12px;
 }
 
 .box-card {
-    border: 1px solid $color-silver;
-    border-radius: 2px;
-    width: 240px;
-    height: 367px;
-    margin: 0 auto;
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
-    background-color: $color-ligth;
+  border: 1px solid $color-silver;
+  border-radius: 2px;
+  width: 240px;
+  height: 367px;
+  margin: 0 auto;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+  background-color: $color-ligth;
 }
 
 .card-header {
-    margin: 20px 0 10px;
-    padding-left: 20px;
-    border-left: 3px solid $palette-blue-ligth;
-    font-family: $comic;
-    height: 42px;
-    line-height: 1.1;
+  margin: 20px 0 10px;
+  padding-left: 20px;
+  border-left: 3px solid $palette-blue-ligth;
+  font-family: $comic;
+  height: 42px;
+  line-height: 1.1;
 }
 
 
 .btn__hidden{
-    display: none;
+    display: none !important;
 }
+
+
 .name-person {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .work-space {
-    font-size: 16px;
-    font-weight: 400;
-    color: $color-secondary;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-secondary;
 }
 
 .card-img {
-    width: 240px;
-    height: 200px;
-    background-color: $palette-blue-ligth;
-    background-position: center;
-    background-size: cover;
-    background-image: url("../images/tiger.png");
+  width: 240px;
+  height: 200px;
+  background-color: $palette-blue-ligth;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/tiger.png");
 }
-.pic-size{
-    max-width: 100%;
+
+.pic-size {
+  max-width: 100%;
 }
+
 .icons-box {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .list-icon-card {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .icons-contein {
@@ -102,248 +128,417 @@ body {
     border: 2px solid $palette-blue-ligth;
     border-radius: 50%;
     font-size: 18px;
+    margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
     .icons-card {
         color: $palette-blue-dark;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
     }
 }
 
 .card-footer {
-    border-top: 2px solid rgba($palette-blue-midtone, 0.2);
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  border-top: 2px solid rgba($palette-blue-midtone, 0.2);
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .skills__list {
-    color: $color-ligth;
-    list-style: none;
-    font-family: $open;
-    font-size: 13px;
-    display: flex;
+  color: $color-ligth;
+  list-style: none;
+  font-family: $open;
+  font-size: 13px;
+  display: flex;
 }
 
 .skills__item {
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-transform: uppercase;
-    border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-transform: uppercase;
+  border-radius: 4px;
 }
 
 .skills__item--bg {
     background-color: $palette-blue-midtone;
-    border-top: 1px solid grey;
 }
 
 /*unfolds*/
 
 .build-container {
-    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+  background-image: linear-gradient(to bottom, $color-back, $color-ligth);
 }
 
 .selectors-container {
-    padding: 27px 20px;
-    background-image: linear-gradient(to bottom, $color-back, $color-ligth);
+  padding: 27px 20px;
+  background-image: linear-gradient(to bottom, $color-back, $color-ligth);
 }
 
 .box-selector {
-    display: flex;
-    border-bottom: 1px solid $color-midtone;
-    margin-bottom: 10px;
-    padding-bottom: 7px;
-    align-items: center;
+  display: flex;
+  border-bottom: 1px solid $color-midtone;
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  align-items: center;
 }
 
 // Add flex-container class to the first div-child (box-selector edit-design) of main container (selectors-container) so all containing items will be flex and positioned in columns
 .flex-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 // Add title-box class to new div containing icons, title-edit, buttons PLUS the selectors' divs (those containing the customize boxes), in order to insert the selectors' divs inside the class box-selector. Thanks to this, you get that the border-bottom line will go together with the content of the section
 .title-box {
-    display: flex;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .title-edit {
-    margin-left: 10px;
-    font-family: $font-default;
-    font-size: 18px;
-    text-transform: uppercase;
+  margin-left: 10px;
+  font-family: $font-default;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 .btn-angle {
-    border: none;
-    background: none;
-    width: 16px;
-    height: 18px;
-    margin-left: auto;
-    transform: scale(2.5);
-    color: $color-secondary;
-    -webkit-text-stroke: .1rem $color-back;
+  border: none;
+  background: none;
+  width: 16px;
+  height: 18px;
+  margin-left: auto;
+  transform: scale(2.5);
+  color: $color-secondary;
+  -webkit-text-stroke: .1rem $color-back;
 }
 
 .btn-fold {
-    display: none;
+  display: none;
 }
 
 .fas {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .icons-edit {
-    color: $color-primary;
+  color: $color-primary;
 }
 
 /*palletes*/
 
 .selectors-design {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px;
 }
 
 .text-color {
-    font-size: 16px;
-    font-family: $font-default;
-    font-weight: 400;
-    text-transform: uppercase;
+  font-size: 16px;
+  font-family: $font-default;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .list-pallete {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 10px 0px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 0px;
 }
 
 .pallet-box {
-    display: flex;
-    margin-left: 10px;
+  display: flex;
+  margin-left: 10px;
 }
 
 .selection-input {
-    height: 17px;
-    width: 17px;
-    cursor: pointer;
+  height: 17px;
+  width: 17px;
+  cursor: pointer;
 }
 
 .label-color,
 .label-font {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* blue pallete*/
 
 .blue-dark-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-blue-dark;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-blue-dark;
 }
 
 .blue-midtone-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-blue-midtone;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-blue-midtone;
 }
 
 .blue-ligth-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-blue-ligth;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-blue-ligth;
 }
 
 /* red pallete*/
 
 .red-dark-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-red-dark;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-red-dark;
 }
 
 .red-midtone-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-red-midtone;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-red-midtone;
 }
 
 .red-ligth-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-red-ligth;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-red-ligth;
 }
 
 /* red pallete*/
 
 .grey-dark-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-grey-dark;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-grey-dark;
 }
 
 .grey-ligth-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-grey-ligth;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-grey-ligth;
 }
 
 .grey-midtone-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-grey-midtone;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-grey-midtone;
 }
 
 /* gum pallete*/
 
 .blue-gum-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-blue-gum;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-blue-gum;
 }
 
 .pink-midtone-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-pink-dark-gum;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-pink-dark-gum;
 }
 
 .pink-light-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-pink-light-gum;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-pink-light-gum;
 }
 
 /* elegant pallete*/
 
 .black-pearl-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-black-pearl-color;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-black-pearl-color;
 }
 
 .silver-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-silver-color;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-silver-color;
 }
 
 .gold-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-gold-color;
+  width: 30px;
+  height: 25px;
+  background-color: $palette-gold-color;
 }
 
 /* violet pallete*/
 
+.purple-midtone-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-purple-midtone-color;
+}
+
+.purple-dark-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-purple-dark-color;
+}
+
+.purple-light-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-purple-light-color;
+}
+
+/* tropical pallete*/
+
+.blue-water-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-blue-water-color;
+}
+
+.yellow-sand-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-yello-sand-color;
+}
+
+.pink-cocktail-color {
+  width: 30px;
+  height: 25px;
+  background-color: $palette-pink-cocktail-color;
+}
+
+// Select your font box
+// check selectors-design class to make general style
+.selectors-font {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px;
+}
+
+.list-font {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 0px;
+}
+
+.font-box {
+  display: flex;
+  margin-left: 10px;
+  width: 90px;
+}
+
+.select-ubuntu {
+  font-family: $ubuntu;
+}
+
+.select-comic {
+  font-family: $comic;
+}
+
+.select-montse {
+  font-family: $montse;
+}
+
+////
+
+// SHARE section
+
+.card-share {
+  display: flex;
+  align-items: center;
+}
+
+.edit-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-btn-share {
+  padding: 33px 0 30px;
+}
+
+.btn-share {
+  background-color: $color-primary;
+  width: 199px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 18px;
+  color: $color-ligth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+}
+
+//share card created 
+
+.card-created {
+  width: 329px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+
+.btn-share--disabled {
+  margin: 0 auto;
+  background-color: $color-btn-disabled;
+}
+
+.card-msg {
+  font-family: $open;
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-secondary;
+  // padding: 20px 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg-text {
+  padding: 20px 0 5px;
+}
+
+.share-link {
+  text-decoration: none;
+}
+
+.link {
+  font-size: 12px;
+  color: $color-primary;
+}
+
+.btn-twitter {
+  color: $color-ligth;
+  background-color: $color-twitter;
+  width: 181px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 10px 0 30px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+}
+
+.twitter-link {
+  margin-left: 10px;
+  font-family: $font-default;
+  font-size: 14px;
+
+}
+
+
+/*-----Classes for the card when selecting each palette----*/
+
+
+/* gum pallete*/
+/*
 .purple-midtone-color {
     width: 30px;
     height: 25px;
@@ -362,149 +557,67 @@ body {
     background-color: $palette-purple-light-color;
 }
 
-/* tropical pallete*/
-
-.blue-water-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-blue-water-color;
-}
-
-.yellow-sand-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-yello-sand-color;
-}
-
-.pink-cocktail-color {
-    width: 30px;
-    height: 25px;
-    background-color: $palette-pink-cocktail-color;
-}
-
-// Select your font box
-// check selectors-design class to make general style
-.selectors-font {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 15px;
-}
-
-.list-font {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 5px 0px;
-}
-
-.font-box {
-    display: flex;
-    margin-left: 10px;
-    width: 90px;
-}
-
-.select-ubuntu {
-    font-family: $ubuntu;
-}
-
-.select-comic {
-    font-family: $comic;
-}
-
-.select-montse {
-    font-family: $montse;
-}
-
-////
-
-// SHARE section
-
-.card-share {
-    display: flex;
-    align-items: center;
-}
-.edit-share {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.box-btn-share {
-    padding: 33px 0 30px;
-}
-
-.btn-share {
-    background-color: $color-primary;
-    width: 199px;
-    height: 50px;
-    border-radius: 12px;
-    font-size: 18px;
-    color: $color-ligth;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
-}
-
-//share card created 
-
-.card-created {
-    width: 329px;
-    border-bottom: 1px solid #d8d8d8;
-}
-
-
-.btn-share--disabled {
-    margin: 0 auto;
-    background-color: $color-btn-disabled;
-}
-
-.card-msg {
-    font-family: $open;
-    font-size: 18px;
-    font-weight: 600;
-    color: $color-secondary;
-    // padding: 20px 0 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.msg-text {
-    padding: 20px 0 5px;
-}
-.share-link {
-    text-decoration: none;
-}
-.link {
-    font-size: 12px;
-    color: $color-primary;
-}
-
-.btn-twitter {
-    color: $color-ligth;
-    background-color: $color-twitter;
-    width: 181px;
-    height: 30px;
-    border-radius: 3px;
-    margin: 10px 0 30px;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
-}
-
-.twitter-link {
-    margin-left: 10px;
-    font-family: $font-default;
-    font-size: 14px;
-    
+*/
+.color-purple {
+    .card-img {
+        background-image: url("../images/panter7.png");
+        background-position: top;
     }
+    .card-header {
+        border-left: 3px solid  $palette-purple-light-color;
+    }
+    .name-person {
+        color: $palette-purple-dark-color;
+    }
+    .work-space{
+        color: $palette-purple-midtone-color;
+    }
+    .icons-contein {
+        border: 2px solid $palette-purple-light-color;
+    }
+    .icons-card {
+        color: $palette-purple-light-color;
+    }
+    .skills__item {
+        background-color: $palette-purple-dark-color;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-purple-midtone-color;
+    }
+}
 
-
-//media queries
-/*-----Classes for the card when selecting each palette----*/
-
+.color-gum {
+    .card-img {
+        background-image: url("../images/cat2.png");
+        background-position: top;
+    }
+    .card-header {
+        border-left: 3px solid  $palette-blue-gum;
+    }
+    .name-person {
+        color: $palette-pink-dark-gum;
+    }
+    .work-space{
+        color: $palette-pink-light-gum;
+    }
+    .icons-contein {
+        border: 2px solid $palette-pink-dark-gum;
+    }
+    .icons-card {
+        color: $palette-pink-light-gum;
+    }
+    .skills__item {
+        background-color: $palette-blue-gum;
+    }
+    .card-footer {
+        border-top: 2px solid $palette-blue-gum;
+    }
+}
 .color-red {
+    .card-img {
+        background-image: url("../images/cebra5.png");
+        background-position: top;
+    }
     .card-header {
         border-left: 3px solid $palette-red-dark;
     }
@@ -523,6 +636,10 @@ body {
 }
 
 .color-grey {
+    .card-img {
+        background-image: url("../images/cocodrilo2.jpg");
+        background-position: center;    
+    }
     .card-header {
         border-left: 3px solid $palette-grey-dark;
     }
@@ -547,145 +664,150 @@ body {
 }
 
 .font-comic {
-    font-family: $comic;
+  font-family: $comic;
 }
 
 .font-montse {
-    font-family: $montse;
+  font-family: $montse;
 }
 
 
+
+//media queries
 @media all and (min-width:768px) {
-    .reset-box {
-        padding-top: 163px;
-    }
-    .build-container {
-        display: flex;
-        flex-direction: row-reverse;
-        padding: 20px 40px 20px 20px;
-        justify-content: center;
-    }
-    .build-card {
-        width: 329px;
-        border-radius: 6px;
-        padding-bottom: 222px;
-    }
-    .box-selector {
-        width: 329px;
-    }
-    .selectors-design,
-    .selectors-font {
-        grid-gap: 82px;
-    }
+  .reset-box {
+    padding-top: 163px;
+  }
+
+  .build-container {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px 40px 20px 20px;
+    justify-content: center;
+  }
+
+  .build-card {
+    width: 329px;
+    border-radius: 6px;
+    padding-bottom: 222px;
+  }
+
+  .box-selector {
+    width: 329px;
+  }
+
+  .selectors-design,
+  .selectors-font {
+    grid-gap: 82px;
+  }
 }
 
 @media all and (min-width:1024px) {
-    .build-card {
-        width: 585px;
-    }
+  .build-card {
+    width: 585px;
+  }
 }
 
 //Rellena
 
-.fill { 
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    padding: 0;
+.fill {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  padding: 0;
 
 }
 
 .contact {
-    font-family: $open;
-    font-size: 14px;
-    line-height: 20px;
-    color: $palette-blue-dark;
-    max-width: 280px;
-    margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 0;
+  font-family: $open;
+  font-size: 14px;
+  line-height: 20px;
+  color: $palette-blue-dark;
+  max-width: 280px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
 
 }
 
 .contact input {
-    display: block;
-    margin-top: 6px;
+  display: block;
+  margin-top: 6px;
+
+  @media all and (min-width: 768px) {
+    width: 300px;
+  }
 }
 
 
 input {
-    padding-bottom: 6px;
-    padding-left: 9px;
-    padding-top: 4px;
-    border: 1px solid $palette-blue-ligth;
-    outline-style: none;
-    width: 281px; 
-    @media all and (min-width:768px) {
-            width: 329px;
-        }
+  padding-bottom: 6px;
+  padding-left: 9px;
+  padding-top: 4px;
+  border: 1px solid $palette-blue-ligth;
+  outline-style: none;
+  width: 281px;
 }
 
 ::placeholder {
-    color: $color-pinkish-grey;
-    
+  color: $color-pinkish-grey;
+
 }
 
 .button_ad_image {
-    display: inline-block;
-    height: 30px;
-    width: 140px;
-    color: $color-ligth;
-    background-color: $color-primary;
-    margin-right: 30px;
-    margin-top: 6px;
-    outline: none;
-    border: none;
-    border-radius: 3px;
-    font-family: $open;
-    font-size: 14px;
-    line-height: 20px;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+  display: inline-block;
+  height: 30px;
+  width: 140px;
+  color: $color-ligth;
+  background-color: $color-primary;
+  margin-right: 30px;
+  margin-top: 6px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  font-family: $open;
+  font-size: 14px;
+  line-height: 20px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
 }
 
 .add_image {
-    display:flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.empty-container {
-    width: 30px;
-    height: 30px;
-    border: 1px solid $palette-blue-ligth;
-    margin-top: 6px;
+.preview-img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.preview-box {
+  width: 30px;
+  height: 30px;
+  border: 1px solid $palette-blue-ligth;
+  margin-top: 6px;
 }
 
 .checkbox_contact {
-    margin-bottom: 10px;
-    margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .check_styles {
-    font-family: $open;
-    font-size: 14px;
-    line-height: 20px;
-    color: $palette-blue-dark;
-    margin-bottom: 11px;
+  font-family: $open;
+  font-size: 14px;
+  line-height: 20px;
+  color: $palette-blue-dark;
+  margin-bottom: 11px;
 }
 
 .checkbox_input {
-    max-width: 27px;
+  max-width: 27px;
 }
 
 .hide-box {
-    display: none;
+  display: none;
 }
-
-
-
-
-
-
-

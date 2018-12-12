@@ -4,7 +4,9 @@
     width: 100%;
 }
 .container-footer {
-    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -13,12 +15,11 @@
     border-top: 1px solid #cacaca; /*no se si es este color, he puesto el que teniamos en nuestro proyecto 1*/
     padding-top: 20px;
     padding-bottom: 20px;
-    
 }
 
 .copyright {
     color: $color-tertiary;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 20px;
     margin-bottom: 10px;
     margin-top: 0;
@@ -26,9 +27,25 @@
     font-family: $font-default;
 }
 
+.container-footer-logo {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .img-footer {
+    grid-row: 2 / 3;
     max-width: 103px;
-    
+    margin:auto;
+}
+
+.img-footer-logo {
+    max-width: 90px;
+    margin-left: 10px;
 }
 
 @media all and (min-width:768px) {
@@ -40,11 +57,12 @@
       padding-left: 41px;
       padding-right: 40px;
       max-height: 60px;
-
   }
 
 
   .img-footer {
+    position: absolute;
+    right:40px;
     width: 103px;
     height: 40px;
     padding-bottom: 10px;

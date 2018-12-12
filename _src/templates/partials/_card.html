@@ -12,7 +12,7 @@
                 <h1 class="name-person"> Nombre Apellido</h1>
                 <h3 class="work-space"> Front-end developer</h3>
             </div>
-            <div class="card-img">
+            <div class="card-img" id="random">
             </div>
             <div class="icons-box">
                 <ul  class="list-icon-card">
@@ -56,7 +56,7 @@
                 <ul class="colors-list">
                     <li class="list-pallete">
                         <label for="pallete-blue" class="label-color">
-                            <input id="pallete-blue" type="radio" value="color-blue" name="pallete-colors" class="selection-input">
+                            <input id="pallete-blue" type="radio" value="1" name="pallete-colors" class="selection-input">
                         </label>
                         <div class="pallet-box">
                             <div class="blue-dark-color"></div>
@@ -66,7 +66,7 @@
                     </li>
                     <li class="list-pallete">
                         <label for="pallete-red"  class="label-color">
-                            <input id="pallete-red" type="radio" value="color-red" name="pallete-colors" class="selection-input">
+                            <input id="pallete-red" type="radio" value="2" name="pallete-colors" class="selection-input">
                         </label>
                         <div class="pallet-box">
                             <div class="red-dark-color"></div>
@@ -76,7 +76,7 @@
                     </li>
                     <li class="list-pallete">
                         <label for="pallete-grey" class="label-color">
-                            <input id="pallete-grey" type="radio" value="color-grey" name="pallete-colors" class="selection-input">
+                            <input id="pallete-grey" type="radio" value="3" name="pallete-colors" class="selection-input">
                         </label>
                         <div class="pallet-box">
                             <div class="grey-dark-color"></div>
@@ -86,7 +86,7 @@
                     </li>
                     <li class="list-pallete">
                         <label for="pallete-gum" class="label-color">
-                            <input id="pallete-gum" type="radio" value="color-gum" name="pallete-colors" class="selection-input">
+                            <input id="pallete-gum" type="radio" value="4" name="pallete-colors" class="selection-input">
                         </label>
                         <div class="pallet-box">
                             <div class="blue-gum-color"></div>
@@ -95,33 +95,13 @@
                         </div>
                     </li>
                     <li class="list-pallete">
-                        <label for="pallete-elegant" class="label-color">
-                            <input id="pallete-elegant" type="radio" value="color-elegant" name="pallete-colors" class="selection-input">
-                        </label>
-                        <div class="pallet-box">
-                            <div class="black-pearl-color"></div>
-                            <div class="silver-color"></div>
-                            <div class="gold-color"></div>
-                        </div>
-                    </li>
-                    <li class="list-pallete">
                         <label for="pallete-purple" class="label-color">
-                            <input id="pallete-purple" type="radio" value="color-purple" name="pallete-colors" class="selection-input">
+                            <input id="pallete-purple" type="radio" value="5" name="pallete-colors" class="selection-input">
                         </label>
                         <div class="pallet-box">
                             <div class="purple-midtone-color"></div>
                             <div class="purple-dark-color"></div>
                             <div class="purple-light-color"></div>
-                        </div>
-                    </li>
-                    <li class="list-pallete">
-                        <label for="pallete-tropical" class="label-color">
-                            <input id="pallete-tropical" type="radio" value="color-tropical" name="pallete-colors" class="selection-input">
-                        </label>
-                        <div class="pallet-box">
-                            <div class="blue-water-color"></div>
-                            <div class="yellow-sand-color"></div>
-                            <div class="pink-cocktail-color"></div>
                         </div>
                     </li>
                 </ul>
@@ -132,7 +112,7 @@
                 <ul class="fonts-list">
                     <li class="list-font">
                         <label for="font-ubuntu" class="label-font">
-                            <input id="font-ubuntu" type="radio" value="font-ubuntu" name="select-font" class="selection-input">
+                            <input id="font-ubuntu" type="radio" value="1" name="select-font" class="selection-input">
                         </label>
                         <div class="font-box">
                             <div class="select-ubuntu">Ubuntu</div>
@@ -140,7 +120,7 @@
                     </li>
                     <li class="list-font">
                         <label for="font-comic" class="label-font">
-                            <input id="font-comic" type="radio" value="font-comic" name="select-font" class="selection-input">
+                            <input id="font-comic" type="radio" value="2" name="select-font" class="selection-input">
                         </label>
                         <div class="font-box">
                             <div class="select-comic">Comic Sans</div>
@@ -148,7 +128,7 @@
                     </li>
                     <li class="list-font">
                         <label for="font-montse" class="label-font">
-                            <input id="font-montse" type="radio" value="font-montse" name="select-font" class="selection-input">
+                            <input id="font-montse" type="radio" value="3" name="select-font" class="selection-input">
                         </label>
                         <div class="font-box">
                             <div class="select-montse">Montserrat</div>
@@ -188,7 +168,7 @@
                 <!-- adding an input field to set up the choose file action 
                 -->
                         <input type="file" name="addImage" id="img-selector" class="btn__hidden">
-                        <div class="empty-container"></div>
+                        <div class="preview-box"><img class="preview-img" src=""> </div>
                     </div>
                 </div>
             
