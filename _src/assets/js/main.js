@@ -35,13 +35,10 @@ let dataCard = {
 //--------------------------new----------------------------------------
 // cheking if exist data on localStorage//
 let savedData = localStorage.getItem('datos');
-if(savedData) {
-  let savedDataCard = JSON.parse(savedData);
+if (savedData) {
   // to fill datacard
-  if (savedDataCard) {
-    dataCard = savedDataCard;
-    fillSavedForm();
-  }
+  dataCard = JSON.parse(savedData);
+  fillSavedForm();
 }
 
 
@@ -52,7 +49,7 @@ function fillSavedForm() {
   } else {
     name.innerHTML = 'Nombre Apellido';
   }
-
+  
   inputName.value = dataCard.name;
 
   job.innerHTML = dataCard.job;
@@ -80,7 +77,7 @@ function initDataCard() {
     'github': '',
     'skills': ['']
   };
-  
+
   localStorage.setItem('datos', '');
   fillSavedForm();
 }
