@@ -193,7 +193,7 @@ uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
 
-const dataCard = {
+let dataCard = {
   'github': '',
   'skills': [''],
 };
@@ -216,6 +216,7 @@ function inputs() {
       divskills.innerHTML = divContent;
 
       const checkInput = document.querySelectorAll('.checkbox_input');
+      saveDataskills(checkInput);
       const ulBlue = document.querySelector('.skills__list');
       let liC = '';
       let acc = 0;
@@ -249,6 +250,7 @@ function inputs() {
         ulBlue.innerHTML = liC2;
         updateDataCard('skills', skillArray);
         localStorage.setItem('skills', JSON.stringify(dataCard));
+        //saveDataskills(checkInput);
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener('click', check);
@@ -262,4 +264,38 @@ inputs();
 
 function updateDataCard(key, value) {
   dataCard[key] = value;
+}
+
+function saveDataskills(a) {
+  // cheking if exist data on localStorage//
+  let savedData = localStorage.getItem('skills');
+  if (savedData) {
+    let savedDataCard = JSON.parse(savedData);
+    console.log('saved data:', savedDataCard);
+    // to fill datacard
+    if (savedDataCard) {
+      dataCard = savedDataCard;
+      let liC3 = '';
+      let acc3 = 0;
+      for (let i = 0; i < dataCard.skills.length; i++) {
+        //lo que sea en el formulario = data carda 
+        for (let j = 0; j < a.length; j++) {
+          if (a[j].value === dataCard.skills[i] && acc3<3) {
+            console.log('dataCARDnuevos que me traifo', dataCard.skills[i]);
+            console.log('ver si estan check los input check', a[j].checked);
+            console.log('ver el aj ', a[j]);
+            a[j].checked = true;
+            let liContent3 = `<li class="skills__item skills__item--bg">${a[j].value}</li>`;
+            liC3 += liContent3;
+            acc3++;
+          }
+
+        }
+        const ulBlue = document.querySelector('.skills__list');
+        ulBlue.innerHTML = liC3;
+
+      }
+
+    }
+  }
 }
