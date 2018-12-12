@@ -6,10 +6,6 @@ const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> localSkills
 const dataCard = {
   'pallete': '',
   'typography': '',
@@ -36,17 +32,14 @@ function updateDataName(event) {
     name.innerHTML = 'Nombre Apellido';
   }
   updateDataCard('name', inputName.value);
-<<<<<<< HEAD
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-=======
-}
+
 
 function updateDataCard(key, value) {
   dataCard[key] = value;
 }
->>>>>>> localSkills
 
 function updateDataJob(event) {
   const value = inputJob.value;
@@ -56,17 +49,9 @@ function updateDataJob(event) {
     job.innerHTML = 'Front-end developer';
   }
   updateDataCard('job', inputJob.value);
-<<<<<<< HEAD
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
 
-=======
-}
-
-function updateDataJob(key, value) {
-  dataCard[key] = value;
-}
->>>>>>> localSkills
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
