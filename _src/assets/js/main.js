@@ -75,7 +75,15 @@ function fillSavedForm() {
 
   icons[3].href = 'https://github.com/' + dataCard.github;
   github.value = dataCard.github;
+
   //pallete
+  userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  inputBlue.checked = false;
+  inputRed.checked = false;
+  inputGrey.checked = false;
+  inputGum.checked = false;
+  inputPurple.checked = false;
+  
   if (dataCard.pallete === '1') {
     inputBlue.checked = true;
     userCard.classList.add('color-blue');
