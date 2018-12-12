@@ -1,12 +1,34 @@
 'use strict';
+//--------- Variables form-----------
 
+// PALLETES INPUTS
 
+const inputBlue = document.getElementById('pallete-blue');
+const inputRed = document.getElementById('pallete-red');
+const inputGrey = document.getElementById('pallete-grey');
+const inputGum = document.getElementById('pallete-gum');
+const inputPurple = document.getElementById('pallete-purple');
+const userCard = document.querySelector('.box-card');
+
+// email-phone-github-linked 
+const mail = document.querySelector('#email');
+const icons = document.querySelectorAll('.icons-card');
+const phone = document.querySelector('#phone');
+const github = document.querySelector('#github');
+const linked = document.querySelector('#linkedin');
+
+//variablesname-job
 const name = document.querySelector('.name-person');
 const job = document.querySelector('.work-space');
 const inputName = document.querySelector('#firstName');
 const inputJob = document.querySelector('#job');
 
-const dataCard = {
+//--------new0
+const resetBtn = document.querySelector('.reset-btn');
+//--------end0
+
+
+let dataCard = {
   'pallete': '',
   'typography': '',
   'name': '',
@@ -19,10 +41,87 @@ const dataCard = {
   'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
 };
 
-function updateDataCard(key, value) {
-    dataCard[key] = value;
+//--------------------------new----------------------------------------
+// cheking if exist data on localStorage//
+let savedData = localStorage.getItem('datos');
+if (savedData) {
+  // to fill datacard
+  dataCard = JSON.parse(savedData);
+  fillSavedForm();
+}
+
+
+// fill form with data on localStorage
+function fillSavedForm() {
+  if (dataCard.name) {
+    name.innerHTML = dataCard.name;
+  } else {
+    name.innerHTML = 'Nombre Apellido';
   }
-  
+  inputName.value = dataCard.name;
+  //job
+  if (dataCard.job) {
+    job.innerHTML = dataCard.job;
+  } else {
+    job.innerHTML = 'Front-end developer';
+  }
+  inputJob.value = dataCard.job;
+  //icons
+  icons[0].href = 'tel: +34' + dataCard.phone;
+  phone.value = dataCard.phone;
+
+  icons[1].href = 'mailto:' + dataCard.email;
+  mail.value = dataCard.email;
+
+  icons[3].href = 'https://github.com/' + dataCard.github;
+  github.value = dataCard.github;
+  //pallete
+  if (dataCard.pallete === '1') {
+    inputBlue.checked = true;
+    userCard.classList.add('color-blue');
+  }
+  if (dataCard.pallete === '2') {
+    inputRed.checked = true;
+    userCard.classList.add('color-red');
+  }
+  if (dataCard.pallete === '3') {
+    inputGrey.checked = true;
+    userCard.classList.add('color-grey');
+  }
+  if (dataCard.pallete === '4') {
+    inputGum.checked = true;
+    userCard.classList.add('color-gum');
+  }
+  if (dataCard.pallete === '5') {
+    inputPurple.checked = true;
+    userCard.classList.add('color-purple');
+  }
+
+}
+
+// reset dataCard
+function initDataCard() {
+  dataCard = {
+    'pallete': '',
+    'typography': '',
+    'name': '',
+    'job': '',
+    'photo': '',
+    'email': '',
+    'phone': '',
+    'linkedin': '',
+    'github': '',
+    'skills': ['']
+  };
+
+  localStorage.setItem('datos', '');
+  fillSavedForm();
+}
+
+resetBtn.addEventListener('click', initDataCard);
+
+//--------------------------end of new----------------------------------------
+
 
 function updateDataName(event) {
   const value = inputName.value;
@@ -37,7 +136,14 @@ function updateDataName(event) {
 
 function updateDataCard(key, value) {
   dataCard[key] = value;
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
+
+
+//  function retrieveDataStored() {
+//      const dataStored = JSON.parse('datos')
+//      console.log(dataStored);
+//  }
 
 function updateDataJob(event) {
   const value = inputJob.value;
@@ -49,7 +155,6 @@ function updateDataJob(event) {
   updateDataCard('job', inputJob.value);
   localStorage.setItem('datos', JSON.stringify(dataCard));
 }
-
 
 inputName.addEventListener('keyup', updateDataName);
 inputJob.addEventListener('keyup', updateDataJob);
@@ -97,32 +202,27 @@ butonfold[1].addEventListener('click', fold);
 butonfold[2].addEventListener('click', fold);
 
 
-// PALLETES INPUTS
-
-const inputBlue = document.getElementById('pallete-blue');
-const inputRed = document.getElementById('pallete-red');
-const inputGrey = document.getElementById('pallete-grey');
-const inputGum = document.getElementById('pallete-gum');
-const inputPurple = document.getElementById('pallete-purple');
-
-const userCard = document.querySelector('.box-card');
-
-
 
 const handleColorTheme = () => {
-    userCard.classList.remove('color-grey', 'color-red' , 'color-gum', 'color-purple');
-    const colorSelected = event.currentTarget;
+  userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  const colorSelected = event.currentTarget;
+  console.log(colorSelected);
 
-    if (colorSelected === inputRed) {
-        userCard.classList.add('color-red');
-    } else if (colorSelected === inputGrey) {
-        userCard.classList.add('color-grey');
-    } else if (colorSelected === inputGum) {
-        userCard.classList.add('color-gum');
-    } else if (colorSelected === inputPurple) {
-        userCard.classList.add('color-purple');
-    }
+  if (colorSelected === inputRed) {
+    console.log(inputRed.checked);
+    userCard.classList.add('color-red');
+  } else if (colorSelected === inputGrey) {
+    userCard.classList.add('color-grey');
+  } else if (colorSelected === inputGum) {
+    userCard.classList.add('color-gum');
+  } else if (colorSelected === inputPurple) {
+    userCard.classList.add('color-purple');
+  }
+
+  updateDataCard('pallete', colorSelected.value);
+  localStorage.setItem('datos', JSON.stringify(dataCard));
 }
+
 
 inputBlue.addEventListener('click', handleColorTheme);
 inputRed.addEventListener('click', handleColorTheme);
@@ -152,6 +252,7 @@ function handleFonttheme() {
   } else if (fontSelectedByUser === montseFont) {
     fontCard.classList.add('font-montse');
   }
+  updateDataCard('typography', fontSelectedByUser.value);
 }
 
 ubuntuFont.addEventListener('click', handleFonttheme);
@@ -160,11 +261,6 @@ montseFont.addEventListener('click', handleFonttheme);
 
 //form
 
-const mail = document.querySelector('#email');
-const icons = document.querySelectorAll('.icons-card');
-const phone = document.querySelector('#phone');
-const github = document.querySelector('#github');
-const linked = document.querySelector('#linkedin');
 
 //form email
 
