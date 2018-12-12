@@ -97,7 +97,20 @@ function fillSavedForm() {
     userCard.classList.add('color-purple');
   }
 
-}
+  ///if value is html, print it and check it. recorrer skillArray and from it take the value. 
+  
+  for(let i = 0; i <= checkInput.length; i++){
+    for(let j = 0; j <= skillArray.length; j++){
+      if(checkInput[i].value === skillArray[j]) {
+        checkInput[i].checked = true;
+      }
+
+    }
+      
+
+  }
+
+
 
 // reset dataCard
 function initDataCard() {
