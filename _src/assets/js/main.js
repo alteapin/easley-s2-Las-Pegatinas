@@ -440,7 +440,6 @@ function resetSkills() {
   for (let i = 0; i < childlist.length; i++) {
     list.removeChild(childlist[i]);
   }
-  console.log(list);
 }
 
 resetBtn.addEventListener('click', resetSkills);
