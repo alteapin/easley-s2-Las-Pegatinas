@@ -26,7 +26,7 @@ const inputJob = document.querySelector('#job');
 //--------new0
 const resetBtn = document.querySelector('.reset-btn');
 //--------end0
-
+const ulBlue = document.querySelector('.skills__list');
 
 let dataCard = {
   'pallete': '',
@@ -83,7 +83,7 @@ function fillSavedForm() {
   inputGrey.checked = false;
   inputGum.checked = false;
   inputPurple.checked = false;
-  
+
   if (dataCard.pallete === '1') {
     inputBlue.checked = true;
     userCard.classList.add('color-blue');
@@ -124,6 +124,8 @@ function initDataCard() {
 
   localStorage.setItem('datos', '');
   fillSavedForm();
+  //reset skills
+
 }
 
 resetBtn.addEventListener('click', initDataCard);
@@ -340,12 +342,6 @@ uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
 
-let dataCard = {
-  'github': '',
-  'skills': [''],
-};
-
-
 function inputs() {
 
   fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
@@ -365,6 +361,17 @@ function inputs() {
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
       const ulBlue = document.querySelector('.skills__list');
+      //cuando haga reset se vacien las listas
+      /*let liC0 ='';
+      for (let i = 0; i < checkInput.length; i++) {
+          if (checkInput[i] === false) {
+            const liContent = '';
+            liC0 += liContent;
+        }
+      }
+      console.log('li que no vale', liC0);
+      ulBlue.innerHTML = liC0;*/
+
       let liC = '';
       let acc = 0;
 
@@ -379,7 +386,8 @@ function inputs() {
           }
         }
         ulBlue.innerHTML = liC;
-        //const li = document.querySelectorAll('.skills__item');
+        console.log('li que vale', liC);
+       
         let liC2 = '';
         let acc2 = 0;
         let j = 0;
@@ -394,7 +402,7 @@ function inputs() {
           }
           ulBlue.innerHTML = liC2;
           updateDataCard('skills', skillArray);
-          localStorage.setItem('skills', JSON.stringify(dataCard));
+          localStorage.setItem('datos', JSON.stringify(dataCard));
         }
       }
       for (let i = 0; i < checkInput.length; i++) {
@@ -407,13 +415,9 @@ function inputs() {
 inputs();
 
 
-function updateDataCard(key, value) {
-  dataCard[key] = value;
-}
-
 function saveDataskills(a) {
   // cheking if exist data on localStorage//
-  let savedData = localStorage.getItem('skills');
+  let savedData = localStorage.getItem('datos');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
     console.log('saved data:', savedDataCard);
@@ -425,7 +429,7 @@ function saveDataskills(a) {
       for (let i = 0; i < dataCard.skills.length; i++) {
         //lo que sea en el formulario = data carda 
         for (let j = 0; j < a.length; j++) {
-          if (a[j].value === dataCard.skills[i] && acc3<3) {
+          if (a[j].value === dataCard.skills[i] && acc3 < 3) {
             console.log('dataCARDnuevos que me traifo', dataCard.skills[i]);
             console.log('ver si estan check los input check', a[j].checked);
             console.log('ver el aj ', a[j]);
@@ -444,3 +448,13 @@ function saveDataskills(a) {
     }
   }
 }
+
+/*function resetSkills1(arrayReset) {
+  for (let i = 0; i < arrayReset.length; i++) {
+    arrayReset[i].checked = false;
+  }
+}*/
+
+
+
+resetBtn.addEventListener('click', inputs);
