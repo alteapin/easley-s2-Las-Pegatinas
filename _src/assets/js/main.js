@@ -341,7 +341,6 @@ inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
-
 function inputs() {
 
   fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
@@ -361,49 +360,34 @@ function inputs() {
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
       const ulBlue = document.querySelector('.skills__list');
-      //cuando haga reset se vacien las listas
-      /*let liC0 ='';
-      for (let i = 0; i < checkInput.length; i++) {
-          if (checkInput[i] === false) {
-            const liContent = '';
-            liC0 += liContent;
-        }
-      }
-      console.log('li que no vale', liC0);
-      ulBlue.innerHTML = liC0;*/
 
       let liC = '';
       let acc = 0;
+      let j = 0;
+      let skillArray = [];
 
       function check(event) {
+
         for (let i = 0; i < checkInput.length; i++) {
           if (acc < 3) {
             if (checkInput[i] === event.currentTarget && checkInput[i].checked === true) {
               const liContent = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
               liC += liContent;
               acc = acc + 1;
+              skillArray[j] = checkInput[i].value;
+              j = j + 1;
+            }
+          }
+          if (acc >= 3) {
+            for (let k = 0; k < checkInput.length; k++) {
+              if (checkInput[k].checked === false)
+                checkInput[k].disabled = true;
             }
           }
         }
         ulBlue.innerHTML = liC;
-        console.log('li que vale', liC);
-       
-        let liC2 = '';
-        let acc2 = 0;
-        let j = 0;
-        let skillArray = [];
-        for (let i = 0; i < checkInput.length; i++) {
-          if (acc2 < 3 && checkInput[i].checked === true) {
-            const liContent2 = `<li class="skills__item skills__item--bg">${checkInput[i].value}</li>`;
-            liC2 += liContent2;
-            acc2 = acc2 + 1;
-            skillArray[j] = checkInput[i].value;
-            j = j + 1;
-          }
-          ulBlue.innerHTML = liC2;
-          updateDataCard('skills', skillArray);
-          localStorage.setItem('datos', JSON.stringify(dataCard));
-        }
+        updateDataCard('skills', skillArray);
+        localStorage.setItem('datos', JSON.stringify(dataCard));
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener('click', check);
@@ -414,47 +398,48 @@ function inputs() {
 
 inputs();
 
-
 function saveDataskills(a) {
   // cheking if exist data on localStorage//
   let savedData = localStorage.getItem('datos');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
-    console.log('saved data:', savedDataCard);
     // to fill datacard
     if (savedDataCard) {
       dataCard = savedDataCard;
       let liC3 = '';
       let acc3 = 0;
       for (let i = 0; i < dataCard.skills.length; i++) {
-        //lo que sea en el formulario = data carda 
         for (let j = 0; j < a.length; j++) {
           if (a[j].value === dataCard.skills[i] && acc3 < 3) {
-            console.log('dataCARDnuevos que me traifo', dataCard.skills[i]);
-            console.log('ver si estan check los input check', a[j].checked);
-            console.log('ver el aj ', a[j]);
             a[j].checked = true;
             let liContent3 = `<li class="skills__item skills__item--bg">${a[j].value}</li>`;
             liC3 += liContent3;
             acc3++;
           }
-
+        }
+        if (acc3 >= 3) {
+          for (let k = 0; k < a.length; k++) {
+            if (a[k].checked === false)
+              a[k].disabled = true;
+          }
         }
         const ulBlue = document.querySelector('.skills__list');
         ulBlue.innerHTML = liC3;
-
       }
-
     }
   }
 }
 
-/*function resetSkills1(arrayReset) {
-  for (let i = 0; i < arrayReset.length; i++) {
-    arrayReset[i].checked = false;
+function resetSkills() {
+  inputs();
+
+  let list = document.querySelector('.skills__list');
+  let childlist = document.querySelectorAll('.skills__item');
+
+  for (let i = 0; i < childlist.length; i++) {
+    list.removeChild(childlist[i]);
   }
-}*/
+  console.log(list);
+}
 
-
-
-resetBtn.addEventListener('click', inputs);
+resetBtn.addEventListener('click', resetSkills);
