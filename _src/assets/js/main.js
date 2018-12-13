@@ -423,9 +423,10 @@ function saveDataskills(a) {
               a[k].disabled = true;
           }
         }
-        const ulBlue = document.querySelector('.skills__list');
-        ulBlue.innerHTML = liC3;
+        
       }
+      const ulBlue = document.querySelector('.skills__list');
+        ulBlue.innerHTML = liC3;
     }
   }
 }
