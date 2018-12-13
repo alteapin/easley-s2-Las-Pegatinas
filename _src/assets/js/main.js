@@ -27,6 +27,8 @@ const inputJob = document.querySelector('#job');
 const resetBtn = document.querySelector('.reset-btn');
 //--------end0
 
+const bgColor = document.querySelector('.build-card')
+
 
 let dataCard = {
   'pallete': '',
@@ -86,11 +88,13 @@ function fillSavedForm() {
   
   if (dataCard.pallete === '1') {
     inputBlue.checked = true;
-    userCard.classList.add('color-blue');
+    userCard.classList.add('color-blue');  
   }
   if (dataCard.pallete === '2') {
     inputRed.checked = true;
     userCard.classList.add('color-red');
+    bgColor.classList.add('animation-red-car');
+    bgColor.classList.add('animation-blue');
   }
   if (dataCard.pallete === '3') {
     inputGrey.checked = true;
@@ -219,8 +223,10 @@ const handleColorTheme = () => {
   if (colorSelected === inputRed) {
     console.log(inputRed.checked);
     userCard.classList.add('color-red');
+    bgColor.classList.add('animation-red-car');
   } else if (colorSelected === inputGrey) {
     userCard.classList.add('color-grey');
+    bgColor.classList.add('animation-blue');
   } else if (colorSelected === inputGum) {
     userCard.classList.add('color-gum');
   } else if (colorSelected === inputPurple) {
