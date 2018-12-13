@@ -9,6 +9,13 @@ const inputGrey = document.getElementById("pallete-grey");
 const inputGum = document.getElementById("pallete-gum");
 const inputPurple = document.getElementById("pallete-purple");
 const userCard = document.querySelector(".box-card");
+//palletes background
+const backgroundBlue = "../assets/images/tiger.png";
+const backgroundRed = "../assets/images/cebra5.png";
+const backgroundGrey = "../assets/images/cocodrilo2.jpg";
+const backgroundGum = "../assets/images/cat2.png";
+const backgroundPurple = "../assets/images/panter7.png";
+
 
 // email-phone-github-linked
 const mail = document.querySelector("#email");
@@ -23,6 +30,13 @@ const job = document.querySelector(".work-space");
 const inputName = document.querySelector("#firstName");
 const inputJob = document.querySelector("#job");
 const resetBtn = document.querySelector(".reset-btn");
+
+//variables photo
+const uploadBtn = document.querySelector(".button_ad_image");
+const inputImage = document.getElementById("img-selector");
+const boxUserImage = document.querySelector(".card-img");
+const previewImg = document.querySelector(".preview-img");
+
 
 let dataCard = {
   pallete: "",
@@ -73,6 +87,10 @@ function fillSavedForm() {
 
   icons[3].href = "https://github.com/" + dataCard.github;
   github.value = dataCard.github;
+  // photo
+  if (dataCard.photo) {
+    boxUserImage.style.backgroundImage = "url(" + dataCard.photo + ")";
+  }
 
   //pallete
   userCard.classList.remove(
@@ -125,6 +143,7 @@ function initDataCard() {
   };
   btnShare.classList.remove("btn-share--disabled");
   cardCreated.classList.add("hide-box");
+  boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
   localStorage.setItem("datos", "");
   fillSavedForm();
 }
@@ -145,6 +164,8 @@ function updateDataName(event) {
 }
 
 function updateDataCard(key, value) {
+  console.log(key);
+  console.log(value);
   dataCard[key] = value;
   localStorage.setItem("datos", JSON.stringify(dataCard));
 }
@@ -207,6 +228,7 @@ butonfold[0].addEventListener("click", fold);
 butonfold[1].addEventListener("click", fold);
 butonfold[2].addEventListener("click", fold);
 
+//pallete
 const handleColorTheme = () => {
   userCard.classList.remove(
     "color-grey",
@@ -215,19 +237,32 @@ const handleColorTheme = () => {
     "color-purple"
   );
   const colorSelected = event.currentTarget;
-  console.log(colorSelected);
 
   if (colorSelected === inputRed) {
-    console.log(inputRed.checked);
     userCard.classList.add("color-red");
+    if (!dataCard.photo) {
+      boxUserImage.style.backgroundImage = "url(" + backgroundRed + ")";
+    }
   } else if (colorSelected === inputGrey) {
     userCard.classList.add("color-grey");
+    if (!dataCard.photo) {
+      boxUserImage.style.backgroundImage = "url(" + backgroundGrey + ")";
+    }
   } else if (colorSelected === inputGum) {
     userCard.classList.add("color-gum");
+    if (!dataCard.photo) {
+      boxUserImage.style.backgroundImage = "url(" + backgroundGum + ")";
+    }
   } else if (colorSelected === inputPurple) {
     userCard.classList.add("color-purple");
+    if (!dataCard.photo) {
+      boxUserImage.style.backgroundImage = "url(" + backgroundPurple + ")";
+    }
+  } else if (colorSelected === inputBlue) {
+    if (!dataCard.photo) {
+      boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
+    }
   }
-
   updateDataCard("pallete", colorSelected.value);
   localStorage.setItem("datos", JSON.stringify(dataCard));
 };
@@ -306,11 +341,6 @@ function handlerLinkedin() {
 
 //add Image Feature
 //button div contacto, con div add_image.
-const uploadBtn = document.querySelector(".button_ad_image");
-const inputImage = document.getElementById("img-selector");
-const boxUserImage = document.querySelector(".card-img");
-const previewImg = document.querySelector(".preview-img");
-
 //TODO:   ask about FileReader
 const fr = new FileReader();
 
@@ -318,9 +348,12 @@ function getImage(event) {
   let myFile = event.target.files[0];
   fr.addEventListener("load", writeImage);
   fr.readAsDataURL(myFile);
-  console.log(myFile.src);
-  updateDataCard("photo", myFile);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  console.log(fr);
+  fr.onloadend = () => {
+    const imgUrl = fr.result;
+    updateDataCard("photo", imgUrl);
+    localStorage.setItem("photo", JSON.stringify(dataCard));
+  }
 }
 
 function writeImage(event) {
@@ -414,10 +447,10 @@ const cardCreated = document.querySelector(".card-created");
 //const linkURL = document.querySelector(".link"); //revisar
 
 
-function sendRequest(savedData) {
+function sendRequest(dataCard) {
   fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
     method: 'POST',
-    body: JSON.stringify(savedData),
+    body: JSON.stringify(dataCard),
     headers: {
       'content-type': 'application/json'
     },
@@ -427,7 +460,6 @@ function sendRequest(savedData) {
       
     })
     .then(function(resultURL) {
-      console.log(resultURL);
       showURL(resultURL);
     })
     .catch(function(error) {
@@ -443,9 +475,12 @@ function sendData() {
 
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
+
     if (resultURL.success) {
+      console.log(resultURL.success);
       linkURLShare.innerHTML =
-        "<a href=" + dataCard.cardURL + ">" + dataCard.cardURL + "</a>";
+        "<a href=" + resultURL.cardURL + ">" + resultURL.cardURL + "</a>";
+        console.log(dataCard.cardURL);
     } else {
       linkURLShare.innerHTML = "ERROR:" + dataCard.error;
     }
