@@ -26,13 +26,10 @@ const inputJob = document.querySelector('#job');
 //--------new0
 const resetBtn = document.querySelector('.reset-btn');
 //--------end0
-<<<<<<< HEAD
 const ulBlue = document.querySelector('.skills__list');
-=======
 
-const bgColor = document.querySelector('.build-card')
+const bgColor = document.querySelector('.build-card');
 
->>>>>>> details
 
 let dataCard = {
   'pallete': '',
@@ -414,7 +411,6 @@ function inputs() {
 
 inputs();
 
-<<<<<<< HEAD
 function saveDataskills(a) {
   // cheking if exist data on localStorage//
   let savedData = localStorage.getItem('datos');
@@ -460,18 +456,3 @@ function resetSkills() {
 }
 
 resetBtn.addEventListener('click', resetSkills);
-=======
-
-//fetch
-
-fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card', {
-  method: 'POST',
-  body: JSON.stringify(json),
-  headers: {
-      'content-type':  'application/json'
-  },
-
-})
-    .then(function(resp) {return resp.json();})
-    
->>>>>>> details
