@@ -80,6 +80,7 @@ function fillSavedForm() {
 
   //pallete
   userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   inputBlue.checked = false;
   inputRed.checked = false;
   inputGrey.checked = false;
@@ -93,21 +94,23 @@ function fillSavedForm() {
   if (dataCard.pallete === '2') {
     inputRed.checked = true;
     userCard.classList.add('color-red');
-    bgColor.classList.add('animation-red-car');
+    bgColor.classList.add('animation-red');
+
   }
   if (dataCard.pallete === '3') {
     inputGrey.checked = true;
     userCard.classList.add('color-grey');
-    bgColor.classList.add('animation-blue');
+    bgColor.classList.add('animation-grey');
   }
   if (dataCard.pallete === '4') {
     inputGum.checked = true;
     userCard.classList.add('color-gum');
-    // bgColor.classList.add('build-card');
+    bgColor.classList.add('animation-gum');
   }
   if (dataCard.pallete === '5') {
     inputPurple.checked = true;
     userCard.classList.add('color-purple');
+    bgColor.classList.add('animation-purple');
   }
 
 }
@@ -218,21 +221,22 @@ butonfold[2].addEventListener('click', fold);
 
 const handleColorTheme = () => {
   userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   const colorSelected = event.currentTarget;
   console.log(colorSelected);
-
   if (colorSelected === inputRed) {
     console.log(inputRed.checked);
     userCard.classList.add('color-red');
-    bgColor.classList.add('animation-red-car');
+    bgColor.classList.add('animation-red');
   } else if (colorSelected === inputGrey) {
     userCard.classList.add('color-grey');
-    bgColor.classList.add('animation-blue');
+    bgColor.classList.add('animation-grey');
   } else if (colorSelected === inputGum) {
     userCard.classList.add('color-gum');
-    // bgColor.classList.add('build-card');
+    bgColor.classList.add('animation-gum');
   } else if (colorSelected === inputPurple) {
     userCard.classList.add('color-purple');
+    bgColor.classList.add('animation-purple');
   }
 
   updateDataCard('pallete', colorSelected.value);
