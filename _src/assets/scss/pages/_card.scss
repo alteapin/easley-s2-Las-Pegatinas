@@ -13,7 +13,7 @@ body {
   width: 100%;
   padding-bottom: 30px;
   // background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
-  background: linear-gradient(-75deg, $palette-blue-gum, $palette-pink-light-gum, $palette-pink-dark-gum, $palette-violet-gradient, $palette-blue-intense-gradient);
+  background: linear-gradient(-75deg, $palette-blue-gum, $palette-pink-light-gum, $palette-pink-cocktail-color, $palette-yello-sand-color,$palette-blue-water-color);
   background-size: 800%;
   animation: grad cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
 }
@@ -33,7 +33,99 @@ body {
 }
 
 
+.animation-red {
+  border: 1px solid $color-silver;
+  width: 100%;
+  padding-bottom: 30px;
+  background: linear-gradient(-75deg, $palette-red-dark, $palette-red-midtone, $palette-red-ligth,$palette-red-two-gradient);
+  background-size: 800%;
+  animation: gradred cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
+}
 
+@keyframes gradred {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animation-grey {
+  border: 1px solid $color-silver;
+  width: 100%;
+  padding-bottom: 30px;
+  background: linear-gradient(-75deg, $palette-grey-dark, $palette-grey-midtone, $palette-grey-ligth,$palette-blue-dark);
+  background-size: 800%;
+  animation: gradgrey cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
+}
+
+@keyframes gradgrey {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animation-gum {
+  border: 1px solid $color-silver;
+  width: 100%;
+  padding-bottom: 30px;
+  // background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+  background: linear-gradient(-75deg, $palette-blue-gum, $palette-pink-light-gum, $palette-pink-dark-gum, $palette-violet-gradient, $palette-blue-intense-gradient);
+  background-size: 800%;
+  animation: gradgum cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
+}
+
+@keyframes gradgum {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animation-purple {
+  border: 1px solid $color-silver;
+  width: 100%;
+  padding-bottom: 30px;
+  // background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+  background: linear-gradient(-75deg, $palette-purple-midtone-color, $palette-purple-dark-color, $palette-purple-light-color, $palette-violet-gradient, $palette-red-one-gradient);
+  background-size: 800%;
+  animation: gradpurple cubic-bezier(0.785, 0.135, 0.15, 0.86) 15s infinite;
+}
+
+@keyframes gradpurple {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .reset-box {
   width: 240px;
@@ -338,6 +430,7 @@ body {
   width: 30px;
   height: 25px;
   background-color: $palette-blue-gum;
+  animation: premium 1s infinite;
 }
 
 .pink-midtone-color {
@@ -637,7 +730,7 @@ body {
 
 .color-grey {
     .card-img {
-        background-image: url("../images/cocodrilo2.jpg");
+        background-image: url("../images/cocodrilo2.png");
         background-position: center;    
     }
     .card-header {
