@@ -103,7 +103,7 @@ function fillSavedForm() {
   if (dataCard.pallete === '4') {
     inputGum.checked = true;
     userCard.classList.add('color-gum');
-    bgColor.classList.add('build-card');
+    // bgColor.classList.add('build-card');
   }
   if (dataCard.pallete === '5') {
     inputPurple.checked = true;
@@ -230,7 +230,7 @@ const handleColorTheme = () => {
     bgColor.classList.add('animation-blue');
   } else if (colorSelected === inputGum) {
     userCard.classList.add('color-gum');
-    bgColor.classList.add('build-card');
+    // bgColor.classList.add('build-card');
   } else if (colorSelected === inputPurple) {
     userCard.classList.add('color-purple');
   }
