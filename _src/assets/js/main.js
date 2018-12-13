@@ -38,8 +38,13 @@ let dataCard = {
   'phone': '',
   'linkedin': '',
   'github': '',
-  'skills': [''] //https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json
-};
+  'skills': [''],
+    {
+      "success": true,
+      "cardURL": "https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/${cardId}"
+    },
+    
+  };
 
 //--------------------------new----------------------------------------
 // cheking if exist data on localStorage//
@@ -397,3 +402,21 @@ function inputs() {
 }
 
 inputs();
+
+
+/// fetch API 
+
+function sendRequest(json){
+  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+    method: 'POST',
+    body: JSON.stringify(json),
+    headers: {
+      'content-type': 'application/json'
+    },
+  })
+    .then(function(resp) { return resp.json(); })
+    .then(function(result) { showURL(result); })
+    .catch(function(error) { console.log(error); });
+}
+
+
