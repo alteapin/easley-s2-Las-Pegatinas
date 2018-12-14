@@ -12,7 +12,7 @@ const userCard = document.querySelector(".box-card");
 //palletes background
 const backgroundBlue = "../assets/images/tiger.png";
 const backgroundRed = "../assets/images/cebra5.png";
-const backgroundGrey = "../assets/images/cocodrilo2.jpg";
+const backgroundGrey = "../assets/images/cocodrilo2.png";
 const backgroundGum = "../assets/images/cat2.png";
 const backgroundPurple = "../assets/images/panter7.png";
 
@@ -149,7 +149,7 @@ function initDataCard() {
   btnShare.classList.remove("btn-share--disabled");
   cardCreated.classList.add("hide-box");
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
-  previewImg.setAttribute("src", dataCard.photo); // dataCard.photo or event.target.result
+  previewImg.setAttribute("src", "")
   console.log(dataCard.photo);
   localStorage.setItem("datos", "");
   fillSavedForm();
