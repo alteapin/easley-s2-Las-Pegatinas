@@ -485,17 +485,17 @@ function sendData() {
   sendRequest(dataCard);
 }
 
-const twitterShare = document.querySelector('.twitter--link');
+const twitterShare = document.querySelector('.twitter-link');
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
 
     if (resultURL.success) {
       console.log(resultURL.success);
       linkURLShare.innerHTML =
-        "<a href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
+        "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
         console.log(dataCard.cardURL);
         //mete el enlace a twiter en el html pero hayq arreglarlo
-      twitterShare.innerHTML += "<a class='twitter' target='_blank' href=https://twitter.com/intent/tweet?text=Hello%20world&url="+ resultURL.cardURL +"></a>";
+      twitterShare.href = "https://twitter.com/intent/tweet?text=Hello%20world&url="+ resultURL.cardURL;
     } else {
       linkURLShare.innerHTML = "ERROR:" + dataCard.error;
     }
