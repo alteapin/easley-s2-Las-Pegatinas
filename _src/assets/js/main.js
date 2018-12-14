@@ -144,6 +144,7 @@ function initDataCard() {
   btnShare.classList.remove("btn-share--disabled");
   cardCreated.classList.add("hide-box");
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
+  previewImg.setAttribute("src", dataCard.photo); // dataCard.photo or event.target.result
   localStorage.setItem("datos", "");
   fillSavedForm();
 }
@@ -348,7 +349,7 @@ function getImage(event) {
   let myFile = event.target.files[0];
   fr.addEventListener("load", writeImage);
   fr.readAsDataURL(myFile);
-  console.log(fr);
+ // console.log(fr);
   fr.onloadend = () => {
     const imgUrl = fr.result;
     updateDataCard("photo", imgUrl);
@@ -487,4 +488,4 @@ function showURL(resultURL) {
   }
 
 btnShare.addEventListener("click", sendData);
-btnShare.addEventListener("load", sendData);
+//btnShare.addEventListener("load", sendData);
