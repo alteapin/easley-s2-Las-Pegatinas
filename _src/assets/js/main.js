@@ -145,6 +145,7 @@ function initDataCard() {
   cardCreated.classList.add("hide-box");
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
   previewImg.setAttribute("src", dataCard.photo); // dataCard.photo or event.target.result
+  console.log(dataCard.photo);
   localStorage.setItem("datos", "");
   fillSavedForm();
 }
