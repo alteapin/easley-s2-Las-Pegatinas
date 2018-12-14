@@ -149,7 +149,7 @@ function initDataCard() {
   btnShare.classList.remove("btn-share--disabled");
   cardCreated.classList.add("hide-box");
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
-  previewImg.setAttribute("src", " "); 
+  previewImg.setAttribute("src", "")
 
   localStorage.setItem("datos", "");
   fillSavedForm();
