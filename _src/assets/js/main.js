@@ -37,6 +37,10 @@ const inputImage = document.getElementById("img-selector");
 const boxUserImage = document.querySelector(".card-img");
 const previewImg = document.querySelector(".preview-img");
 
+//--------end0
+const ulBlue = document.querySelector('.skills__list');
+const bgColor = document.querySelector('.build-card');
+
 
 let dataCard = {
   pallete: "",
@@ -93,37 +97,38 @@ function fillSavedForm() {
   }
 
   //pallete
-  userCard.classList.remove(
-    "color-grey",
-    "color-red",
-    "color-gum",
-    "color-purple"
-  );
+  userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
+  bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   inputBlue.checked = false;
   inputRed.checked = false;
   inputGrey.checked = false;
   inputGum.checked = false;
   inputPurple.checked = false;
 
-  if (dataCard.pallete === "1") {
+  if (dataCard.pallete === '1') {
     inputBlue.checked = true;
-    userCard.classList.add("color-blue");
+    userCard.classList.add('color-blue');  
   }
   if (dataCard.pallete === "2") {
     inputRed.checked = true;
-    userCard.classList.add("color-red");
+    userCard.classList.add('color-red');
+    bgColor.classList.add('animation-red');
+
   }
   if (dataCard.pallete === "3") {
     inputGrey.checked = true;
-    userCard.classList.add("color-grey");
+    userCard.classList.add('color-grey');
+    bgColor.classList.add('animation-grey');
   }
   if (dataCard.pallete === "4") {
     inputGum.checked = true;
-    userCard.classList.add("color-gum");
+    userCard.classList.add('color-gum');
+    bgColor.classList.add('animation-gum');
   }
   if (dataCard.pallete === "5") {
     inputPurple.checked = true;
-    userCard.classList.add("color-purple");
+    userCard.classList.add('color-purple');
+    bgColor.classList.add('animation-purple');
   }
 }
 
@@ -148,6 +153,8 @@ function initDataCard() {
   console.log(dataCard.photo);
   localStorage.setItem("datos", "");
   fillSavedForm();
+  //reset skills
+
 }
 
 resetBtn.addEventListener("click", initDataCard);
@@ -238,25 +245,30 @@ const handleColorTheme = () => {
     "color-gum",
     "color-purple"
   );
+  bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   const colorSelected = event.currentTarget;
 
   if (colorSelected === inputRed) {
     userCard.classList.add("color-red");
+    bgColor.classList.add('animation-red');
     if (!dataCard.photo) {
       boxUserImage.style.backgroundImage = "url(" + backgroundRed + ")";
     }
   } else if (colorSelected === inputGrey) {
     userCard.classList.add("color-grey");
+    bgColor.classList.add('animation-grey');
     if (!dataCard.photo) {
       boxUserImage.style.backgroundImage = "url(" + backgroundGrey + ")";
     }
   } else if (colorSelected === inputGum) {
     userCard.classList.add("color-gum");
+    bgColor.classList.add('animation-gum');
     if (!dataCard.photo) {
       boxUserImage.style.backgroundImage = "url(" + backgroundGum + ")";
     }
   } else if (colorSelected === inputPurple) {
     userCard.classList.add("color-purple");
+    bgColor.classList.add('animation-purple');
     if (!dataCard.photo) {
       boxUserImage.style.backgroundImage = "url(" + backgroundPurple + ")";
     }
@@ -368,9 +380,9 @@ function fileClick() {
   inputImage.click();
 }
 
-inputImage.addEventListener("change", getImage);
-uploadBtn.addEventListener("click", fileClick);
-linked.addEventListener("keyup", handlerLinkedin);
+inputImage.addEventListener('change', getImage);
+uploadBtn.addEventListener('click', fileClick);
+linked.addEventListener('keyup', handlerLinkedin);
 
 function inputs() {
   fetch(
@@ -378,9 +390,7 @@ function inputs() {
   )
     .then(response => response.json())
     .then(data => {
-      console.log("data response: ", data);
-
-      const divskills = document.querySelector(".container-checks");
+      const divskills = document.querySelector('.container-checks');
       const dskills = data.skills;
       let divContent = "";
       let i = 1;
@@ -394,12 +404,18 @@ function inputs() {
         i = i + 1;
       }
       divskills.innerHTML = divContent;
-      const checkInput = document.querySelectorAll(".checkbox_input");
-      const ulBlue = document.querySelector(".skills__list");
-      let liC = "";
+
+      const checkInput = document.querySelectorAll('.checkbox_input');
+      saveDataskills(checkInput);
+      const ulBlue = document.querySelector('.skills__list');
+
+      let liC = '';
       let acc = 0;
+      let j = 0;
+      let skillArray = [];
 
       function check(event) {
+
         for (let i = 0; i < checkInput.length; i++) {
           if (acc < 3) {
             if (
@@ -411,32 +427,25 @@ function inputs() {
               }</li>`;
               liC += liContent;
               acc = acc + 1;
+              skillArray[j] = checkInput[i].value;
+              j = j + 1;
+            }
+          }
+          if (acc >= 3) {
+            for (let k = 0; k < checkInput.length; k++) {
+              if (checkInput[k].checked === false)
+                checkInput[k].disabled = true;
             }
           }
         }
         ulBlue.innerHTML = liC;
-        let liC2 = "";
-        let acc2 = 0;
-        let j = 0;
-        let skillArray = [];
-        for (let i = 0; i < checkInput.length; i++) {
-          if (acc2 < 3 && checkInput[i].checked === true) {
-            const liContent2 = `<li class="skills__item skills__item--bg">${
-              checkInput[i].value
-            }</li>`;
-            liC2 += liContent2;
-            acc2 = acc2 + 1;
-            skillArray[j] = checkInput[i].value;
-            j = j + 1;
-          }
-          ulBlue.innerHTML = liC2;
-          updateDataCard("skills", skillArray);
-          localStorage.setItem("skills", JSON.stringify(dataCard));
-        }
+        updateDataCard('skills', skillArray);
+        localStorage.setItem('datos', JSON.stringify(dataCard));
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener("click", check);
       }
+
     });
 }
 
@@ -493,3 +502,48 @@ function showURL(resultURL) {
 
 btnShare.addEventListener("click", sendData);
 //btnShare.addEventListener("load", sendData);
+function saveDataskills(a) {
+  // cheking if exist data on localStorage//
+  let savedData = localStorage.getItem('datos');
+  if (savedData) {
+    let savedDataCard = JSON.parse(savedData);
+    // to fill datacard
+    if (savedDataCard) {
+      dataCard = savedDataCard;
+      let liC3 = '';
+      let acc3 = 0;
+      for (let i = 0; i < dataCard.skills.length; i++) {
+        for (let j = 0; j < a.length; j++) {
+          if (a[j].value === dataCard.skills[i] && acc3 < 3) {
+            a[j].checked = true;
+            let liContent3 = `<li class="skills__item skills__item--bg">${a[j].value}</li>`;
+            liC3 += liContent3;
+            acc3++;
+          }
+        }
+        if (acc3 >= 3) {
+          for (let k = 0; k < a.length; k++) {
+            if (a[k].checked === false)
+              a[k].disabled = true;
+          }
+        }
+        
+      }
+      const ulBlue = document.querySelector('.skills__list');
+        ulBlue.innerHTML = liC3;
+    }
+  }
+}
+
+function resetSkills() {
+  inputs();
+
+  let list = document.querySelector('.skills__list');
+  let childlist = document.querySelectorAll('.skills__item');
+
+  for (let i = 0; i < childlist.length; i++) {
+    list.removeChild(childlist[i]);
+  }
+}
+
+resetBtn.addEventListener('click', resetSkills);

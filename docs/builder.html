@@ -91,7 +91,7 @@
                                 <ul class="colors-list">
                                     <li class="list-pallete">
                                         <label for="pallete-blue" class="label-color">
-                                            <input id="pallete-blue" type="radio" value="color-blue" name="pallete-colors"
+                                            <input id="pallete-blue" type="radio" value="1" name="pallete-colors"
                                             class="selection-input">
                                         </label>
                                         <div class="pallet-box">
@@ -102,8 +102,7 @@
                                     </li>
                                     <li class="list-pallete">
                                         <label for="pallete-red" class="label-color">
-                                            <input id="pallete-red" type="radio" value="color-red" name="pallete-colors"
-                                            class="selection-input">
+                                            <input id="pallete-red" type="radio" value="2" name="pallete-colors" class="selection-input">
                                         </label>
                                         <div class="pallet-box">
                                             <div class="red-dark-color"></div>
@@ -113,7 +112,7 @@
                                     </li>
                                     <li class="list-pallete">
                                         <label for="pallete-grey" class="label-color">
-                                            <input id="pallete-grey" type="radio" value="color-grey" name="pallete-colors"
+                                            <input id="pallete-grey" type="radio" value="3" name="pallete-colors"
                                             class="selection-input">
                                         </label>
                                         <div class="pallet-box">
@@ -124,8 +123,7 @@
                                     </li>
                                     <li class="list-pallete">
                                         <label for="pallete-gum" class="label-color">
-                                            <input id="pallete-gum" type="radio" value="color-gum" name="pallete-colors"
-                                            class="selection-input">
+                                            <input id="pallete-gum" type="radio" value="4" name="pallete-colors" class="selection-input">
                                         </label>
                                         <div class="pallet-box">
                                             <div class="blue-gum-color"></div>
@@ -134,36 +132,14 @@
                                         </div>
                                     </li>
                                     <li class="list-pallete">
-                                        <label for="pallete-elegant" class="label-color">
-                                            <input id="pallete-elegant" type="radio" value="color-elegant" name="pallete-colors"
-                                            class="selection-input">
-                                        </label>
-                                        <div class="pallet-box">
-                                            <div class="black-pearl-color"></div>
-                                            <div class="silver-color"></div>
-                                            <div class="gold-color"></div>
-                                        </div>
-                                    </li>
-                                    <li class="list-pallete">
                                         <label for="pallete-purple" class="label-color">
-                                            <input id="pallete-purple" type="radio" value="color-purple" name="pallete-colors"
+                                            <input id="pallete-purple" type="radio" value="5" name="pallete-colors"
                                             class="selection-input">
                                         </label>
                                         <div class="pallet-box">
                                             <div class="purple-midtone-color"></div>
                                             <div class="purple-dark-color"></div>
                                             <div class="purple-light-color"></div>
-                                        </div>
-                                    </li>
-                                    <li class="list-pallete">
-                                        <label for="pallete-tropical" class="label-color">
-                                            <input id="pallete-tropical" type="radio" value="color-tropical" name="pallete-colors"
-                                            class="selection-input">
-                                        </label>
-                                        <div class="pallet-box">
-                                            <div class="blue-water-color"></div>
-                                            <div class="yellow-sand-color"></div>
-                                            <div class="pink-cocktail-color"></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -175,8 +151,7 @@
                                 <ul class="fonts-list">
                                     <li class="list-font">
                                         <label for="font-ubuntu" class="label-font">
-                                            <input id="font-ubuntu" type="radio" value="font-ubuntu" name="select-font"
-                                            class="selection-input">
+                                            <input id="font-ubuntu" type="radio" value="1" name="select-font" class="selection-input">
                                         </label>
                                         <div class="font-box">
                                             <div class="select-ubuntu">Ubuntu</div>
@@ -184,8 +159,7 @@
                                     </li>
                                     <li class="list-font">
                                         <label for="font-comic" class="label-font">
-                                            <input id="font-comic" type="radio" value="font-comic" name="select-font"
-                                            class="selection-input">
+                                            <input id="font-comic" type="radio" value="2" name="select-font" class="selection-input">
                                         </label>
                                         <div class="font-box">
                                             <div class="select-comic">Comic Sans</div>
@@ -193,8 +167,7 @@
                                     </li>
                                     <li class="list-font">
                                         <label for="font-montse" class="label-font">
-                                            <input id="font-montse" type="radio" value="font-montse" name="select-font"
-                                            class="selection-input">
+                                            <input id="font-montse" type="radio" value="3" name="select-font" class="selection-input">
                                         </label>
                                         <div class="font-box">
                                             <div class="select-montse">Montserrat</div>
@@ -220,12 +193,12 @@
                             <div class="contact">
                                 <label for="firstName">Nombre completo</label>
                                 <input placeholder="Ej: Sally Jill" id="firstName"
-                                type="text" name="name">
+                                type="text" name="name" required>
                             </div>
                             <div class="contact">
                                 <label for="job">Puesto</label>
                                 <input placeholder="Ej: Front-end unicorn" id="job" type="text"
-                                name="job">
+                                name="job" required>
                             </div>
                             <div class="contact">
                                 <label for="image">Imagen de perfil</label>
@@ -242,43 +215,25 @@
                             <div class="contact">
                                 <label for="email">Email</label>
                                 <input placeholder="Ej: sally-hill@gmail.com" id="email"
-                                type="email" name="email">
+                                type="email" name="email" required>
                             </div>
                             <div class="contact">
                                 <label for="phone">Teléfono</label>
                                 <input placeholder="Ej: 555-55-55-55" id="phone" type="tel"
-                                name="phone">
+                                name="phone" required>
                             </div>
                             <div class="contact">
                                 <label for="linkedin">Linkedin</label>
                                 <input placeholder="Ej: sally.hill" id="linkedin" type="text"
-                                name="linkedin">
+                                name="linkedin" required>
                             </div>
                             <div class="contact">
                                 <label for="github">Github</label>
                                 <input placeholder="Ej: sally-hill" id="github" type="text"
-                                name="github">
+                                name="github" required>
                             </div>
                             <p class="contact checkbox_contact">Habilidades (máximo 3)</p>
                             <div class="container-checks check_styles"></div>
-                            <!-- <div class="check_styles"> 
-                    <label for="hability1">
-                      <input class="checkbox_input" id="flightoption1" type="checkbox" value="HTML" name="hability">
-                      HTML
-                    </label>
-                </div>
-                <div class="check_styles">
-                    <label for="hability2">
-                      <input class="checkbox_input" id="flightoption2" type="checkbox" value="CSS" name="hability">
-                      CSS
-                    </label>
-                </div>
-                <div class="check_styles">
-                    <label for="hability3">
-                      <input class="checkbox_input" id="flightoption3" type="checkbox" value="React" name="hability">
-                      React
-                    </label>
-                </div>-->
                         </form>
                     </div>
                     <div class="box-selector edit-share">
@@ -321,9 +276,12 @@
             </section>
             <footer class="page__footer">
                 <div class="container-footer">
-                    <p class="copyright">Awesome profile-cards @2018</p>
-                    <img class="img-footer" src="assets/images/logo-adalab.png"
-                    alt="Logo Adalab">
+                    <div class="container-footer-logo">
+                        <p class="copyright">Awesome profile-cards @2018</p>
+                        <img class="img-footer-logo" src="assets/images/logosmall.png"
+                        alt="Logo Las Pegatinas">
+                    </div>
+                    <img class="img-footer" src="assets/images/logo-adalab.png" alt="Logo Adalab">
                 </div>
             </footer>
         </div>

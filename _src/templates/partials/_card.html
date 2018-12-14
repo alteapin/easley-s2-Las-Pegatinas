@@ -207,102 +207,50 @@
           <i class="fas fa-angle-down"></i>
         </button>
       </div>
-      <form class="fill hide-box bring-box">
-        <div class="contact">
-          <label for="firstName">Nombre completo</label>
-          <input
-            placeholder="Ej: Sally Jill"
-            id="firstName"
-            type="text"
-            name="name"
-          />
-        </div>
 
-        <div class="contact">
-          <label for="job">Puesto</label>
-          <input
-            placeholder="Ej: Front-end unicorn"
-            id="job"
-            type="text"
-            name="job"
-          />
-        </div>
-        <div class="contact">
-          <label for="image">Imagen de perfil</label>
-          <div class="add_image">
-            <button class="button_ad_image" type="submit" value="submit">
-              Añadir imagen
-            </button>
-            <!-- adding an input field to set up the choose file action -->
-            <input
-              type="file"
-              name="addImage"
-              id="img-selector"
-              class="btn__hidden"
-            />
-            <div class="preview-box"><img class="preview-img" src="" /></div>
-          </div>
-        </div>
+       
+        <form class="fill hide-box bring-box">
 
-        <div class="contact">
-          <label for="email">Email</label>
-          <input
-            placeholder="Ej: sally-hill@gmail.com"
-            id="email"
-            type="email"
-            name="email"
-          />
-        </div>
+                <div class="contact"> 
+                <label for="firstName">Nombre completo</label>
+                <input placeholder="Ej: Sally Jill" id="firstName" type="text" name="name" required>
+                </div> 
 
-        <div class="contact">
-          <label for="phone">Teléfono</label>
-          <input
-            placeholder="Ej: 555-55-55-55"
-            id="phone"
-            type="tel"
-            name="phone"
-          />
-        </div>
-        <div class="contact">
-          <label for="linkedin">Linkedin</label>
-          <input
-            placeholder="Ej: sally.hill"
-            id="linkedin"
-            type="text"
-            name="linkedin"
-          />
-        </div>
-        <div class="contact">
-          <label for="github">Github</label>
-          <input
-            placeholder="Ej: sally-hill"
-            id="github"
-            type="text"
-            name="github"
-          />
-        </div>
-        <p class="contact checkbox_contact">Habilidades (máximo 3)</p>
-        <div class="container-checks check_styles"></div>
-        <!--
-          <div class="check_styles">
-              <label for="hability1">
-                <input class="checkbox_input" id="flightoption1" type="checkbox" value="HTML" name="hability">
-                HTML
-              </label>
-          </div>
-          <div class="check_styles">
-              <label for="hability2">
-                <input class="checkbox_input" id="flightoption2" type="checkbox" value="CSS" name="hability">
-                CSS
-              </label>
-          </div>
-          <div class="check_styles">
-              <label for="hability3">
-                <input class="checkbox_input" id="flightoption3" type="checkbox" value="React" name="hability">
-                React
-              </label>
-          </div>
-        -->
+                <div class="contact">
+                    <label for="job">Puesto</label>
+                    <input placeholder="Ej: Front-end unicorn" id="job" type="text" name="job" required>
+                </div>
+                <div class="contact">
+                    <label for="image">Imagen de perfil</label>
+                    <div class= "add_image">
+                        <button class="button_ad_image" type="submit" value="submit">Añadir imagen</button>
+                
+                
+                        <input type="file" name="addImage" id="img-selector" class="btn__hidden">
+                        <div class="preview-box"><img class="preview-img" src=""> </div>
+                    </div>
+                </div>
+            
+                <div class="contact">
+                <label for="email">Email</label>
+                <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" required>
+                </div>
+            
+                <div class="contact">
+                <label for="phone">Teléfono</label>
+                <input placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone" required>
+                </div>
+                <div class="contact">
+                  <label for="linkedin">Linkedin</label>
+                  <input placeholder="Ej: sally.hill" id="linkedin" type="text" name="linkedin" required>
+                </div>
+                <div class="contact">
+                  <label for="github">Github</label>
+                  <input placeholder="Ej: sally-hill" id="github" type="text" name="github" required>
+                </div>
+                <p class="contact checkbox_contact">Habilidades (máximo 3)</p>
+                <div class="container-checks check_styles"></div>
+
       </form>
     </div>
 
@@ -321,7 +269,7 @@
       <!-- boton crear tarjeta habilitado -->
       <div class="card-share flex-container">
         <div class="box-btn-share">
-          <button class="btn-share">
+          <button class="btn-share" type="submit">
             <i class="far fa-id-card"></i>
             <span class="title-edit"> Crear tarjeta </span>
           </button>
