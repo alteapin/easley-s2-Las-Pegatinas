@@ -153,7 +153,6 @@ function initDataCard() {
 
   localStorage.setItem("datos", "");
   fillSavedForm();
-  //reset skills
 
 }
 
@@ -466,7 +465,7 @@ function inputs() {
               acc = acc + 1;
               skillArray[j] = checkInput[i].value;
               j = j + 1;
-              ulBlue.innerHTML = liC;
+              //ulBlue.innerHTML = liC;
             }
             else if (
               checkInput[i] === event.currentTarget &&
@@ -476,19 +475,21 @@ function inputs() {
               let list = document.querySelector('.skills__list');
               for (let k = 0; k < childsList.length; k++) {
                 if (event.currentTarget.value === childsList[k].innerHTML) {
-                  console.log('eliminar este li', childsList[k]);
-                  //for (let i = 0; i < childlist.length; i++) {
                   list.removeChild(childsList[k]);
-                  // }
                 }
               }
-              //eliminar el li que tenga el checkInput[i].value
-              /*const liContent = `<li class="skills__item skills__item--bg">${
-                checkInput[i].value
-              }</li>`;*/
               acc = acc - 1;
-              //elimarlo del array local
-              //skillArray[j] = checkInput[i].value;
+            
+              //search es el que busco en el array que guardo en el localStorage skillArray
+              let search = event.currentTarget.value;
+              console.log('search', search);
+              console.log('viejo skillArray', skillArray);
+              for(let i=0; i<skillArray.length; i++){
+                if(search === skillArray[i]){
+                  skillArray.splice(i,1);
+                  console.log('new skillArray', skillArray);
+                }
+              }
               j = j - 1;
             }
           }
