@@ -55,7 +55,7 @@ let dataCard = {
   skills: [""],
   success: "",
   cardURL: "",
-    // 'https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card',
+  // 'https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card',
   error: ""
 };
 
@@ -107,7 +107,7 @@ function fillSavedForm() {
 
   if (dataCard.pallete === '1') {
     inputBlue.checked = true;
-    userCard.classList.add('color-blue');  
+    userCard.classList.add('color-blue');
   }
   if (dataCard.pallete === "2") {
     inputRed.checked = true;
@@ -362,7 +362,7 @@ function getImage(event) {
   let myFile = event.target.files[0];
   fr.addEventListener("load", writeImage);
   fr.readAsDataURL(myFile);
- // console.log(fr);
+  // console.log(fr);
   fr.onloadend = () => {
     const imgUrl = fr.result;
     updateDataCard("photo", imgUrl);
@@ -417,18 +417,53 @@ function inputs() {
       function check(event) {
 
         for (let i = 0; i < checkInput.length; i++) {
-          if (acc < 3) {
+          if (acc <= 3) {
             if (
               checkInput[i] === event.currentTarget &&
               checkInput[i].checked === true
             ) {
+              //aqui antes de crear el li content si ya lo tengo no lo creo
+              /*let intIndex = indexOf(checkInput[i].value);
+              if(intIndex == - 1){
+                console.log('encontrado');
+              }*/
+              
+
               const liContent = `<li class="skills__item skills__item--bg">${
                 checkInput[i].value
-              }</li>`;
+                }</li>`;
+              //si ese li content ya lo tengo no lo añado
               liC += liContent;
               acc = acc + 1;
               skillArray[j] = checkInput[i].value;
               j = j + 1;
+              ulBlue.innerHTML = liC;
+            }
+            else if (
+              checkInput[i] === event.currentTarget &&
+              checkInput[i].checked === false
+            ) {
+              let childsList = document.querySelectorAll('.skills__item');
+              let list = document.querySelector('.skills__list');
+              for (let k = 0; k < childsList.length; k++) {
+                if (event.currentTarget.value === childsList[k].innerHTML) {
+                  console.log('eliminar este li', childsList[k]);
+                  
+                  console.log('lista', list);
+                  //for (let i = 0; i < childlist.length; i++) {
+                  list.removeChild(childsList[k]);
+                  console.log('lista', list);
+                  // }
+                }
+              }
+              //eliminar el li que tenga el checkInput[i].value
+              /*const liContent = `<li class="skills__item skills__item--bg">${
+                checkInput[i].value
+              }</li>`;*/
+              acc = acc - 1;
+              //elimarlo del array local
+              //skillArray[j] = checkInput[i].value;
+              j = j - 1;
             }
           }
           if (acc >= 3) {
@@ -438,7 +473,8 @@ function inputs() {
             }
           }
         }
-        ulBlue.innerHTML = liC;
+        //ulBlue.innerHTML = liC;
+        console.log('lic', liC);
         updateDataCard('skills', skillArray);
         localStorage.setItem('datos', JSON.stringify(dataCard));
       }
@@ -466,15 +502,15 @@ function sendRequest(dataCard) {
       'content-type': 'application/json'
     },
   })
-    .then(function(resp) {
+    .then(function (resp) {
       return resp.json();
-      
+
     })
-    .then(function(resultURL) {
+    .then(function (resultURL) {
       showURL(resultURL);
       btnShare.classList.remove("btn-share--disabled");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
@@ -489,17 +525,17 @@ const twitterShare = document.querySelector('.twitter-link');
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
 
-    if (resultURL.success) {
-      console.log(resultURL.success);
-      linkURLShare.innerHTML =
-        "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
-        console.log(dataCard.cardURL);
-        //mete el enlace a twiter en el html pero hayq arreglarlo
-      twitterShare.href = "https://twitter.com/intent/tweet?text=Hello%20world&url="+ resultURL.cardURL;
-    } else {
-      linkURLShare.innerHTML = "ERROR:" + dataCard.error;
-    }
+  if (resultURL.success) {
+    console.log(resultURL.success);
+    linkURLShare.innerHTML =
+      "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
+    console.log(dataCard.cardURL);
+    //mete el enlace a twiter en el html pero hayq arreglarlo
+    twitterShare.href = "https://twitter.com/intent/tweet?text=Hello%20world&url=" + resultURL.cardURL;
+  } else {
+    linkURLShare.innerHTML = "ERROR:" + dataCard.error;
   }
+}
 
 btnShare.addEventListener("click", sendData);
 //btnShare.addEventListener("load", sendData);
@@ -528,10 +564,10 @@ function saveDataskills(a) {
               a[k].disabled = true;
           }
         }
-        
+
       }
       const ulBlue = document.querySelector('.skills__list');
-        ulBlue.innerHTML = liC3;
+      ulBlue.innerHTML = liC3;
     }
   }
 }
