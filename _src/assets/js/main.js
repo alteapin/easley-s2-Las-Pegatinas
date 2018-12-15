@@ -383,6 +383,8 @@ inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 
+
+
 function inputs() {
   fetch(
     "https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json"
@@ -410,11 +412,13 @@ function inputs() {
 
       //let liC = '';
       let acc = 0;
-      let j = 0;
       let skillArray = [];
+      let j = 0;
+      
 
       function check(event) {
-
+        //saveDataskills(checkInput);
+console.log('nada mas hacer click', skillArray);
         for (let i = 0; i < checkInput.length; i++) {
           if (acc <= 3) {
             for (let k = 0; k < checkInput.length; k++) {
@@ -426,22 +430,16 @@ function inputs() {
               checkInput[i].checked === true
             ) {
               let list = document.querySelector('.skills__list');
-              //for (let l = 0; l <checkInput.length; l++) {
-                //if (event.currentTarget.value === childsList[k].innerHTML) {
-                  /*const liContent = `<li class="skills__item skills__item--bg">${
-                    checkInput[i].value
-                    }</li>`;*/
-
-                  const newItem = document.createElement('li');
-                  newItem.classList.add('skills__item','skills__item--bg');
-                  const newContent = document.createTextNode(`${
-                    checkInput[i].value}`);
-                  newItem.appendChild(newContent);
-                  list.appendChild(newItem);
-                  console.log('new item', newItem);
-                  console.log('aapend li:',list);
+              const newItem = document.createElement('li');
+              newItem.classList.add('skills__item', 'skills__item--bg');
+              const newContent = document.createTextNode(`${
+                checkInput[i].value}`);
+              newItem.appendChild(newContent);
+              list.appendChild(newItem);
+              console.log('new item', newItem);
+              console.log('aapend li:', list);
               //  }
-            //
+              //
 
               //si es true simplemente se lo añado al padre
               /*let textValue = checkInput[i].innerHTML;
@@ -461,8 +459,15 @@ function inputs() {
                 //si ese li content ya lo tengo no lo añado
                 liC += liContent;
               }*/
-
+             
               acc = acc + 1;
+ //si ya existe en skillsArray no añadirlo ni que empice de cero
+              console.log('skillArray que voy añadiendo')
+              /*for(m=0; m<skillArray; m++){
+                if(skillArray[m] !== undefined){
+                  console.log('ya existe este skillArray!!!', skillArray[m]);
+                }
+              }*/
               skillArray[j] = checkInput[i].value;
               j = j + 1;
               //ulBlue.innerHTML = liC;
@@ -479,14 +484,13 @@ function inputs() {
                 }
               }
               acc = acc - 1;
-            
               //search es el que busco en el array que guardo en el localStorage skillArray
               let search = event.currentTarget.value;
               console.log('search', search);
               console.log('viejo skillArray', skillArray);
-              for(let i=0; i<skillArray.length; i++){
-                if(search === skillArray[i]){
-                  skillArray.splice(i,1);
+              for (let i = 0; i < skillArray.length; i++) {
+                if (search === skillArray[i]) {
+                  skillArray.splice(i, 1);
                   console.log('new skillArray', skillArray);
                 }
               }
