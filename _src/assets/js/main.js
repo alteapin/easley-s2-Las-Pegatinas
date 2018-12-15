@@ -384,6 +384,7 @@ uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
 let skillArray = [];
 let j = 0;
+let acc = 0;
 
 
 function inputs() {
@@ -415,6 +416,7 @@ function inputs() {
         console.log('si ya lo tengo va a ser el de la card',skillArray);
         j = skillArray.length;
         console.log('la lenght es', j);
+        acc = skillArray.length;
       }
       else{
         skillArray = [];
@@ -424,11 +426,12 @@ function inputs() {
       const ulBlue = document.querySelector('.skills__list');
 
       //let liC = '';
-      let acc = 0;
+      //let acc = 0;
       
       function check(event) {
+        console.log('CONTADOR nada mas entrar', acc);
         //saveDataskills(checkInput);
-console.log('nada mas hacer click', skillArray);
+console.log('nada mas hacer click mi lista', ulBlue);
         for (let i = 0; i < checkInput.length; i++) {
           if (acc <= 3 && j<=3) {
             for (let k = 0; k < checkInput.length; k++) {
@@ -471,13 +474,9 @@ console.log('nada mas hacer click', skillArray);
               }*/
              
               acc = acc + 1;
- //si ya existe en skillsArray no añadirlo ni que empice de cero
+
               console.log('skillArray que voy añadiendo')
-              /*for(m=0; m<skillArray; m++){
-                if(skillArray[m] !== undefined){
-                  console.log('ya existe este skillArray!!!', skillArray[m]);
-                }
-              }*/
+              
               skillArray[j] = checkInput[i].value;
               j = j + 1;
               //ulBlue.innerHTML = liC;
