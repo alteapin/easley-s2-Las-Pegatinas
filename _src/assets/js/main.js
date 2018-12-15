@@ -409,7 +409,7 @@ function inputs() {
       saveDataskills(checkInput);
       const ulBlue = document.querySelector('.skills__list');
 
-      let liC = '';
+      //let liC = '';
       let acc = 0;
       let j = 0;
       let skillArray = [];
@@ -418,22 +418,51 @@ function inputs() {
 
         for (let i = 0; i < checkInput.length; i++) {
           if (acc <= 3) {
+            for (let k = 0; k < checkInput.length; k++) {
+              if (checkInput[k].checked === false)
+                checkInput[k].disabled = false;
+            }
             if (
               checkInput[i] === event.currentTarget &&
               checkInput[i].checked === true
             ) {
-              //aqui antes de crear el li content si ya lo tengo no lo creo
-              /*let intIndex = indexOf(checkInput[i].value);
-              if(intIndex == - 1){
-                console.log('encontrado');
-              }*/
-              
+              let list = document.querySelector('.skills__list');
+              //for (let l = 0; l <checkInput.length; l++) {
+                //if (event.currentTarget.value === childsList[k].innerHTML) {
+                  /*const liContent = `<li class="skills__item skills__item--bg">${
+                    checkInput[i].value
+                    }</li>`;*/
 
-              const liContent = `<li class="skills__item skills__item--bg">${
-                checkInput[i].value
-                }</li>`;
-              //si ese li content ya lo tengo no lo añado
-              liC += liContent;
+                  const newItem = document.createElement('li');
+                  newItem.classList.add('skills__item','skills__item--bg');
+                  const newContent = document.createTextNode(`${
+                    checkInput[i].value}`);
+                  newItem.appendChild(newContent);
+                  list.appendChild(newItem);
+                  console.log('new item', newItem);
+                  console.log('aapend li:',list);
+              //  }
+            //
+
+              //si es true simplemente se lo añado al padre
+              /*let textValue = checkInput[i].innerHTML;
+              let n = liC.includes(textValue);
+              console.log('si incluye:esto o no n:',n);
+              if(n===true){
+                console.log('en liC tengo esto: '+ liC);
+                liC = liC.replace(`<li class="skills__item skills__item--bg">${
+                  checkInput[i].value
+                  }</li>`, "");
+                console.log('eliminado y ahora!!!', liC);
+              }
+              else{
+                const liContent = `<li class="skills__item skills__item--bg">${
+                  checkInput[i].value
+                  }</li>`;
+                //si ese li content ya lo tengo no lo añado
+                liC += liContent;
+              }*/
+
               acc = acc + 1;
               skillArray[j] = checkInput[i].value;
               j = j + 1;
@@ -448,11 +477,8 @@ function inputs() {
               for (let k = 0; k < childsList.length; k++) {
                 if (event.currentTarget.value === childsList[k].innerHTML) {
                   console.log('eliminar este li', childsList[k]);
-                  
-                  console.log('lista', list);
                   //for (let i = 0; i < childlist.length; i++) {
                   list.removeChild(childsList[k]);
-                  console.log('lista', list);
                   // }
                 }
               }
@@ -474,7 +500,7 @@ function inputs() {
           }
         }
         //ulBlue.innerHTML = liC;
-        console.log('lic', liC);
+        //console.log('lic', liC);
         updateDataCard('skills', skillArray);
         localStorage.setItem('datos', JSON.stringify(dataCard));
       }
