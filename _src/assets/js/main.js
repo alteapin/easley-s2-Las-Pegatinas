@@ -52,7 +52,7 @@ let dataCard = {
   phone: "",
   linkedin: "",
   github: "",
-  skills: [""],
+  skills: [],
   success: "",
   cardURL: "",
   // 'https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card',
@@ -144,7 +144,7 @@ function initDataCard() {
     phone: "",
     linkedin: "",
     github: "",
-    skills: [""]
+    skills: []
   };
   btnShare.classList.remove("btn-share--disabled");
   cardCreated.classList.add("hide-box");
@@ -382,7 +382,8 @@ function fileClick() {
 inputImage.addEventListener('change', getImage);
 uploadBtn.addEventListener('click', fileClick);
 linked.addEventListener('keyup', handlerLinkedin);
-
+let skillArray = [];
+let j = 0;
 
 
 function inputs() {
@@ -408,19 +409,28 @@ function inputs() {
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
+      console.log('datacard skills', dataCard.skills);
+      if(dataCard.skills){
+        skillArray = dataCard.skills;
+        console.log('si ya lo tengo va a ser el de la card',skillArray);
+        j = skillArray.length;
+        console.log('la lenght es', j);
+      }
+      else{
+        skillArray = [];
+        //j = 0;
+        console.log('si no lo tengo ', skillArray);
+      }
       const ulBlue = document.querySelector('.skills__list');
 
       //let liC = '';
       let acc = 0;
-      let skillArray = [];
-      let j = 0;
       
-
       function check(event) {
         //saveDataskills(checkInput);
 console.log('nada mas hacer click', skillArray);
         for (let i = 0; i < checkInput.length; i++) {
-          if (acc <= 3) {
+          if (acc <= 3 && j<=3) {
             for (let k = 0; k < checkInput.length; k++) {
               if (checkInput[k].checked === false)
                 checkInput[k].disabled = false;
