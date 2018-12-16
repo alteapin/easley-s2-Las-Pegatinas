@@ -410,7 +410,6 @@ function inputs() {
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
-      console.log('datacard skills', dataCard.skills);
       if(dataCard.skills){
         skillArray = dataCard.skills;
         console.log('si ya lo tengo va a ser el de la card',skillArray);
@@ -420,18 +419,11 @@ function inputs() {
       }
       else{
         skillArray = [];
-        //j = 0;
-        console.log('si no lo tengo ', skillArray);
       }
       const ulBlue = document.querySelector('.skills__list');
 
-      //let liC = '';
-      //let acc = 0;
-      
       function check(event) {
-        console.log('CONTADOR nada mas entrar', acc);
-        //saveDataskills(checkInput);
-console.log('nada mas hacer click mi lista', ulBlue);
+        
         for (let i = 0; i < checkInput.length; i++) {
           if (acc <= 3 && j<=3) {
             for (let k = 0; k < checkInput.length; k++) {
@@ -449,37 +441,9 @@ console.log('nada mas hacer click mi lista', ulBlue);
                 checkInput[i].value}`);
               newItem.appendChild(newContent);
               list.appendChild(newItem);
-              console.log('new item', newItem);
-              console.log('aapend li:', list);
-              //  }
-              //
-
-              //si es true simplemente se lo añado al padre
-              /*let textValue = checkInput[i].innerHTML;
-              let n = liC.includes(textValue);
-              console.log('si incluye:esto o no n:',n);
-              if(n===true){
-                console.log('en liC tengo esto: '+ liC);
-                liC = liC.replace(`<li class="skills__item skills__item--bg">${
-                  checkInput[i].value
-                  }</li>`, "");
-                console.log('eliminado y ahora!!!', liC);
-              }
-              else{
-                const liContent = `<li class="skills__item skills__item--bg">${
-                  checkInput[i].value
-                  }</li>`;
-                //si ese li content ya lo tengo no lo añado
-                liC += liContent;
-              }*/
-             
               acc = acc + 1;
-
-              console.log('skillArray que voy añadiendo')
-              
               skillArray[j] = checkInput[i].value;
               j = j + 1;
-              //ulBlue.innerHTML = liC;
             }
             else if (
               checkInput[i] === event.currentTarget &&
@@ -495,12 +459,9 @@ console.log('nada mas hacer click mi lista', ulBlue);
               acc = acc - 1;
               //search es el que busco en el array que guardo en el localStorage skillArray
               let search = event.currentTarget.value;
-              console.log('search', search);
-              console.log('viejo skillArray', skillArray);
               for (let i = 0; i < skillArray.length; i++) {
                 if (search === skillArray[i]) {
                   skillArray.splice(i, 1);
-                  console.log('new skillArray', skillArray);
                 }
               }
               j = j - 1;
@@ -513,15 +474,12 @@ console.log('nada mas hacer click mi lista', ulBlue);
             }
           }
         }
-        //ulBlue.innerHTML = liC;
-        //console.log('lic', liC);
         updateDataCard('skills', skillArray);
         localStorage.setItem('datos', JSON.stringify(dataCard));
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener("click", check);
       }
-
     });
 }
 
