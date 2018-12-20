@@ -423,7 +423,7 @@ function inputs() {
       const ulBlue = document.querySelector('.skills__list');
 
       function check(event) {
-        
+
         for (let i = 0; i < checkInput.length; i++) {
           if (acc <= 3 && j<=3) {
             for (let k = 0; k < checkInput.length; k++) {
@@ -529,7 +529,7 @@ function showURL(resultURL) {
       "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
     console.log(dataCard.cardURL);
     //mete el enlace a twiter en el html pero hayq arreglarlo
-    twitterShare.href = "https://twitter.com/intent/tweet?text=Hello%20world&url=" + resultURL.cardURL;
+    twitterShare.href = "https://twitter.com/intent/tweet?text=Mi%20tarjeta%20virtual%20&url=" + resultURL.cardURL;
   } else {
     linkURLShare.innerHTML = "ERROR:" + dataCard.error;
   }
