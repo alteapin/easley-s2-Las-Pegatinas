@@ -1,0 +1,2 @@
+
+En este proyecto realizamos una aplicación web que nos permite crear una tarjeta de visita personalizada, en donde podremos introducir nuestros datos profesionales y obtener una vista maquetada con esta información.
