@@ -340,7 +340,13 @@ body {
   height: 17px;
   width: 17px;
   cursor: pointer;
+  position: relative;
 }
+
+.fa-gem{
+  color:grey;
+}
+
 
 .label-color,
 .label-font {
