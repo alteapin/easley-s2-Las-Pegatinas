@@ -2,6 +2,7 @@
 //--------- Variables form-----------
 
 // PALLETES INPUTS
+//Refactor: each input radio check at the palette selector
 
 const inputBlue = document.getElementById("pallete-blue");
 const inputRed = document.getElementById("pallete-red");
@@ -10,6 +11,7 @@ const inputGum = document.getElementById("pallete-gum");
 const inputPurple = document.getElementById("pallete-purple");
 const userCard = document.querySelector(".box-card");
 //palletes background
+//Refactor: profile image placeholders for each palette
 const backgroundBlue = "../assets/images/tiger.png";
 const backgroundRed = "../assets/images/cebra5.png";
 const backgroundGrey = "../assets/images/cocodrilo2.png";
@@ -18,6 +20,7 @@ const backgroundPurple = "../assets/images/panter7.png";
 
 
 // email-phone-github-linked
+//Refactor: boxes from formulary
 const mail = document.querySelector("#email");
 const icons = document.querySelectorAll(".icons-card");
 const phone = document.querySelector("#phone");
@@ -25,23 +28,23 @@ const github = document.querySelector("#github");
 const linked = document.querySelector("#linkedin");
 
 //variablesname-job
-const name = document.querySelector(".name-person");
-const job = document.querySelector(".work-space");
-const inputName = document.querySelector("#firstName");
-const inputJob = document.querySelector("#job");
-const resetBtn = document.querySelector(".reset-btn");
+const name = document.querySelector(".name-person"); //card name
+const job = document.querySelector(".work-space"); //card job
+const inputName = document.querySelector("#firstName"); //form
+const inputJob = document.querySelector("#job"); //form
+const resetBtn = document.querySelector(".reset-btn"); //card reset btn
 
 //variables photo
-const uploadBtn = document.querySelector(".button_ad_image");
-const inputImage = document.getElementById("img-selector");
-const boxUserImage = document.querySelector(".card-img");
-const previewImg = document.querySelector(".preview-img");
+const uploadBtn = document.querySelector(".button_ad_image");//btn "anadir imagen"
+const inputImage = document.getElementById("img-selector"); //input type file to catch image, its hidden
+const boxUserImage = document.querySelector(".card-img"); //main image
+const previewImg = document.querySelector(".preview-img"); //small preview box
 
-//--------end0
-const ulBlue = document.querySelector('.skills__list');
-const bgColor = document.querySelector('.build-card');
+//Refactor
+const ulBlue = document.querySelector('.skills__list');//selected skills ul list(html, css...)
+const bgColor = document.querySelector('.build-card');//
 
-
+//REFACTOR: LOCAL STORAGE EMPTY OBJECT
 let dataCard = {
   pallete: "",
   typography: "",
@@ -55,12 +58,13 @@ let dataCard = {
   skills: [],
   success: "",
   cardURL: "",
-  // 'https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card',
   error: ""
 };
 
-// cheking if exist data on localStorage//
-let savedData = localStorage.getItem("datos");
+// cheking if exist data on localStorage
+//Refactor: retrieve from LS data and assign it to let variable
+let savedData = localStorage.getItem("data");
+//Refactor: if we have LS, parse it and fill Form
 if (savedData) {
   // to fill datacard
   dataCard = JSON.parse(savedData);
@@ -68,7 +72,9 @@ if (savedData) {
 }
 
 // fill form with data on localStorage
+//refactor: modify this loooong function to separate ones and invoke them as callbacks into a wider one. For  ifs, use ternary operators
 function fillSavedForm() {
+  //refactor: create function for fill name and job
   if (dataCard.name) {
     name.innerHTML = dataCard.name;
   } else {
@@ -82,7 +88,10 @@ function fillSavedForm() {
     job.innerHTML = "Front-end developer";
   }
   inputJob.value = dataCard.job;
+
+  //-----second function
   //icons
+  //third and fourth functions: one for icons href (include Linkedin icons[2].href ), and another one for phone, mail and github value
   icons[0].href = "tel: +34" + dataCard.phone;
   phone.value = dataCard.phone;
 
@@ -92,11 +101,13 @@ function fillSavedForm() {
   icons[3].href = "https://github.com/" + dataCard.github;
   github.value = dataCard.github;
   // photo
+  //refactor: fifth function. Plus amend small preview image at reload
   if (dataCard.photo) {
     boxUserImage.style.backgroundImage = "url(" + dataCard.photo + ")";
   }
 
   //pallete
+  //Refactor: sixth function -- reset palette and set up background and palette design color as per checked radio btn
   userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
   bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   inputBlue.checked = false;
@@ -105,7 +116,8 @@ function fillSavedForm() {
   inputGum.checked = false;
   inputPurple.checked = false;
 
-  if (dataCard.pallete === '1') {
+  //REFACTOR: pending to abilitate default checked palette
+  if (dataCard.pallete === '1' || dataCard.pallete === ""){
     inputBlue.checked = true;
     userCard.classList.add('color-blue');
   }
@@ -133,6 +145,7 @@ function fillSavedForm() {
 }
 
 // reset dataCard
+//refactor: after reset, putting the checked inputs as per default. This is OK but is going to be placed at another partial
 function initDataCard() {
   dataCard = {
     pallete: "",
@@ -151,14 +164,12 @@ function initDataCard() {
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
   previewImg.setAttribute("src", "")
 
-  localStorage.setItem("datos", "");
+  localStorage.setItem("data", "");
   fillSavedForm();
-
-}
-
+} //refactor: to go along with its handlerFunction
 resetBtn.addEventListener("click", initDataCard);
 
-//--------------------------end of new----------------------------------------
+
 
 function updateDataName(event) {
   const value = inputName.value;
@@ -168,18 +179,18 @@ function updateDataName(event) {
     name.innerHTML = "Nombre Apellido";
   }
   updateDataCard("name", inputName.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 function updateDataCard(key, value) {
   console.log(key);
   console.log(value);
   dataCard[key] = value;
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 //  function retrieveDataStored() {
-//      const dataStored = JSON.parse('datos')
+//      const dataStored = JSON.parse('data')
 //      console.log(dataStored);
 //  }
 
@@ -191,7 +202,7 @@ function updateDataJob(event) {
     job.innerHTML = "Front-end developer";
   }
   updateDataCard("job", inputJob.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 inputName.addEventListener("keyup", updateDataName);
@@ -277,7 +288,7 @@ const handleColorTheme = () => {
     }
   }
   updateDataCard("pallete", colorSelected.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 };
 
 inputBlue.addEventListener("click", handleColorTheme);
@@ -319,7 +330,7 @@ montseFont.addEventListener("click", handleFonttheme);
 function handlersendMail() {
   icons[1].href = "mailto:" + mail.value;
   updateDataCard("email", mail.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 mail.addEventListener("keyup", handlersendMail);
@@ -329,7 +340,7 @@ mail.addEventListener("keyup", handlersendMail);
 function handlerPhone() {
   icons[0].href = "tel: +34" + phone.value;
   updateDataCard("phone", phone.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 phone.addEventListener("keyup", handlerPhone);
@@ -339,7 +350,7 @@ phone.addEventListener("keyup", handlerPhone);
 function handlerGithub() {
   icons[3].href = "https://github.com/" + github.value;
   updateDataCard("github", github.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 github.addEventListener("keyup", handlerGithub);
@@ -349,7 +360,7 @@ github.addEventListener("keyup", handlerGithub);
 function handlerLinkedin() {
   icons[2].href = "https://linkedin.com/in/" + linked.value;
   updateDataCard("linkedin", linked.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 //add Image Feature
@@ -475,7 +486,7 @@ function inputs() {
           }
         }
         updateDataCard('skills', skillArray);
-        localStorage.setItem('datos', JSON.stringify(dataCard));
+        localStorage.setItem('data', JSON.stringify(dataCard));
       }
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener("click", check);
@@ -539,7 +550,7 @@ btnShare.addEventListener("click", sendData);
 //btnShare.addEventListener("load", sendData);
 function saveDataskills(a) {
   // cheking if exist data on localStorage//
-  let savedData = localStorage.getItem('datos');
+  let savedData = localStorage.getItem('data');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
     // to fill datacard
