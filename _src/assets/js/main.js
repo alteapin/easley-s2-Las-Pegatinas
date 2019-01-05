@@ -37,7 +37,8 @@ const resetBtn = document.querySelector(".reset-btn"); //card reset btn
 //variables photo
 const uploadBtn = document.querySelector(".button_ad_image");//btn "anadir imagen"
 const inputImage = document.getElementById("img-selector"); //input type file to catch image, its hidden
-const boxUserImage = document.querySelector(".card-img"); //main image
+const boxUserImage = document.querySelector(".card-img");
+const boxUserImageSmall = document.querySelector(".preview-box");  //main image
 const previewImg = document.querySelector(".preview-img"); //small preview box
 
 //Refactor
@@ -61,9 +62,14 @@ let dataCard = {
   error: ""
 };
 
-// cheking if exist data on localStorage
-//Refactor: retrieve from LS data and assign it to let variable
+// cheking if exist data on localStorage /Refactor: retrieve from LS data and assign it to let variable
 let savedData = localStorage.getItem("data");
+
+// default checkout for palettes
+if (!savedData){
+  inputBlue.checked = true;
+  userCard.classList.add('color-blue');
+}
 //Refactor: if we have LS, parse it and fill Form
 if (savedData) {
   // to fill datacard
@@ -71,43 +77,40 @@ if (savedData) {
   fillSavedForm();
 }
 
-// fill form with data on localStorage
-//refactor: modify this loooong function to separate ones and invoke them as callbacks into a wider one. For  ifs, use ternary operators
-function fillSavedForm() {
-  //refactor: create function for fill name and job
-  if (dataCard.name) {
-    name.innerHTML = dataCard.name;
-  } else {
-    name.innerHTML = "Nombre Apellido";
-  }
-  inputName.value = dataCard.name;
-  //job
-  if (dataCard.job) {
-    job.innerHTML = dataCard.job;
-  } else {
-    job.innerHTML = "Front-end developer";
-  }
-  inputJob.value = dataCard.job;
+//functions to refactoring
 
-  //-----second function
-  //icons
-  //third and fourth functions: one for icons href (include Linkedin icons[2].href ), and another one for phone, mail and github value
+function fillName(){
+  dataCard.name? name.innerHTML = dataCard.name: name.innerHTML = "Nombre Apellido";
+  inputName.value = dataCard.name;
+}
+
+function fillJob(){
+  dataCard.job?job.innerHTML = dataCard.job:job.innerHTML = "Front-end developer";
+  inputJob.value = dataCard.job;
+}
+
+function fillIcons(){
   icons[0].href = "tel: +34" + dataCard.phone;
   phone.value = dataCard.phone;
 
   icons[1].href = "mailto:" + dataCard.email;
   mail.value = dataCard.email;
 
-  icons[3].href = "https://github.com/" + dataCard.github;
-  github.value = dataCard.github;
-  // photo
-  //refactor: fifth function. Plus amend small preview image at reload
+  icons[2].href = "https://linkedin.com/" + dataCard.email;
+  mail.value = dataCard.email;
+
+  icons[3].href = "https://github.com/" + dataCard.linkedin;
+  linkedin.value = dataCard.linkedin;
+}
+
+function fillPhoto(){
   if (dataCard.photo) {
     boxUserImage.style.backgroundImage = "url(" + dataCard.photo + ")";
+    boxUserImageSmall.style.backgroundImage = "url(" + dataCard.photo + ")";
   }
+}
 
-  //pallete
-  //Refactor: sixth function -- reset palette and set up background and palette design color as per checked radio btn
+function resetPallete(){
   userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
   bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   inputBlue.checked = false;
@@ -115,33 +118,33 @@ function fillSavedForm() {
   inputGrey.checked = false;
   inputGum.checked = false;
   inputPurple.checked = false;
+}
 
-  //REFACTOR: pending to abilitate default checked palette
-  if (dataCard.pallete === '1' || dataCard.pallete === ""){
-    inputBlue.checked = true;
-    userCard.classList.add('color-blue');
+function ifCheckedPallete (number,inputColor, color){
+  if (dataCard.pallete === number){
+    inputColor.checked = true;
+    userCard.classList.add(`color-${color}`)
+    bgColor.classList.add(`animation-${color}`);
   }
-  if (dataCard.pallete === "2") {
-    inputRed.checked = true;
-    userCard.classList.add('color-red');
-    bgColor.classList.add('animation-red');
+}
 
-  }
-  if (dataCard.pallete === "3") {
-    inputGrey.checked = true;
-    userCard.classList.add('color-grey');
-    bgColor.classList.add('animation-grey');
-  }
-  if (dataCard.pallete === "4") {
-    inputGum.checked = true;
-    userCard.classList.add('color-gum');
-    bgColor.classList.add('animation-gum');
-  }
-  if (dataCard.pallete === "5") {
-    inputPurple.checked = true;
-    userCard.classList.add('color-purple');
-    bgColor.classList.add('animation-purple');
-  }
+function fillPalettes(){
+  ifCheckedPallete ('',inputBlue,'blue');
+  ifCheckedPallete ('1',inputBlue,'blue');
+  ifCheckedPallete ('2',inputRed,'red');
+  ifCheckedPallete ('3',inputRed,'grey');
+  ifCheckedPallete ('4',inputGum,'gum');
+  ifCheckedPallete ('5',inputPurple,'purple');
+}
+
+// fill form with data on localStorage/Refactor: create function for fill name and job
+function fillSavedForm() {
+  fillName();
+  fillJob();
+  fillIcons();
+  fillPhoto();
+  resetPallete();
+  fillPalettes();
 }
 
 // reset dataCard
