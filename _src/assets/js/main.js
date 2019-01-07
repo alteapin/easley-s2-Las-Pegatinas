@@ -286,6 +286,7 @@ inputGrey.addEventListener("click", handleColorTheme);
 inputGum.addEventListener("click", handleColorTheme);
 inputPurple.addEventListener("click", handleColorTheme);
 
+//INMA
 //LINKING FONT FAMILY TO USER CARD
 
 const ubuntuFont = document.getElementById("font-ubuntu");
@@ -293,7 +294,7 @@ const comicFont = document.getElementById("font-comic");
 const montseFont = document.getElementById("font-montse");
 const fontCard = document.querySelector(".card-header");
 
-function handleFonttheme() {
+function handleFonttheme(event) {
   fontCard.classList.remove("font-ubuntu", "font-comic", "font-montse");
 
   const fontSelectedByUser = event.currentTarget;
@@ -354,7 +355,7 @@ function handlerLinkedin() {
 
 //add Image Feature
 //button div contacto, con div add_image.
-//TODO:   ask about FileReader
+
 const fr = new FileReader();
 
 function getImage(event) {
@@ -386,6 +387,17 @@ let skillArray = [];
 let j = 0;
 let acc = 0;
 
+function gettingSkills() {
+  if (dataCard.skills) {
+    skillArray = dataCard.skills;
+    j = skillArray.length;
+    acc = skillArray.length;
+  }
+  else {
+    skillArray = [];
+  }
+}
+
 
 function inputs() {
   fetch(
@@ -397,6 +409,7 @@ function inputs() {
       const dskills = data.skills;
       let divContent = "";
       let i = 1;
+
       for (const skill of dskills) {
         const skillContent = `<div class="check_styles"><label for="${[
           i
@@ -406,26 +419,18 @@ function inputs() {
         divContent += skillContent;
         i = i + 1;
       }
+
       divskills.innerHTML = divContent;
+
+      gettingSkills();
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
-      if(dataCard.skills){
-        skillArray = dataCard.skills;
-        console.log('si ya lo tengo va a ser el de la card',skillArray);
-        j = skillArray.length;
-        console.log('la lenght es', j);
-        acc = skillArray.length;
-      }
-      else{
-        skillArray = [];
-      }
-      const ulBlue = document.querySelector('.skills__list');
 
       function check(event) {
 
         for (let i = 0; i < checkInput.length; i++) {
-          if (acc <= 3 && j<=3) {
+          if (acc <= 3 && j <= 3) {
             for (let k = 0; k < checkInput.length; k++) {
               if (checkInput[k].checked === false)
                 checkInput[k].disabled = false;
@@ -477,6 +482,7 @@ function inputs() {
         updateDataCard('skills', skillArray);
         localStorage.setItem('datos', JSON.stringify(dataCard));
       }
+
       for (let i = 0; i < checkInput.length; i++) {
         checkInput[i].addEventListener("click", check);
       }
@@ -487,6 +493,7 @@ inputs();
 
 /// fetch API
 
+///// ------------------- Till here -----------------------////
 const btnShare = document.querySelector(".btn-share");
 const cardCreated = document.querySelector(".card-created");
 //const linkURL = document.querySelector(".link"); //revisar
@@ -564,7 +571,6 @@ function saveDataskills(a) {
         }
 
       }
-      const ulBlue = document.querySelector('.skills__list');
       ulBlue.innerHTML = liC3;
     }
   }
