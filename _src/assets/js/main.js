@@ -524,29 +524,20 @@ function sendData() {
 }
 
 const twitterShare = document.querySelector('.twitter-link');
+
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
+  linkURLShare.innerHTML = (resultURL.success) ? "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>" : "ERROR:" + dataCard.error;
 
-  if (resultURL.success) {
-    console.log(resultURL.success);
-    linkURLShare.innerHTML =
-      "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
-  
-    //mete el enlace a twiter en el html pero hayq arreglarlo
-    twitterShare.href = "https://twitter.com/intent/tweet?text=Mi%20tarjeta%20virtual%20&url=" + resultURL.cardURL;
-  } else {
-    linkURLShare.innerHTML = "ERROR:" + dataCard.error;
-  }
 }
 
 btnShare.addEventListener("click", sendData);
-//btnShare.addEventListener("load", sendData);
+
 function saveDataskills(a) {
-  // cheking if exist data on localStorage//
   let savedData = localStorage.getItem('data');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
-    // to fill datacard
+
     if (savedDataCard) {
       dataCard = savedDataCard;
       let liC3 = '';
