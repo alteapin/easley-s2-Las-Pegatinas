@@ -96,11 +96,11 @@ function fillIcons(){
   icons[1].href = "mailto:" + dataCard.email;
   mail.value = dataCard.email;
 
-  icons[2].href = "https://linkedin.com/" + dataCard.email;
-  mail.value = dataCard.email;
+  icons[2].href = "https://linkedin.com/" + dataCard.linkedin;
+  mail.value = dataCard.linkedin;
 
-  icons[3].href = "https://github.com/" + dataCard.linkedin;
-  linkedin.value = dataCard.linkedin;
+  icons[3].href = "https://github.com/" + dataCard.github;
+  linkedin.value = dataCard.github;
 }
 
 function fillPhoto(){
