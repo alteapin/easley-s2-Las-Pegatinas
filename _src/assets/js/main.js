@@ -387,14 +387,13 @@ let j = 0;
 let acc = 0;
 
 function gettingSkills() {
-  if (dataCard.skills) {
-    skillArray = dataCard.skills;
-    j = skillArray.length;
-    acc = skillArray.length;
-  }
-  else {
+  dataCard.skills ?
+    (skillArray = dataCard.skills,
+    j = skillArray.length,
+    acc = skillArray.length
+    ) :
     skillArray = [];
-  }
+  
 }
 
 
