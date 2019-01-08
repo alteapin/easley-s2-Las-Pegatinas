@@ -453,20 +453,6 @@ function inputs() {
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
-<<<<<<< HEAD
-=======
-      if (dataCard.skills) {
-        skillArray = dataCard.skills;
-        console.log('si ya lo tengo va a ser el de la card', skillArray);
-        j = skillArray.length;
-        console.log('la lenght es', j);
-        acc = skillArray.length;
-      }
-      else {
-        skillArray = [];
-      }
-      const ulBlue = document.querySelector('.skills__list');
->>>>>>> 1e2228d60e158bc24aa66cd115d12d729de3c95f
 
       function check(event) {
 
