@@ -286,7 +286,6 @@ inputGrey.addEventListener("click", handleColorTheme);
 inputGum.addEventListener("click", handleColorTheme);
 inputPurple.addEventListener("click", handleColorTheme);
 
-//INMA
 //LINKING FONT FAMILY TO USER CARD
 
 const ubuntuFont = document.getElementById("font-ubuntu");
@@ -493,7 +492,6 @@ inputs();
 
 /// fetch API
 
-///// ------------------- Till here -----------------------////
 const btnShare = document.querySelector(".btn-share");
 const cardCreated = document.querySelector(".card-created");
 //const linkURL = document.querySelector(".link"); //revisar
