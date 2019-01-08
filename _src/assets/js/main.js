@@ -120,13 +120,12 @@ function resetPallete(){
   inputPurple.checked = false;
 }
 
-function ifCheckedPallete (number,inputColor, color){
-  if (dataCard.pallete === number){
-    inputColor.checked = true;
-    userCard.classList.add(`color-${color}`)
-    bgColor.classList.add(`animation-${color}`);
+  //REFACTOR: pending to abilitate default checked palette
+  if (dataCard.pallete === '1' || dataCard.pallete === "") {
+    inputBlue.checked = true;
+    userCard.classList.add('color-blue');
   }
-}
+
 
 function fillPalettes(){
   ifCheckedPallete ('',inputBlue,'blue');
@@ -424,14 +423,14 @@ function inputs() {
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
-      if(dataCard.skills){
+      if (dataCard.skills) {
         skillArray = dataCard.skills;
-        console.log('si ya lo tengo va a ser el de la card',skillArray);
+        console.log('si ya lo tengo va a ser el de la card', skillArray);
         j = skillArray.length;
         console.log('la lenght es', j);
         acc = skillArray.length;
       }
-      else{
+      else {
         skillArray = [];
       }
       const ulBlue = document.querySelector('.skills__list');
@@ -439,7 +438,7 @@ function inputs() {
       function check(event) {
 
         for (let i = 0; i < checkInput.length; i++) {
-          if (acc <= 3 && j<=3) {
+          if (acc <= 3 && j <= 3) {
             for (let k = 0; k < checkInput.length; k++) {
               if (checkInput[k].checked === false)
                 checkInput[k].disabled = false;
@@ -503,8 +502,6 @@ inputs();
 
 const btnShare = document.querySelector(".btn-share");
 const cardCreated = document.querySelector(".card-created");
-//const linkURL = document.querySelector(".link"); //revisar
-
 
 function sendRequest(dataCard) {
   fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
@@ -514,17 +511,12 @@ function sendRequest(dataCard) {
       'content-type': 'application/json'
     },
   })
-    .then(function (resp) {
-      return resp.json();
-
-    })
-    .then(function (resultURL) {
+    .then(resp => resp.json())
+    .then(resultURL => {
       showURL(resultURL);
       btnShare.classList.remove("btn-share--disabled");
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .catch(error => console.log(error))
 }
 
 function sendData() {
@@ -534,29 +526,20 @@ function sendData() {
 }
 
 const twitterShare = document.querySelector('.twitter-link');
+
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
+  linkURLShare.innerHTML = (resultURL.success) ? "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>" : "ERROR:" + dataCard.error;
 
-  if (resultURL.success) {
-    console.log(resultURL.success);
-    linkURLShare.innerHTML =
-      "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
-    console.log(dataCard.cardURL);
-    //mete el enlace a twiter en el html pero hayq arreglarlo
-    twitterShare.href = "https://twitter.com/intent/tweet?text=Mi%20tarjeta%20virtual%20&url=" + resultURL.cardURL;
-  } else {
-    linkURLShare.innerHTML = "ERROR:" + dataCard.error;
-  }
 }
 
 btnShare.addEventListener("click", sendData);
-//btnShare.addEventListener("load", sendData);
+
 function saveDataskills(a) {
-  // cheking if exist data on localStorage//
   let savedData = localStorage.getItem('data');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
-    // to fill datacard
+
     if (savedDataCard) {
       dataCard = savedDataCard;
       let liC3 = '';
