@@ -172,39 +172,22 @@ function initDataCard() {
 resetBtn.addEventListener("click", initDataCard);
 
 
-
+//emma: refactor event updating on name and job fields and set items to LS
 function updateDataName(event) {
   const value = inputName.value;
-  if (value) {
-    name.innerHTML = event.target.value;
-  } else {
-    name.innerHTML = "Nombre Apellido";
-  }
-  updateDataCard("name", inputName.value);
-  localStorage.setItem("data", JSON.stringify(dataCard));
+  value ? name.innerHTML = event.target.value : name.innerHTML = "Nombre Apellido";
+  updateDataCard("name", value);
 }
 
 function updateDataCard(key, value) {
-  console.log(key);
-  console.log(value);
   dataCard[key] = value;
   localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
-//  function retrieveDataStored() {
-//      const dataStored = JSON.parse('data')
-//      console.log(dataStored);
-//  }
-
 function updateDataJob(event) {
   const value = inputJob.value;
-  if (value) {
-    job.innerHTML = event.target.value;
-  } else {
-    job.innerHTML = "Front-end developer";
-  }
+  value ? job.innerHTML = event.target.value :job.innerHTML = "Front-end developer";
   updateDataCard("job", inputJob.value);
-  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 inputName.addEventListener("keyup", updateDataName);
@@ -216,6 +199,29 @@ const hideBoxes = document.querySelectorAll(".bring-box");
 const butonUnfold = document.querySelectorAll(".btn-unfold");
 const butonfold = document.querySelectorAll(".btn-fold");
 const button = document.querySelectorAll("button");
+//TODO: ask help to the rest of the group about how refactor this if inside an if
+
+// function fold(event) {
+//   const newButton = event.currentTarget;
+//   for (let i = 0; i < hideBoxes.length; i++) {
+//     if (hideBoxes[i].classList.contains("hide-box") && newButton === butonUnfold[i] || newButton === butonfold[i]) {
+//         // Elimina la clase
+//         hideBoxes[i].classList.remove("hide-box");
+//         butonUnfold[i].classList.add("hide-box");
+//         butonfold[i].classList.remove("btn-fold");
+//       } else if (hideBoxes[i].classList.contains("hide-box")){
+//         // Sino
+//         // Añade la clase hidden
+//         hideBoxes[i].classList.add("hide-box");
+//         butonUnfold[i].classList.remove("hide-box");
+//         butonfold[i].classList.add("btn-fold");
+//       } else {
+//       hideBoxes[i].classList.add("hide-box");
+//       butonUnfold[i].classList.remove("hide-box");
+//       butonfold[i].classList.add("btn-fold");
+//     }
+//   }
+// }
 
 function fold(event) {
   const newButton = event.currentTarget;
@@ -241,13 +247,22 @@ function fold(event) {
   }
 }
 
-butonUnfold[0].addEventListener("click", fold);
-butonUnfold[1].addEventListener("click", fold);
-butonUnfold[2].addEventListener("click", fold);
 
-butonfold[0].addEventListener("click", fold);
-butonfold[1].addEventListener("click", fold);
-butonfold[2].addEventListener("click", fold);
+//add event listeners to button fold and unfold instead of repeating it
+
+function addFoldListeners(){
+  for(const btnFold of butonfold){
+    btnFold.addEventListener('click', fold);
+  }
+}
+
+function addUnFoldListeners(){
+  for(const btnUnFold of butonUnfold){
+    btnUnFold.addEventListener('click', fold);
+  }
+}
+addFoldListeners();
+addUnFoldListeners();
 
 //pallete
 const handleColorTheme = () => {
@@ -299,6 +314,7 @@ inputGrey.addEventListener("click", handleColorTheme);
 inputGum.addEventListener("click", handleColorTheme);
 inputPurple.addEventListener("click", handleColorTheme);
 
+//end of emma
 //LINKING FONT FAMILY TO USER CARD
 
 const ubuntuFont = document.getElementById("font-ubuntu");
