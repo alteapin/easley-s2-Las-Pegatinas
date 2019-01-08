@@ -2,6 +2,7 @@
 //--------- Variables form-----------
 
 // PALLETES INPUTS
+//Refactor: each input radio check at the palette selector
 
 const inputBlue = document.getElementById("pallete-blue");
 const inputRed = document.getElementById("pallete-red");
@@ -10,6 +11,7 @@ const inputGum = document.getElementById("pallete-gum");
 const inputPurple = document.getElementById("pallete-purple");
 const userCard = document.querySelector(".box-card");
 //palletes background
+//Refactor: profile image placeholders for each palette
 const backgroundBlue = "../assets/images/tiger.png";
 const backgroundRed = "../assets/images/cebra5.png";
 const backgroundGrey = "../assets/images/cocodrilo2.png";
@@ -18,6 +20,7 @@ const backgroundPurple = "../assets/images/panter7.png";
 
 
 // email-phone-github-linked
+//Refactor: boxes from formulary
 const mail = document.querySelector("#email");
 const icons = document.querySelectorAll(".icons-card");
 const phone = document.querySelector("#phone");
@@ -25,23 +28,24 @@ const github = document.querySelector("#github");
 const linked = document.querySelector("#linkedin");
 
 //variablesname-job
-const name = document.querySelector(".name-person");
-const job = document.querySelector(".work-space");
-const inputName = document.querySelector("#firstName");
-const inputJob = document.querySelector("#job");
-const resetBtn = document.querySelector(".reset-btn");
+const name = document.querySelector(".name-person"); //card name
+const job = document.querySelector(".work-space"); //card job
+const inputName = document.querySelector("#firstName"); //form
+const inputJob = document.querySelector("#job"); //form
+const resetBtn = document.querySelector(".reset-btn"); //card reset btn
 
 //variables photo
-const uploadBtn = document.querySelector(".button_ad_image");
-const inputImage = document.getElementById("img-selector");
+const uploadBtn = document.querySelector(".button_ad_image");//btn "anadir imagen"
+const inputImage = document.getElementById("img-selector"); //input type file to catch image, its hidden
 const boxUserImage = document.querySelector(".card-img");
-const previewImg = document.querySelector(".preview-img");
+const boxUserImageSmall = document.querySelector(".preview-box");  //main image
+const previewImg = document.querySelector(".preview-img"); //small preview box
 
-//--------end0
-const ulBlue = document.querySelector('.skills__list');
-const bgColor = document.querySelector('.build-card');
+//Refactor
+const ulBlue = document.querySelector('.skills__list');//selected skills ul list(html, css...)
+const bgColor = document.querySelector('.build-card');//
 
-
+//REFACTOR: LOCAL STORAGE EMPTY OBJECT
 let dataCard = {
   pallete: "",
   typography: "",
@@ -55,48 +59,58 @@ let dataCard = {
   skills: [],
   success: "",
   cardURL: "",
-  // 'https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card',
   error: ""
 };
 
-// cheking if exist data on localStorage//
-let savedData = localStorage.getItem("datos");
+// cheking if exist data on localStorage /Refactor: retrieve from LS data and assign it to let variable
+let savedData = localStorage.getItem("data");
+
+// default checkout for palettes
+if (!savedData){
+  inputBlue.checked = true;
+  userCard.classList.add('color-blue');
+}
+//Refactor: if we have LS, parse it and fill Form
 if (savedData) {
   // to fill datacard
   dataCard = JSON.parse(savedData);
   fillSavedForm();
 }
 
-// fill form with data on localStorage
-function fillSavedForm() {
-  if (dataCard.name) {
-    name.innerHTML = dataCard.name;
-  } else {
-    name.innerHTML = "Nombre Apellido";
-  }
+//functions to refactoring
+
+function fillName(){
+  dataCard.name? name.innerHTML = dataCard.name: name.innerHTML = "Nombre Apellido";
   inputName.value = dataCard.name;
-  //job
-  if (dataCard.job) {
-    job.innerHTML = dataCard.job;
-  } else {
-    job.innerHTML = "Front-end developer";
-  }
+}
+
+function fillJob(){
+  dataCard.job?job.innerHTML = dataCard.job:job.innerHTML = "Front-end developer";
   inputJob.value = dataCard.job;
-  //icons
+}
+
+function fillIcons(){
   icons[0].href = "tel: +34" + dataCard.phone;
   phone.value = dataCard.phone;
 
   icons[1].href = "mailto:" + dataCard.email;
   mail.value = dataCard.email;
 
+  icons[2].href = "https://linkedin.com/" + dataCard.linkedin;
+  mail.value = dataCard.linkedin;
+
   icons[3].href = "https://github.com/" + dataCard.github;
-  github.value = dataCard.github;
-  // photo
+  linkedin.value = dataCard.github;
+}
+
+function fillPhoto(){
   if (dataCard.photo) {
     boxUserImage.style.backgroundImage = "url(" + dataCard.photo + ")";
+    boxUserImageSmall.style.backgroundImage = "url(" + dataCard.photo + ")";
   }
+}
 
-  //pallete
+function resetPallete(){
   userCard.classList.remove('color-grey', 'color-red', 'color-gum', 'color-purple');
   bgColor.classList.remove('animation-red', 'animation-grey', 'animation-gum', 'animation-purple');
   inputBlue.checked = false;
@@ -104,35 +118,36 @@ function fillSavedForm() {
   inputGrey.checked = false;
   inputGum.checked = false;
   inputPurple.checked = false;
+}
 
-  if (dataCard.pallete === '1') {
+  //REFACTOR: pending to abilitate default checked palette
+  if (dataCard.pallete === '1' || dataCard.pallete === "") {
     inputBlue.checked = true;
     userCard.classList.add('color-blue');
   }
-  if (dataCard.pallete === "2") {
-    inputRed.checked = true;
-    userCard.classList.add('color-red');
-    bgColor.classList.add('animation-red');
 
-  }
-  if (dataCard.pallete === "3") {
-    inputGrey.checked = true;
-    userCard.classList.add('color-grey');
-    bgColor.classList.add('animation-grey');
-  }
-  if (dataCard.pallete === "4") {
-    inputGum.checked = true;
-    userCard.classList.add('color-gum');
-    bgColor.classList.add('animation-gum');
-  }
-  if (dataCard.pallete === "5") {
-    inputPurple.checked = true;
-    userCard.classList.add('color-purple');
-    bgColor.classList.add('animation-purple');
-  }
+
+function fillPalettes(){
+  ifCheckedPallete ('',inputBlue,'blue');
+  ifCheckedPallete ('1',inputBlue,'blue');
+  ifCheckedPallete ('2',inputRed,'red');
+  ifCheckedPallete ('3',inputRed,'grey');
+  ifCheckedPallete ('4',inputGum,'gum');
+  ifCheckedPallete ('5',inputPurple,'purple');
+}
+
+// fill form with data on localStorage/Refactor: create function for fill name and job
+function fillSavedForm() {
+  fillName();
+  fillJob();
+  fillIcons();
+  fillPhoto();
+  resetPallete();
+  fillPalettes();
 }
 
 // reset dataCard
+//refactor: after reset, putting the checked inputs as per default. This is OK but is going to be placed at another partial
 function initDataCard() {
   dataCard = {
     pallete: "",
@@ -151,47 +166,28 @@ function initDataCard() {
   boxUserImage.style.backgroundImage = "url(" + backgroundBlue + ")";
   previewImg.setAttribute("src", "")
 
-  localStorage.setItem("datos", "");
+  localStorage.setItem("data", "");
   fillSavedForm();
-
-}
-
+} //refactor: to go along with its handlerFunction
 resetBtn.addEventListener("click", initDataCard);
 
-//--------------------------end of new----------------------------------------
 
+//emma: refactor event updating on name and job fields and set items to LS
 function updateDataName(event) {
   const value = inputName.value;
-  if (value) {
-    name.innerHTML = event.target.value;
-  } else {
-    name.innerHTML = "Nombre Apellido";
-  }
-  updateDataCard("name", inputName.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  value ? name.innerHTML = event.target.value : name.innerHTML = "Nombre Apellido";
+  updateDataCard("name", value);
 }
 
 function updateDataCard(key, value) {
-  console.log(key);
-  console.log(value);
   dataCard[key] = value;
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
-
-//  function retrieveDataStored() {
-//      const dataStored = JSON.parse('datos')
-//      console.log(dataStored);
-//  }
 
 function updateDataJob(event) {
   const value = inputJob.value;
-  if (value) {
-    job.innerHTML = event.target.value;
-  } else {
-    job.innerHTML = "Front-end developer";
-  }
+  value ? job.innerHTML = event.target.value :job.innerHTML = "Front-end developer";
   updateDataCard("job", inputJob.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
 }
 
 inputName.addEventListener("keyup", updateDataName);
@@ -203,6 +199,29 @@ const hideBoxes = document.querySelectorAll(".bring-box");
 const butonUnfold = document.querySelectorAll(".btn-unfold");
 const butonfold = document.querySelectorAll(".btn-fold");
 const button = document.querySelectorAll("button");
+//TODO: ask help to the rest of the group about how refactor this if inside an if
+
+// function fold(event) {
+//   const newButton = event.currentTarget;
+//   for (let i = 0; i < hideBoxes.length; i++) {
+//     if (hideBoxes[i].classList.contains("hide-box") && newButton === butonUnfold[i] || newButton === butonfold[i]) {
+//         // Elimina la clase
+//         hideBoxes[i].classList.remove("hide-box");
+//         butonUnfold[i].classList.add("hide-box");
+//         butonfold[i].classList.remove("btn-fold");
+//       } else if (hideBoxes[i].classList.contains("hide-box")){
+//         // Sino
+//         // Añade la clase hidden
+//         hideBoxes[i].classList.add("hide-box");
+//         butonUnfold[i].classList.remove("hide-box");
+//         butonfold[i].classList.add("btn-fold");
+//       } else {
+//       hideBoxes[i].classList.add("hide-box");
+//       butonUnfold[i].classList.remove("hide-box");
+//       butonfold[i].classList.add("btn-fold");
+//     }
+//   }
+// }
 
 function fold(event) {
   const newButton = event.currentTarget;
@@ -228,13 +247,22 @@ function fold(event) {
   }
 }
 
-butonUnfold[0].addEventListener("click", fold);
-butonUnfold[1].addEventListener("click", fold);
-butonUnfold[2].addEventListener("click", fold);
 
-butonfold[0].addEventListener("click", fold);
-butonfold[1].addEventListener("click", fold);
-butonfold[2].addEventListener("click", fold);
+//add event listeners to button fold and unfold instead of repeating it
+
+function addFoldListeners(){
+  for(const btnFold of butonfold){
+    btnFold.addEventListener('click', fold);
+  }
+}
+
+function addUnFoldListeners(){
+  for(const btnUnFold of butonUnfold){
+    btnUnFold.addEventListener('click', fold);
+  }
+}
+addFoldListeners();
+addUnFoldListeners();
 
 //pallete
 const handleColorTheme = () => {
@@ -277,7 +305,7 @@ const handleColorTheme = () => {
     }
   }
   updateDataCard("pallete", colorSelected.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 };
 
 inputBlue.addEventListener("click", handleColorTheme);
@@ -286,6 +314,7 @@ inputGrey.addEventListener("click", handleColorTheme);
 inputGum.addEventListener("click", handleColorTheme);
 inputPurple.addEventListener("click", handleColorTheme);
 
+//end of emma
 //LINKING FONT FAMILY TO USER CARD
 
 const ubuntuFont = document.getElementById("font-ubuntu");
@@ -319,7 +348,7 @@ montseFont.addEventListener("click", handleFonttheme);
 function handlersendMail() {
   icons[1].href = "mailto:" + mail.value;
   updateDataCard("email", mail.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 mail.addEventListener("keyup", handlersendMail);
@@ -329,7 +358,7 @@ mail.addEventListener("keyup", handlersendMail);
 function handlerPhone() {
   icons[0].href = "tel: +34" + phone.value;
   updateDataCard("phone", phone.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 phone.addEventListener("keyup", handlerPhone);
@@ -339,7 +368,7 @@ phone.addEventListener("keyup", handlerPhone);
 function handlerGithub() {
   icons[3].href = "https://github.com/" + github.value;
   updateDataCard("github", github.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 github.addEventListener("keyup", handlerGithub);
@@ -349,7 +378,7 @@ github.addEventListener("keyup", handlerGithub);
 function handlerLinkedin() {
   icons[2].href = "https://linkedin.com/in/" + linked.value;
   updateDataCard("linkedin", linked.value);
-  localStorage.setItem("datos", JSON.stringify(dataCard));
+  localStorage.setItem("data", JSON.stringify(dataCard));
 }
 
 //add Image Feature
@@ -424,6 +453,20 @@ function inputs() {
 
       const checkInput = document.querySelectorAll('.checkbox_input');
       saveDataskills(checkInput);
+<<<<<<< HEAD
+=======
+      if (dataCard.skills) {
+        skillArray = dataCard.skills;
+        console.log('si ya lo tengo va a ser el de la card', skillArray);
+        j = skillArray.length;
+        console.log('la lenght es', j);
+        acc = skillArray.length;
+      }
+      else {
+        skillArray = [];
+      }
+      const ulBlue = document.querySelector('.skills__list');
+>>>>>>> 1e2228d60e158bc24aa66cd115d12d729de3c95f
 
       function check(event) {
 
@@ -478,7 +521,7 @@ function inputs() {
           }
         }
         updateDataCard('skills', skillArray);
-        localStorage.setItem('datos', JSON.stringify(dataCard));
+        localStorage.setItem('data', JSON.stringify(dataCard));
       }
 
       for (let i = 0; i < checkInput.length; i++) {
@@ -493,8 +536,6 @@ inputs();
 
 const btnShare = document.querySelector(".btn-share");
 const cardCreated = document.querySelector(".card-created");
-//const linkURL = document.querySelector(".link"); //revisar
-
 
 function sendRequest(dataCard) {
   fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
@@ -504,17 +545,12 @@ function sendRequest(dataCard) {
       'content-type': 'application/json'
     },
   })
-    .then(function (resp) {
-      return resp.json();
-
-    })
-    .then(function (resultURL) {
+    .then(resp => resp.json())
+    .then(resultURL => {
       showURL(resultURL);
       btnShare.classList.remove("btn-share--disabled");
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .catch(error => console.log(error))
 }
 
 function sendData() {
@@ -524,29 +560,20 @@ function sendData() {
 }
 
 const twitterShare = document.querySelector('.twitter-link');
+
 function showURL(resultURL) {
   const linkURLShare = document.querySelector('.share-link');
+  linkURLShare.innerHTML = (resultURL.success) ? "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>" : "ERROR:" + dataCard.error;
 
-  if (resultURL.success) {
-    console.log(resultURL.success);
-    linkURLShare.innerHTML =
-      "<a class='link' href=" + resultURL.cardURL + " >" + resultURL.cardURL + "</a>";
-    console.log(dataCard.cardURL);
-    //mete el enlace a twiter en el html pero hayq arreglarlo
-    twitterShare.href = "https://twitter.com/intent/tweet?text=Mi%20tarjeta%20virtual%20&url=" + resultURL.cardURL;
-  } else {
-    linkURLShare.innerHTML = "ERROR:" + dataCard.error;
-  }
 }
 
 btnShare.addEventListener("click", sendData);
-//btnShare.addEventListener("load", sendData);
+
 function saveDataskills(a) {
-  // cheking if exist data on localStorage//
-  let savedData = localStorage.getItem('datos');
+  let savedData = localStorage.getItem('data');
   if (savedData) {
     let savedDataCard = JSON.parse(savedData);
-    // to fill datacard
+
     if (savedDataCard) {
       dataCard = savedDataCard;
       let liC3 = '';
